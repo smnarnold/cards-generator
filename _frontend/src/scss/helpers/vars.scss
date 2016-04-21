@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+$xs: 479px;
+$sm: 767px;
+$md: 991px;
+$lg: 1439px;
+
+$s: 0.3s;
+
+$black: #000000;
+$white: #ffffff;
+
+$cacheBreaker: random(900000000000) + 99999999999;

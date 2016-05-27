@@ -30,7 +30,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['build:css', 'build:js', 'watch']);
+    grunt.registerTask('default', ['build:css', 'build:js', 'browserSync', 'watch']);
     grunt.registerTask('deploy', ['build:css', 'build:js' , 'replace:cache_break']);
 
     grunt.registerTask('build:css', ['sass_imports', 'replace:scss_import_path', 'sass', 'postcss']);

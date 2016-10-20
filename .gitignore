@@ -18,6 +18,11 @@ Desktop.ini
 atlassian-ide-plugin.xml
 
 ################################
+## Sublime Text
+################################
+*.sublime-workspace
+
+################################
 ## Frontend structure
 ################################
 _frontend/node_modules/

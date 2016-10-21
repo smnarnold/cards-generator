@@ -6,7 +6,6 @@ export default class ModuleExample extends Module {
 
         //-- Properties
         //--------------------------------------------------------------
-        this.selectBox = null;
     }
 
     //-- Methods

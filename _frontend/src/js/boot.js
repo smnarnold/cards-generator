@@ -7,24 +7,27 @@ var Pages = {
 };
 
 $(function () {
-    initClasses($('#site'));
+    initClasses( $('#site') );
 });
 
 window.initClasses = function (context) {
-    _.each(context.find('[data-page]'), function (el) {
-        let list = $(el).data('page').split(/\s+/);
-        _.each(list, function (name) {
+    let pages = context[0].querySelectorAll('[data-page]');
+    let modules = context[0].querySelectorAll('[data-module]');
+
+    pages.forEach((el) => {
+        let list = el.getAttribute('data-page').split(/\s+/);
+        list.forEach((name) => {
             if (Pages[name] !== undefined) {
-                new Pages[name]($(el)).init();
+                new Pages[name]( $(el) ).init();
             }
         });
     });
 
-    _.each(context.find('[data-module]'), function (el) {
-        let list = $(el).data('module').split(/\s+/);
-        _.each(list, function (name) {
+    modules.forEach((el) => {
+        let list = el.getAttribute('data-module').split(/\s+/);
+        list.forEach((name) => {
             if (Modules[name] !== undefined) {
-                new Modules[name]($(el)).init();
+                new Modules[name]( $(el) ).init();
             }
         });
     });

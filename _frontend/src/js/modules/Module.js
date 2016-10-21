@@ -8,7 +8,7 @@ export default class Module {
             body: $('body'),
             html: $('html'),
             site: $('#site'),
-            w: $(window)
+            window: $(window)
         };
     }
 }

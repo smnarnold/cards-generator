@@ -6,6 +6,6 @@ This website was built by Sid Lee and it's large team of designers, developers a
   Contact: sidlee.com/en/Contact
 
 /* SITE DETAILS */
-  Standards: HTML5, CCSS3, ES6
+  Standards: HTML5, CSS3, ES6
   Components: jQuery
   Softwares: Grunt, Babel, Browserify

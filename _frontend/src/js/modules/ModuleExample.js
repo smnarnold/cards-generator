@@ -12,6 +12,8 @@ export default class ModuleExample extends Module {
     //--------------------------------------------------------------
     init() {
         this.bindEvents();
+
+        console.log('example');
     }
 
     bindEvents() {

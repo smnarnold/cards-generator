@@ -11,7 +11,6 @@ export default class Page {
             el: el,
             body: $('body'),
             html: $('html'),
-            site: $('#site'),
             w: $(window)
         };
 

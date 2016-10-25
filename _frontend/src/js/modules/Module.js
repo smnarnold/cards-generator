@@ -7,7 +7,6 @@ export default class Module {
             el: el,
             body: $('body'),
             html: $('html'),
-            site: $('#site'),
             window: $(window)
         };
     }

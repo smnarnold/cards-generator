@@ -7,18 +7,20 @@ var Pages = {
 };
 
 $(function () {
-    initClasses( $('#site') );
+    initClasses($('body'));
 });
 
 window.initClasses = function (context) {
     let pages = context[0].querySelectorAll('[data-page]');
     let modules = context[0].querySelectorAll('[data-module]');
 
+    // TODO : add $(body), $(html), $(window), $(document) in a global object used by pages and modules
+
     pages.forEach((el) => {
         let list = el.getAttribute('data-page').split(/\s+/);
         list.forEach((name) => {
             if (Pages[name] !== undefined) {
-                new Pages[name]( $(el) ).init();
+                new Pages[name]($(el)).init();
             }
         });
     });
@@ -27,7 +29,7 @@ window.initClasses = function (context) {
         let list = el.getAttribute('data-module').split(/\s+/);
         list.forEach((name) => {
             if (Modules[name] !== undefined) {
-                new Modules[name]( $(el) ).init();
+                new Modules[name]($(el)).init();
             }
         });
     });

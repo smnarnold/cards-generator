@@ -110,60 +110,9 @@
     vertical-align: middle;
 }
 
-.relative {
-    position: relative;
-}
-
-.mobile-only {
-    display: none;
-}
-
-@media only screen and (max-width: $xs) {
-    .mobile-only {
-        display: block;
-    }
-}
-
-.vcenter {
-    display: inline-block;
-    float: none !important;
-    vertical-align: middle;
-}
-
-.vbottom {
-    display: inline-block;
-    float: none !important;
-    vertical-align: bottom;
-}
-
-.vtop {
-    display: inline-block;
-    float: none !important;
-    vertical-align: top;
-}
-
-.no-padding-left {
-    padding-left: 0;
-}
-
-.no-padding-right {
-    padding-right: 0;
-}
-
 .hidden-logged,
 .hidden-anonymous {
     display: none !important;
 }
 
-.action-arrow {
-    &:before {
-        color: palette(gray);
-        content: "\f105";
-        font-family: FontAwesome;
-        font-size: 0.8125rem;
-        position: absolute;
-        right: 2px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-}
+.print-avoid-break { page-break-inside: avoid; }

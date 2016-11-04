@@ -3,100 +3,13 @@
    ========================================================================== */
 *,
 *:after,
-*:before {
-    box-sizing: border-box;
-}
+*:before { box-sizing: border-box; }
 
 html,
 body {
-    background: $white;
+    background: #fff;
     height: 100%;
     margin: 0;
     padding: 0;
     width: 100%;
 }
-
-html {
-    font-family: 'Averta-Regular', sans-serif;
-    font-size: 20px;
-    line-height: 1.5;
-}
-
-body {
-    &:after {
-        content: 'xl';
-        height: 0;
-        left: -9999px;
-        line-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        text-indent: -9999px;
-        top: -9999px;
-        width: 0;
-    }
-}
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-section {
-    padding: 50px 0 60px 0;
-}
-
-p {
-    margin: 0;
-    padding: 10px 0;
-}
-
-.small {
-    font-size: 0.7rem;
-    line-height: 1rem;
-}
-
-.wrapper {
-    margin: 0 auto;
-    max-width: $lg;
-    padding: 0 25px;
-}
-
-.col-inline-block {
-    display: inline-block;
-    float: none;
-    vertical-align: top;
-}
-
-@media only screen and (max-width: $lg) {
-    body {
-        &:after {
-            content: 'lg';
-        }
-    }
-}
-
-@media only screen and (max-width: $md) {
-    body {
-        &:after {
-            content: 'md';
-        }
-    }
-}
-
-@media only screen and (max-width: $sm) {
-    body {
-        &:after {
-            content: 'sm';
-        }
-    }
-}
-
-@media only screen and (max-width: $xs) {
-    body {
-        &:after {
-            content: 'xs';
-        }
-    }
-}
-

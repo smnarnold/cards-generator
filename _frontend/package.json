@@ -15,7 +15,7 @@
     "bower": "^1.7.9",
     "browserify": "^13.1.1",
     "browserify-shim": "^3.8.12",
-    "csswring": "^5.1.0",
+    "csswring": "~3.0.5",
     "grunt": "^1.0.1",
     "grunt-browser-sync": "^2.2.0",
     "grunt-browserify": "^5.0.0",

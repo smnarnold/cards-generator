@@ -3,11 +3,7 @@ export default class Module {
 
         //-- Properties
         //--------------------------------------------------------------
-        this.dom = {
-            el: el,
-            body: $('body'),
-            html: $('html'),
-            window: $(window)
-        };
+        this.dom = window.dom;
+        this.el = el;
     }
 }

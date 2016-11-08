@@ -1,20 +1,25 @@
 var Modules = {
-    Example: require('./modules/ModuleExample').default
+    Example: require('./modules/Example').default
 };
 
 var Pages = {
-    Home: require('./pages/PageHome').default
+    Home: require('./pages/Home').default
 };
 
 $(function () {
-    initClasses($('body'));
+    window.dom = {
+        body: $('body'),
+        document: $(document),
+        html: $('html'),
+        window: $(window)
+    };
+
+    initClasses(window.dom.body);
 });
 
 window.initClasses = function (context) {
     let pages = context[0].querySelectorAll('[data-page]');
     let modules = context[0].querySelectorAll('[data-module]');
-
-    // TODO : add $(body), $(html), $(window), $(document) in a global object used by pages and modules
 
     pages.forEach((el) => {
         let list = el.getAttribute('data-page').split(/\s+/);

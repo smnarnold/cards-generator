@@ -1,6 +1,6 @@
-import Module from './Module';
+import Page from '../base/Page';
 
-export default class ModuleExample extends Module {
+export default class extends Page {
     constructor(el) {
         super(el);
 
@@ -11,12 +11,13 @@ export default class ModuleExample extends Module {
     //-- Methods
     //--------------------------------------------------------------
     init() {
+        super.init();
         this.bindEvents();
 
-        console.log('example');
+        console.log('Home');
     }
 
     bindEvents() {
-
+        super.bindEvents();
     }
 }

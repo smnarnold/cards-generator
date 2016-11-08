@@ -1,4 +1,4 @@
-﻿import Module from './Module';
+﻿import Module from '../base/Module';
 
 export default class ModuleBootstrapHelper extends Module {
     constructor(el) {

@@ -1,34 +1,29 @@
 import td from 'throttle-debounce';
 import ua from 'ua-parser-js';
-import ModuleBootstrapHelper from '../modules/ModuleBootstrapHelper';
+import BootstrapHelper from '../modules/BootstrapHelper';
 
 export default class Page {
     constructor(el) {
 
         //-- Properties
         //--------------------------------------------------------------
-        this.dom = {
-            el: el,
-            body: $('body'),
-            html: $('html'),
-            w: $(window)
-        };
-
+        this.dom = window.dom;
+        this.el = el;
         this.ua = new ua().getResult();
     }
 
     init() {
-        // this.initBootstrapHelper();
+        this.initBootstrapHelper();
         this.setDeviceType();
     }
 
     initBootstrapHelper() {
-        this.bootstrapHelper = new ModuleBootstrapHelper();
+        this.bootstrapHelper = new BootstrapHelper();
         this.breakpoint = this.bootstrapHelper.breakpoint;
 
         console.log('Bootstrap: ' + this.breakpoint);
 
-        this.dom.w.on('resize', td.debounce(300, () => {
+        this.dom.window.on('resize', td.debounce(300, () => {
             this.breakpoint = this.bootstrapHelper.breakpoint;
             console.log('Bootstrap: ' + this.breakpoint);
         }));

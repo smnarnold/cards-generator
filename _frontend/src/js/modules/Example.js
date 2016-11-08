@@ -1,26 +1,22 @@
-import Page from './Page';
+import Module from '../base/Module';
 
-export default class PageHome extends Page {
+export default class extends Module {
     constructor(el) {
         super(el);
 
         //-- Properties
         //--------------------------------------------------------------
-        $.extend(this.dom, {
-
-        });
     }
 
     //-- Methods
     //--------------------------------------------------------------
     init() {
-        super.init();
         this.bindEvents();
 
-        console.log('home');
+        console.log(this.el.data('module'));
     }
 
     bindEvents() {
-        super.bindEvents();
+
     }
 }

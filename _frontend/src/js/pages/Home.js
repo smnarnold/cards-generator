@@ -6,6 +6,9 @@ export default class extends Page {
 
         //-- Properties
         //--------------------------------------------------------------
+        this.dom = $.extend({}, this.dom, {
+
+        });
     }
 
     //-- Methods
@@ -14,7 +17,7 @@ export default class extends Page {
         super.init();
         this.bindEvents();
 
-        console.log('Home');
+        console.log(this.dom.el.data('page'));
     }
 
     bindEvents() {

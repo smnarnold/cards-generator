@@ -6,6 +6,9 @@ export default class extends Module {
 
         //-- Properties
         //--------------------------------------------------------------
+        this.dom = $.extend({}, this.dom, {
+
+        });
     }
 
     //-- Methods
@@ -13,7 +16,7 @@ export default class extends Module {
     init() {
         this.bindEvents();
 
-        console.log(this.el.data('module'));
+        console.log(this.dom.el.data('module'));
     }
 
     bindEvents() {

@@ -3,7 +3,8 @@ export default class Module {
 
         //-- Properties
         //--------------------------------------------------------------
-        this.dom = window.dom;
-        this.el = el;
+        this.dom = $.extend({}, window.dom, {
+            el: el
+        });
     }
 }

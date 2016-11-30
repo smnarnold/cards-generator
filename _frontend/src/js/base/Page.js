@@ -7,8 +7,10 @@ export default class Page {
 
         //-- Properties
         //--------------------------------------------------------------
-        this.dom = window.dom;
-        this.el = el;
+        this.dom = $.extend({}, window.dom, {
+            el: el
+        });
+
         this.ua = new ua().getResult();
     }
 

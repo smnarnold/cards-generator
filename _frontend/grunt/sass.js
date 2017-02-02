@@ -1,8 +1,16 @@
 module.exports = {
-    options: {
-        sourceMap: true
+    dev: {
+        options: {
+            sourceMap: true
+        },
+        files: {
+            '<%= cssDest %>/main.css': '<%= cssDest %>/main.scss'
+        }
     },
-    dist: {
+    prod: {
+        options: {
+            sourceMap: false
+        },
         files: {
             '<%= cssDest %>/main.css': '<%= cssDest %>/main.scss'
         }

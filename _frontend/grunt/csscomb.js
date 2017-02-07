@@ -5,7 +5,6 @@ module.exports = {
             "<%= cssSrc %>/**/*.scss",
             "!<%= cssSrc %>/bootstrap/**/*.scss",
             "!<%= cssSrc %>/helpers/**/*.scss",
-            "!<%= cssSrc %>/global.scss",
             "!<%= cssSrc %>/vendor/**/*.scss",
         ]
     },

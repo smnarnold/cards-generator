@@ -96,6 +96,7 @@
         "flex-direction",
         "flex-order",
         "flex-pack",
+        "flex-wrap",
         "float",
         "font",
         "font-effect",

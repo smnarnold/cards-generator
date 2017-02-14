@@ -99,6 +99,7 @@
       "empty-cells",
       "flex-align",
       "flex-direction",
+      "flex-grow",
       "flex-order",
       "flex-pack",
       "flex-wrap",

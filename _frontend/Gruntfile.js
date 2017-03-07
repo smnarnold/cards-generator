@@ -30,10 +30,10 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['build:css:dev', 'build:js', 'browserSync', 'watch']);
+    grunt.registerTask('default', ['csscomb', 'build:css:dev', 'build:js', 'browserSync', 'watch']);
     grunt.registerTask('deploy', ['build:css:prod', 'build:js' , 'replace:cache_break']);
 
-    grunt.registerTask('build:css:dev', ['csscomb', 'sass_imports', 'replace:scss_import_path', 'sass:dev', 'postcss']);
+    grunt.registerTask('build:css:dev', ['sass_imports', 'replace:scss_import_path', 'sass:dev', 'postcss']);
     grunt.registerTask('build:css:prod', ['sass_imports', 'replace:scss_import_path', 'sass:prod', 'postcss']);
     grunt.registerTask('build:js', ['jshint', 'browserify']);
 };

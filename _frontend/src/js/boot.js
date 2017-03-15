@@ -14,36 +14,24 @@ $(function () {
         window: $(window)
     };
 
-    initClasses(window.dom.body);
+    initClasses(window.dom.body, Pages, 'page');
+    initClasses(window.dom.body, Modules, 'module');
 });
 
-window.initClasses = function (context) {
-    var pages = context[0].querySelectorAll('[data-page]');
-    var modules = context[0].querySelectorAll('[data-module]');
+window.initClasses = function(context, obj, selector) {
+    var attr = 'data-' + selector;
+    var items = context[0].querySelectorAll('['+ attr +']');
 
-    for (var x = 0; x < pages.length; x++) {
-        var page = pages[x];
-        var pagesList = page.getAttribute('data-page').split(/\s+/);
+    for (var x = 0; x < items.length; x++) { // ex: all [data-page]
+        var item = items[x]; // ex: [data-page="Home"]
+        var list = item.getAttribute(attr).split(/\s+/); // ex: Home
 
-        for (var y = 0; y < pagesList.length; y++) {
-            var pageName = pagesList[y];
+        for (var y = 0; y < list.length; y++) {
+            var name = list[y];
 
-            if (Pages[pageName] !== undefined) {
-                new Pages[pageName]($(page)).init();
+            if (obj[name] !== undefined) {
+                new obj[name]($(item)).init();
             }
         }
     }
-
-    for (var i = 0; i < modules.length; i++) {
-        var module = modules[i];
-        var modulesList = module.getAttribute('data-module').split(/\s+/);
-
-        for (var j = 0; j < modulesList.length; j++) {
-            var moduleName = modulesList[j];
-
-            if (Modules[moduleName] !== undefined) {
-                new Modules[moduleName]($(module)).init();
-            }
-        }
-    }
-};
+}

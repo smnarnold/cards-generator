@@ -34,4 +34,4 @@ window.initClasses = function(context, obj, selector) {
             }
         }
     }
-}
+};

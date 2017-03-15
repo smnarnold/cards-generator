@@ -1,12 +1,12 @@
 import td from 'throttle-debounce';
 import ua from 'ua-parser-js';
-import BootstrapHelper from '../modules/BootstrapHelper';
 
 export default class Page {
     constructor(el) {
 
         //-- Properties
         //--------------------------------------------------------------
+        this.breakpoints = ["xs", "sm", "md", "lg"];
         this.dom = $.extend({}, window.dom, {
             el: el
         });
@@ -15,27 +15,31 @@ export default class Page {
     }
 
     init() {
-        this.initBootstrapHelper();
+        this.setBreakpoint();
         this.setDeviceType();
     }
 
-    initBootstrapHelper() {
-        this.bootstrapHelper = new BootstrapHelper();
-        this.breakpoint = this.bootstrapHelper.breakpoint;
-
-        console.log('Bootstrap: ' + this.breakpoint);
-
-        this.dom.window.on('resize', td.debounce(300, () => {
-            this.breakpoint = this.bootstrapHelper.breakpoint;
-            console.log('Bootstrap: ' + this.breakpoint);
-        }));
-    }
-
     setDeviceType() {
-        this.dom.html.addClass(this.ua.os.name + " " + this.ua.browser.name);
+        this.dom.html[0].classList.add(this.ua.os.name, this.ua.browser.name);
     }
 
     bindEvents() {
+        this.dom.window.on('resize', td.debounce(300, () => this.setBreakpoint()));
+    }
 
+    setBreakpoint() {
+        let temp = window.document.createElement('div');
+        this.dom.body[0].appendChild(temp);
+
+        for (let i = this.breakpoints.length - 1; i >= 0; i--) {
+            let env = this.breakpoints[i];
+
+            temp.className = `hidden-${env}`;
+            if ($(temp).is(':hidden')) {
+                temp.parentNode.removeChild(temp);
+                console.log(`%c Bootstrap: ${env} `, 'background: #573e7d; color: #fff');
+                break;
+            }
+        }
     }
 }

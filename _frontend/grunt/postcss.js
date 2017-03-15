@@ -4,12 +4,7 @@ module.exports = {
         processors: [
             require('autoprefixer')({browsers: [
                 'last 2 version',
-                'safari 6',
-                'ie 9',
-                'opera 12.1',
-                'ios 6',
-                'android 4',
-                'Firefox ESR'
+                'ie 11'
             ]}),
             require('csswring')
         ]

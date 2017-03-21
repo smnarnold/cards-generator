@@ -1,0 +1,129 @@
+/* Placeholders are not rendered if never used (AKA Doesn't add unacessary css line in our file if never used) */
+%centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+%list {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*=== Buttons ====================================*/
+/*--- Reset ---*/
+%reset-button {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  outline: none;
+  overflow: visible;
+  padding: 0;
+  user-select: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+/*--- Play ---*/
+%play-circle {
+  $play-color: #fff;
+
+  @extend %reset-button;
+  
+  &:before,
+  &:after {
+    @extend %centered;
+    content: '';
+    pointer-events: none;
+    transition: opacity $s, transform $s;
+  }
+
+  &:before {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: solid .25rem $play-color;
+  }
+
+  &:after {
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-left: 1.5rem solid $play-color;
+    height: 0;
+    margin: 0 0 0 .2rem;
+  }
+}
+
+/*--- Close ---*/
+%close {
+  $close-color: #fff;
+
+  @extend %reset-button;
+
+  display: block;
+  width: 40px;
+  height: 40px;
+  transform: scale(1);
+  transition: transform $s ease;
+
+  &:before,
+  &:after {
+    content: '';
+    background-color: $close-color;
+    width: 40px;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: scale(1); 
+    transition: transform .3s ease;
+  }
+
+  &:before { transform: translate(-50%, -50%) rotate(45deg); }
+  &:after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+  &:hover, &:focus { transform: scale(1.1); }
+}
+
+/*=== Ratios ====================================*/
+%ratio-16-9,
+%ratio-4-3,
+%ratio-3-2,
+%ratio-8-5 {
+  position: relative;
+  width: 100%;
+  height: 0;
+  margin: auto;
+
+  > * {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    right: 0;
+  }
+}
+
+%ratio-16-9 { 
+  max-width: 177.78vh; /* 16/9 = 1.778 */
+  padding-bottom: 56.25%; 
+}
+%ratio-4-3 { 
+  max-width: 133.33vh; /* 4/3 = 1.333 */
+  padding-bottom: 75%; 
+}
+%ratio-3-2 { 
+  max-width: 150vh; /* 3/2 = 1.5 */
+  padding-bottom: 66.66%; 
+}
+%ratio-8-5 { 
+  max-width: 160vh; /* 8/5 = 1.6 */
+  padding-bottom: 62.5%; 
+}

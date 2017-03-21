@@ -20,7 +20,8 @@ export default class Page {
     }
 
     setDeviceType() {
-        this.dom.html[0].classList.add(this.ua.os.name, this.ua.browser.name);
+        this.dom.html.addClass(this.ua.os.name)
+            .addClass(this.ua.browser.name);
     }
 
     bindEvents() {

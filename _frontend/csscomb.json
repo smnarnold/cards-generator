@@ -193,6 +193,7 @@
       "visibility",
       "white-space",
       "width",
+      "will-change",
       "word-break",
       "word-spacing",
       "word-wrap",

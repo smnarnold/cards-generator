@@ -116,3 +116,9 @@
 }
 
 .print-avoid-break { page-break-inside: avoid; }
+
+.is-scroll-disabled {
+    overflow: hidden;
+    
+    > body { overflow: hidden; }
+}

@@ -92,6 +92,7 @@
       "clear",
       "clip",
       "color",
+      "column-count",
       "content",
       "counter-increment",
       "counter-reset",

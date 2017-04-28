@@ -1,11 +1,12 @@
 module.exports = {
     imports: {
         src: [
-            '<%= cssSrc %>/helpers/vars.scss',
-            '<%= cssSrc %>/bootstrap/_variables.scss',
-            '<%= cssSrc %>/bootstrap/mixins/*.scss',
-            '<%= cssSrc %>/bootstrap/*.scss',
-            '<%= cssSrc %>/helpers/*.scss',
+            '<%= cssSrc %>/vendors/bootstrap/_variables.scss',
+            '<%= cssSrc %>/abstracts/variables.scss',
+            '<%= cssSrc %>/abstracts/**/*.scss',
+            '<%= cssSrc %>/vendors/bootstrap/mixins/*.scss',
+            '<%= cssSrc %>/vendors/bootstrap/_reboot.scss',
+            '<%= cssSrc %>/vendors/**/*.scss',
             '<%= cssSrc %>/**/*.scss'
         ],
         dest: '<%= cssDest %>/main.scss'

@@ -3,9 +3,8 @@ module.exports = {
         expand: true,
         src: [
             "<%= cssSrc %>/**/*.scss",
-            "!<%= cssSrc %>/bootstrap/**/*.scss",
-            "!<%= cssSrc %>/helpers/**/*.scss",
-            "!<%= cssSrc %>/vendor/**/*.scss",
+            "!<%= cssSrc %>/abstracts/**/*.scss",
+            "!<%= cssSrc %>/vendors/**/*.scss",
         ]
     },
     options: {

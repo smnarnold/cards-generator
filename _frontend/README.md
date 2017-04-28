@@ -16,3 +16,6 @@
     - Boostrap 4: https://v4-alpha.getbootstrap.com/
     -- Core variables and mixins
     -- Core CSS
+        
+## jQuery
+- [jQuery 3.x](https://code.jquery.com/)

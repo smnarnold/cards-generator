@@ -6,7 +6,7 @@ export default class Page {
 
         //-- Properties
         //--------------------------------------------------------------
-        this.breakpoints = ["xs", "sm", "md", "lg"];
+        this.breakpoints = ["xs", "sm", "md", "lg", "xl"];
         this.dom = $.extend({}, window.dom, {
             el: el
         });
@@ -35,7 +35,7 @@ export default class Page {
         for (let i = this.breakpoints.length - 1; i >= 0; i--) {
             let env = this.breakpoints[i];
 
-            temp.className = `hidden-${env}`;
+            temp.className = `hidden-${env}-up`;
             if ($(temp).is(':hidden')) {
                 temp.parentNode.removeChild(temp);
                 console.log(`%c Bootstrap: ${env} `, 'background: #573e7d; color: #fff');

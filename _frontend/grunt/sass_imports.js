@@ -5,6 +5,7 @@ module.exports = {
             '<%= cssSrc %>/abstracts/variables.scss',
             '<%= cssSrc %>/abstracts/**/*.scss',
             '<%= cssSrc %>/vendors/bootstrap/mixins/*.scss',
+            '<%= cssSrc %>/vendors/bootstrap/_normalize.scss',
             '<%= cssSrc %>/vendors/bootstrap/_reboot.scss',
             '<%= cssSrc %>/vendors/**/*.scss',
             '<%= cssSrc %>/**/*.scss'

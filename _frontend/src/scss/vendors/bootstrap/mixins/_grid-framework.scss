@@ -22,8 +22,7 @@
         @extend %grid-column;
       }
     }
-    .col#{$infix},
-    .col#{$infix}-auto {
+    .col#{$infix} {
       @extend %grid-column;
     }
 

@@ -6,7 +6,7 @@ export default class Page {
 
         //-- Properties
         //--------------------------------------------------------------
-        this.breakpoints = ["xs", "sm", "md", "lg", "xl"];
+        this.breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
         this.dom = $.extend({}, window.dom, {
             el: el
         });

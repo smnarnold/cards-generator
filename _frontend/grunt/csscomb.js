@@ -8,6 +8,6 @@ module.exports = {
         ]
     },
     options: {
-        config: "csscomb.json"
+        config: ".csscomb.json"
     }
 };

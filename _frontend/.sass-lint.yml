@@ -1,0 +1,7 @@
+# Rule Configuration
+# 0 = off
+# 1 = warning
+# 2 = error
+rules:
+  no-color-keywords: 0
+  no-color-literals: 0

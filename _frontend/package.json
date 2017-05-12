@@ -8,6 +8,12 @@
     "url": "http://sidlee.com"
   },
   "private": true,
+  "scripts": {
+    "start": "grunt",
+    "development": "grunt",
+    "deploy": "grunt deploy",
+    "production": "grunt deploy"
+  },
   "dependencies": {
     "autoprefixer": "^6.5.1",
     "babel-preset-es2015": "^6.18.0",
@@ -26,11 +32,12 @@
     "grunt-browser-sync": "^2.2.0",
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-csscomb": "^3.1.1",
+    "grunt-eslint": "^19.0.0",
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^2.0.0",
+    "grunt-sass-lint": "^0.2.2",
     "grunt-scss-imports": "0.0.2",
     "grunt-text-replace": "^0.4.0",
     "time-grunt": "^1.4.0",

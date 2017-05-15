@@ -1,7 +1,7 @@
 var gulp         = require('gulp');
 var handleErrors = require('../lib/handleErrors');
-var sassLint     = require('gulp-sass-lint');
 var path         = require('path');
+var sassLint     = require('gulp-sass-lint');
 
 var paths = {
     src: path.join(global.paths.src, 'scss/**/*.scss'),

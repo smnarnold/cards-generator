@@ -1,6 +1,6 @@
 var gulp    = require('gulp');
-var path    = require('path');
 var csscomb = require('gulp-csscomb');
+var path    = require('path');
 
 var paths = {
     src: path.join(global.paths.src, 'scss/**/*.scss'),

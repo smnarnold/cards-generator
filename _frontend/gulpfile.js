@@ -13,5 +13,11 @@
 
 var requireDir = require('require-dir');
 
+global.paths = {
+    src: './src',
+    dest: '../assets',
+};
+global.bundler = 'Browserify'; // 'Browserify' or 'Webpack';
+
 // Require all tasks in gulpfile.js/tasks, including subfolders
 requireDir('./gulp/tasks', { recurse: true });

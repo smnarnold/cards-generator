@@ -1,14 +1,9 @@
 var gulp         = require('gulp');
 var gulpSequence = require('gulp-sequence');
 
-global.production = false;
-global.paths = {
-    src: './src',
-    dest: '../assets',
-};
-
 var defaultTask = function (cb) {
-    gulpSequence('csscomb', 'stylesLint', 'styles', 'scriptsLint', 'scripts', 'watch', cb);
+    global.production = false;
+    gulpSequence('csscomb', 'stylesLint', 'styles', 'scriptsLint', 'scripts' + global.bundler, 'watch', cb);
 };
 
 gulp.task('default', defaultTask);

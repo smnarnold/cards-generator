@@ -1,23 +1,27 @@
 var gulp         = require('gulp');
-var path         = require('path');
-var watch        = require('gulp-watch');
-var gulpSequence = require('gulp-sequence');
 var browserSync  = require('browser-sync').create();
+var gulpSequence = require('gulp-sequence');
+var path         = require('path');
 var reload       = browserSync.reload;
+var watch        = require('gulp-watch');
 
 var watchTask = function () {
     var fileTypes = [
-        {
-            folder: 'js',
-            tasks: ['scriptsLint', 'scripts', 'reload'],
-            extensions: ['js']
-        },
         {
             folder: 'scss',
             tasks: ['stylesLint', 'styles'],
             extensions: ['scss']
         }
     ];
+
+    // add js files only for webpack (browserify is setup with watchify)
+    if (global.bundler === 'Webpack') {
+        fileTypes.push({
+            folder: 'js',
+            tasks: ['scriptsLint', 'scripts', 'reload'],
+            extensions: ['js'],
+        });
+    }
 
     fileTypes.forEach(function (fileType) {
         var glob = path.join(global.paths.src, fileType.folder, '**/*.{' + fileType.extensions.join(',') + '}');

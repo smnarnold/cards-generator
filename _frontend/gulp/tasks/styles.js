@@ -16,15 +16,15 @@ var paths = {
 
 var stylesTask = function () {
     return gulp.src(paths.src)
+        .on('error', handleErrors)
         .pipe(gulpif(!global.production, sourcemaps.init()))
         .pipe(sassGlob())
         .pipe(sass({'indentedSyntax': false}))
-        .on('error', handleErrors)
-        .pipe(autoprefixer({"browsers": ["last 2 version"]}))
+        .pipe(autoprefixer({browsers: ['last 2 version']}))
         .pipe(cssnano({autoprefixer: false}))
         .pipe(gulpif(!global.production, sourcemaps.write()))
         .pipe(gulp.dest(paths.dest))
-        .pipe(browserSync.stream());
+        .pipe(gulpif(!global.production, browserSync.stream()));
 };
 
 gulp.task('styles', stylesTask);

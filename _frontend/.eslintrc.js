@@ -1,17 +1,17 @@
 module.exports = {
     "env": {
-        // "browser": true,
-        // "commonjs": true,
-        // "es6": true,
-        // "node": true
+        "browser": true,
+        "es6": true,
+        "node": true
     },
-    // TODO : don't work
-    // "extends": "eslint:recommended",
+    "globals":{
+        "$": true,
+        "initClasses": true
+    },
     "parserOptions": {
         "ecmaVersion": 2015,
         "sourceType": "module"
     },
-
     // ref : http://eslint.org/docs/rules/
     // "off" or 0 - turn the rule off
     // "warn" or 1 - turn the rule on as a warning (doesn’t affect exit code)
@@ -58,7 +58,7 @@ module.exports = {
         "no-unused-labels": 2,
         // Variables
         "no-delete-var": 2,
-        // "no-undef": 2, // TODO : ajouter no-undef
+        "no-undef": 2,
         "no-unused-vars": [2, {"vars": "all", "args": "after-used"}],
         // Stylistic Issues
         "no-mixed-spaces-and-tabs": [2, false],

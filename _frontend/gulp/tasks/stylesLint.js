@@ -1,7 +1,7 @@
-var gulp         = require('gulp');
-var handleErrors = require('../lib/handleErrors');
-var path         = require('path');
-var sassLint     = require('gulp-sass-lint');
+var gulp          = require('gulp');
+var handleErrors  = require('../lib/handleErrors');
+var path          = require('path');
+var gulpStylelint = require('gulp-stylelint');
 
 var paths = {
     src: path.join(global.paths.src, 'scss/**/*.scss'),
@@ -11,10 +11,12 @@ var paths = {
 
 var stylesLintTask = function () {
     return gulp.src([paths.src, '!' + paths.abstracts, '!' + paths.vendors])
-        .pipe(sassLint({configFile: './.sass-lint.yml'}))
-        .pipe(sassLint.format())
-        .on('error', handleErrors)
-        .pipe(sassLint.failOnError())
+        .pipe(gulpStylelint({
+            failAfterError: true,
+            reporters: [
+                {formatter: 'string', console: true},
+            ]
+        }));
 };
 
 gulp.task('stylesLint', stylesLintTask);

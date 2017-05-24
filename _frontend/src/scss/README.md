@@ -5,7 +5,9 @@ from [Sass Guidelines](https://sass-guidelin.es/)
 
 ref: _frontend/src/scss
 
+
 ## Import Order
+
 ~~~~
 1. /vendors/bootstrap/_variables.scss
 2. /abstracts/_variables.scss
@@ -44,6 +46,14 @@ ref: _frontend/src/main.scss
 
 ### Vendors folder
 > And last but not least, most projects will have a vendors/ folder containing all the CSS files from external libraries and frameworks – Normalize, Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, and so on. Putting those aside in the same folder is a good way to say “Hey, this is not from me, not my code, not my responsibility”.
+
+
+## Stylelint Config
+
+extend the [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) 
+and the [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines)
+
+ref: _frontend/.stylelintrc.js
 
 
 ## Sass Guidelines Scaffolding Example

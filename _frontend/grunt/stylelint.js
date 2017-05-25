@@ -1,8 +1,9 @@
 module.exports = {
     options: {
-        configFile: '.sass-lint.yml'
+        configFile: '.stylelintrc.js',
+        formatter: 'string',
     },
-    target: [
+    src: [
         '<%= cssSrc %>/**/*.scss',
         '!<%= cssSrc %>/abstracts/**/*.scss',
         '!<%= cssSrc %>/vendors/**/*.scss'

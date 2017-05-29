@@ -2,6 +2,7 @@ var gulp          = require('gulp');
 var browserSync   = require('browser-sync');
 var handleErrors  = require('../lib/handleErrors');
 var path          = require('path');
+var sizereport    = require('gulp-sizereport');
 var webpack       = require('webpack');
 var webpackStream = require('webpack-stream');
 
@@ -40,6 +41,7 @@ var scriptsWebpackTask = function () {
             output: {filename: 'boot.js'}
         }, webpack))
         .pipe(gulp.dest(paths.dest))
+        .pipe(sizereport({gzip: true, total: false}))
         .pipe(gulpif(!global.production, browserSync.stream()));
 };
 

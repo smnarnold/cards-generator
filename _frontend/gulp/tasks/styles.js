@@ -7,6 +7,7 @@ var handleErrors = require('../lib/handleErrors');
 var path         = require('path');
 var sass         = require('gulp-sass');
 var sassGlob     = require('gulp-sass-glob');
+var sizereport   = require('gulp-sizereport');
 var sourcemaps   = require('gulp-sourcemaps');
 
 var paths = {
@@ -24,6 +25,7 @@ var stylesTask = function () {
         .pipe(cssnano({autoprefixer: false}))
         .pipe(gulpif(!global.production, sourcemaps.write()))
         .pipe(gulp.dest(paths.dest))
+        .pipe(sizereport({gzip: true, total: false}))
         .pipe(gulpif(!global.production, browserSync.stream()));
 };
 

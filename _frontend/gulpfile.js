@@ -14,8 +14,11 @@
 var requireDir = require('require-dir');
 
 global.paths = {
-    src: './src',
-    dest: '../assets',
+    assets: {
+        src: './src',
+        dest: '../assets',
+    },
+    views: '..',
 };
 global.bundler = 'Browserify'; // 'Browserify' or 'Webpack';
 

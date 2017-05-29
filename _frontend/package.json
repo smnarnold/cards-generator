@@ -11,8 +11,8 @@
   "scripts": {
     "start": "gulp",
     "development": "gulp",
-    "deploy": "gulp deploy",
-    "production": "gulp deploy"
+    "deploy": "gulp production",
+    "production": "gulp production"
   },
   "browser": {},
   "browserify": {
@@ -37,6 +37,7 @@
     "gulp-if": "^2.0.2",
     "gulp-load-plugins": "^1.5.0",
     "gulp-notify": "^3.0.0",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": "^3.1.0",
     "gulp-sass-glob": "^1.0.8",
     "gulp-sizereport": "^1.2.0",

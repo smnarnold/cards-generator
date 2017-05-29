@@ -3,11 +3,11 @@ var sizereport = require('gulp-sizereport');
 var path       = require('path');
 
 var paths = {
-    dest: path.join(global.paths.dest, '**/*'),
+    src: path.join(global.paths.assets.dest, '**/*'),
 };
 
 var sizeReportTask = function () {
-    return gulp.src(paths.dest)
+    return gulp.src(paths.src)
         .pipe(sizereport({
             gzip: true
         }));

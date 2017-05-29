@@ -7,8 +7,8 @@ var webpack       = require('webpack');
 var webpackStream = require('webpack-stream');
 
 var paths = {
-    src: path.join(global.paths.src, 'js/boot.js'),
-    dest: path.join(global.paths.dest, 'js'),
+    src: path.join(global.paths.assets.src, 'js/boot.js'),
+    dest: path.join(global.paths.assets.dest, 'js'),
 };
 
 var scriptsWebpackTask = function () {
@@ -40,8 +40,8 @@ var scriptsWebpackTask = function () {
             ],
             output: {filename: 'boot.js'}
         }, webpack))
-        .pipe(gulp.dest(paths.dest))
         .pipe(sizereport({gzip: true, total: false}))
+        .pipe(gulp.dest(paths.dest))
         .pipe(gulpif(!global.production, browserSync.stream()));
 };
 

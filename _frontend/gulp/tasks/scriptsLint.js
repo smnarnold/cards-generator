@@ -4,7 +4,7 @@ var handleErrors = require('../lib/handleErrors');
 var path         = require('path');
 
 var paths = {
-    src: path.join(global.paths.src, 'js/**/*.js'),
+    src: path.join(global.paths.assets.src, 'js/**/*.js'),
 };
 
 var scriptsLintTask = function () {

@@ -14,11 +14,11 @@ var uglify = require('gulp-uglify');
 var watchify = require('watchify');
 
 var paths = {
-    src: path.join(global.paths.src, 'js/boot.js'),
-    dest: path.join(global.paths.dest, 'js'),
+    src: path.join(global.paths.assets.src, 'js/boot.js'),
+    dest: path.join(global.paths.assets.dest, 'js'),
 };
 
-var b;
+var b = null;
 
 var scriptsBrowserifyTask = function () {
 
@@ -51,8 +51,8 @@ function bundle() {
         .pipe(gulpif(global.production, uglify()))
         // Add transformation tasks to the pipeline here.
         .pipe(gulpif(!global.production, sourcemaps.write())) // writes .map file
-        .pipe(gulp.dest(paths.dest))
         .pipe(sizereport({gzip: true, total: false}))
+        .pipe(gulp.dest(paths.dest))
         .pipe(gulpif(!global.production, browserSync.stream()));
 }
 

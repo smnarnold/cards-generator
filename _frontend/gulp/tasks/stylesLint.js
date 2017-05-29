@@ -4,9 +4,9 @@ var path          = require('path');
 var gulpStylelint = require('gulp-stylelint');
 
 var paths = {
-    src: path.join(global.paths.src, 'scss/**/*.scss'),
-    abstracts: path.join(global.paths.src, 'scss/abstracts/**/*.scss'),
-    vendors: path.join(global.paths.src, 'scss/vendors/**/*.scss'),
+    src: path.join(global.paths.assets.src, 'scss/**/*.scss'),
+    abstracts: path.join(global.paths.assets.src, 'scss/abstracts/**/*.scss'),
+    vendors: path.join(global.paths.assets.src, 'scss/vendors/**/*.scss'),
 };
 
 var stylesLintTask = function () {

@@ -11,8 +11,8 @@ var sizereport   = require('gulp-sizereport');
 var sourcemaps   = require('gulp-sourcemaps');
 
 var paths = {
-    src: path.join(global.paths.src, 'scss/**/*.scss'),
-    dest: path.join(global.paths.dest, 'css'),
+    src: path.join(global.paths.assets.src, 'scss/**/*.scss'),
+    dest: path.join(global.paths.assets.dest, 'css'),
 };
 
 var stylesTask = function () {
@@ -24,8 +24,8 @@ var stylesTask = function () {
         .pipe(autoprefixer({browsers: ['last 2 version']}))
         .pipe(cssnano({autoprefixer: false}))
         .pipe(gulpif(!global.production, sourcemaps.write()))
-        .pipe(gulp.dest(paths.dest))
         .pipe(sizereport({gzip: true, total: false}))
+        .pipe(gulp.dest(paths.dest))
         .pipe(gulpif(!global.production, browserSync.stream()));
 };
 

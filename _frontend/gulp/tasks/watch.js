@@ -1,9 +1,9 @@
-var gulp         = require('gulp');
-var browserSync  = require('browser-sync').create();
-var gulpSequence = require('gulp-sequence');
-var path         = require('path');
-var reload       = browserSync.reload;
-var watch        = require('gulp-watch');
+var gulp        = require('gulp');
+var browserSync = require('browser-sync').create();
+var runSequence = require('run-sequence');
+var path        = require('path');
+var reload      = browserSync.reload;
+var watch       = require('gulp-watch');
 
 var watchTask = function () {
     var fileTypes = [
@@ -24,12 +24,10 @@ var watchTask = function () {
     }
 
     fileTypes.forEach(function (fileType) {
-        var glob = path.join(global.paths.src, fileType.folder, '**/*.{' + fileType.extensions.join(',') + '}');
+        var glob = path.join(global.paths.assets.src, fileType.folder, '**/*.{' + fileType.extensions.join(',') + '}');
 
         watch([glob, '!**/*___jb_tmp___'], function () {
-            gulpSequence.apply(this, fileType.tasks)(function (err) {
-                if (err) console.log(err);
-            });
+            runSequence.apply(null, fileType.tasks);
         }).on('change', reload);
     })
 };

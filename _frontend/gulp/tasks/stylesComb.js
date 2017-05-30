@@ -3,14 +3,16 @@ var csscomb = require('gulp-csscomb');
 var path    = require('path');
 
 var paths = {
-    src: path.join(global.paths.assets.src, 'scss/**/*.scss'),
+    src: [
+        path.join(global.paths.assets.src, 'scss/**/*.scss'),
+        '!' + path.join(global.paths.assets.src, 'scss/abstracts/**'),
+        '!' + path.join(global.paths.assets.src, 'scss/vendors/**'),
+    ],
     dest: path.join(global.paths.assets.src, 'scss'),
-    abstracts: path.join(global.paths.assets.src, 'scss/abstracts/**/*.scss'),
-    vendors: path.join(global.paths.assets.src, 'scss/vendors/**/*.scss'),
 };
 
 var csscombTask = function () {
-    return gulp.src([paths.src, '!' + paths.abstracts, '!' + paths.vendors])
+    return gulp.src(paths.src)
         .pipe(csscomb({config: './.csscomb.json' /*, verbose: true*/}))
         .pipe(gulp.dest(paths.dest));
 };

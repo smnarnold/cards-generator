@@ -24,9 +24,14 @@ var watchTask = function () {
     }
 
     fileTypes.forEach(function (fileType) {
-        var glob = path.join(global.paths.assets.src, fileType.folder, '**/*.{' + fileType.extensions.join(',') + '}');
+        var paths = {
+            src: [
+                path.join(global.paths.assets.src, fileType.folder, '**/*.{' + fileType.extensions.join(',') + '}'),
+                '!**/*___jb_tmp___'
+            ]
+        };
 
-        watch([glob, '!**/*___jb_tmp___'], function () {
+        watch(paths.src, function () {
             runSequence.apply(null, fileType.tasks);
         }).on('change', reload);
     })

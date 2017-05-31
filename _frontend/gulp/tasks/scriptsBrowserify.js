@@ -41,8 +41,7 @@ var scriptsBrowserifyTask = function () {
 
 function bundle() {
     return b.bundle()
-        // log errors if they happen
-        .on('error', handleErrors)
+        .on('error', handleErrors) // log errors if they happen
         .pipe(source('boot.js'))
         // optional, remove if you don't need to buffer file contents
         .pipe(buffer())

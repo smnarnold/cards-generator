@@ -8,7 +8,7 @@ var paths = {
 };
 
 var csscombTask = function () {
-    return gulp.src(paths.src)
+    return gulp.src(paths.src, {base: paths.dest})
         .pipe(csscomb({config: './.csscomb.json' /*, verbose: true*/}))
         .pipe(gulp.dest(paths.dest));
 };

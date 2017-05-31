@@ -1,18 +1,16 @@
-@charset "UTF-8";
+@charset "UTF-8"; // stylelint-disable-line string-quotes
 
-$s: .3s;
-
-$cacheBreaker: random(900000000000) + 99999999999;
+$s: 0.3s;
 
 $palettes: (
   grey: (
     light: #bfbfbf,
-    base:  #7f7f7f,
-    dark:  #404040,
+    base: #7f7f7f,
+    dark: #404040,
   )
 );
 
 $fonts: (
-    sans-serif: #{ helvetica, arial, sans-serif },
-    serif: #{ Georgia, Times, serif }
+  sans-serif: #{ helvetica, arial, sans-serif },
+  serif: #{ Georgia, Times, serif }
 );

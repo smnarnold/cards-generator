@@ -3,11 +3,7 @@ var csscomb = require('gulp-csscomb');
 var path    = require('path');
 
 var paths = {
-    src: [
-        path.join(global.paths.assets.src, 'scss/**/*.scss'),
-        '!' + path.join(global.paths.assets.src, 'scss/abstracts/**'),
-        '!' + path.join(global.paths.assets.src, 'scss/vendors/**'),
-    ],
+    src: path.join(global.paths.assets.src, 'scss/!(abstracts|vendors)/**/*.scss'),
     dest: path.join(global.paths.assets.src, 'scss'),
 };
 

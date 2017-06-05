@@ -7,11 +7,11 @@ var paths = {
     dest: path.join(global.paths.assets.src, 'scss'),
 };
 
-var csscombTask = function () {
+var stylesCombTask = function () {
     return gulp.src(paths.src, {base: paths.dest})
         .pipe(csscomb({config: './.csscomb.json' /*, verbose: true*/}))
         .pipe(gulp.dest(paths.dest));
 };
 
-gulp.task('csscomb', csscombTask);
-module.exports = csscombTask;
+gulp.task('stylesComb', stylesCombTask);
+module.exports = stylesCombTask;

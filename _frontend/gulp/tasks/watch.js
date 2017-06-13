@@ -1,8 +1,8 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
-var runSequence = require('run-sequence');
 var path        = require('path');
 var reload      = browserSync.reload;
+var runSequence = require('run-sequence');
 var watch       = require('gulp-watch');
 
 var watchTask = function () {

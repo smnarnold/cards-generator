@@ -1,7 +1,6 @@
 var gulp          = require('gulp');
-var handleErrors  = require('../lib/handleErrors');
-var path          = require('path');
 var gulpStylelint = require('gulp-stylelint');
+var path          = require('path');
 
 var paths = {
     src: [

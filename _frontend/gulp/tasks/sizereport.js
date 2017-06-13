@@ -6,12 +6,12 @@ var paths = {
     src: path.join(global.paths.assets.dest, '**/*'),
 };
 
-var sizeReportTask = function () {
+var sizereportTask = function () {
     return gulp.src(paths.src)
         .pipe(sizereport({
             gzip: true
         }));
 };
 
-gulp.task('sizeReport', sizeReportTask);
-module.exports = sizeReportTask;
+gulp.task('sizereport', sizereportTask);
+module.exports = sizereportTask;

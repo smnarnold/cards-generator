@@ -4,7 +4,7 @@ var path          = require('path');
 
 var paths = {
     src: [
-        path.join(global.paths.assets.src, 'scss/!(vendors)/**/*.scss'),
+        path.join(global.paths.assets.src, 'scss/!(bootstrap|vendors)/**/*.scss'),
     ]
 };
 

@@ -1,12 +1,17 @@
-@import 'vendors/bootstrap/variables';
-@import 'abstracts/variables';
+@charset "UTF-8"; // stylelint-disable-line string-quotes
+// bootstrap
+@import 'bootstrap/bootstrap';
+// abstracts
 @import 'abstracts/**/*';
-@import 'vendors/bootstrap/mixins/**/*';
-@import 'vendors/bootstrap/normalize';
-@import 'vendors/bootstrap/reboot';
+// vendors
 @import 'vendors/**/*';
+// base
 @import 'base/**/*';
-@import 'components/**/*';
+// layout
 @import 'layout/**/*';
+// components
+@import 'components/**/*';
+// pages
 @import 'pages/**/*';
+// themes
 @import 'themes/**/*';

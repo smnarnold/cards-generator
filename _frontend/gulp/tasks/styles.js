@@ -11,7 +11,7 @@ var sizereport   = require('gulp-sizereport');
 var sourcemaps   = require('gulp-sourcemaps');
 
 var paths = {
-    src: path.join(global.paths.assets.src, 'scss/**/*.scss'),
+    src: path.join(global.paths.assets.src, 'scss/*.scss'),
     dest: path.join(global.paths.assets.dest, 'css'),
 };
 

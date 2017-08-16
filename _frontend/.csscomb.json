@@ -19,6 +19,7 @@
   "space-before-selector-delimiter": "",
   "space-between-declarations": "\n\n",
   "strip-spaces": true,
+  "tab-size": true,
   "unitless-zero": true,
   "vendor-prefix-align": false,
   "sort-order": [
@@ -29,6 +30,8 @@
       "$include"
     ],
     [
+
+      "align-content",
       "align-items",
       "animation",
       "animation-delay",
@@ -39,6 +42,7 @@
       "animation-play-state",
       "animation-timing-function",
       "appearance",
+      "-moz-appearance",
       "backface-visibility",
       "background",
       "background-attachment",
@@ -91,6 +95,7 @@
       "caption-side",
       "clear",
       "clip",
+      "clip-path",
       "color",
       "column-count",
       "content",
@@ -100,6 +105,7 @@
       "display",
       "empty-cells",
       "fill",
+      "flex",
       "flex-align",
       "flex-direction",
       "flex-flow",
@@ -161,6 +167,7 @@
       "padding-left",
       "padding-right",
       "padding-top",
+      "page-break-inside",
       "perspective",
       "perspective-origin",
       "pointer-events",
@@ -171,6 +178,7 @@
       "speak",
       "stroke",
       "stroke-linecap",
+      "stroke-linejoin",
       "stroke-miterlimit",
       "stroke-width",
       "tab-size",

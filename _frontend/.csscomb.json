@@ -32,6 +32,7 @@
     [
       "align-content",
       "align-items",
+      "align-self",
       "animation",
       "animation-delay",
       "animation-direction",
@@ -130,6 +131,7 @@
       "height",
       "hyphens",
       "justify-content",
+      "justify-self",
       "left",
       "letter-spacing",
       "line-height",

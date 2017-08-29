@@ -35,7 +35,7 @@ export default class Page {
         for (let i = this.breakpoints.length - 1; i >= 0; i--) {
             let env = this.breakpoints[i];
 
-            temp.className = `hidden-${env}-up`;
+            temp.className = `d-${env}-none`;
             if ($(temp).is(':hidden')) {
                 temp.parentNode.removeChild(temp);
                 console.log(`%c Bootstrap: ${env} `, 'background: #573e7d; color: #fff');

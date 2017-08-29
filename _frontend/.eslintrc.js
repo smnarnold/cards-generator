@@ -71,7 +71,7 @@ module.exports = {
         "no-this-before-super": 2,
         "require-yield": 2,
         // Custom
-        "indent": ["error", 4],
+        "indent": ["error", 4, {"SwitchCase": 1}],
         "quotes": ["error", "single"],
         "no-whitespace-before-property": 2,
         "semi": ["error", "always"],

@@ -220,7 +220,8 @@
       "word-spacing",
       "word-wrap",
       "z-index",
-      "zoom"
+      "zoom",
+      "-webkit-overflow-scrolling"
     ]
   ]
 }

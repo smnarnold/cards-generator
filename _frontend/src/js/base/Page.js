@@ -38,6 +38,7 @@ export default class Page {
             temp.className = `d-${env}-none`;
             if ($(temp).is(':hidden')) {
                 temp.parentNode.removeChild(temp);
+                // eslint-disable-next-line no-console
                 console.log(`%c Bootstrap: ${env} `, 'background: #573e7d; color: #fff');
                 break;
             }

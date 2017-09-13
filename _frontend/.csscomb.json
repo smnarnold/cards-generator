@@ -46,6 +46,7 @@
       "backface-visibility",
       "background",
       "background-attachment",
+      "background-blend-mode",
       "background-clip",
       "background-color",
       "background-image",

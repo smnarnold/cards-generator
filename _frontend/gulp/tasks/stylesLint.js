@@ -11,6 +11,7 @@ var paths = {
 var stylesLintTask = function () {
     return gulp.src(paths.src)
         .pipe(gulpStylelint({
+            configFile: './.stylelintrc.js',
             failAfterError: true,
             reporters: [
                 {formatter: 'string', console: true},

@@ -16,8 +16,6 @@ export default class extends Page {
     init() {
         super.init();
         this.bindEvents();
-
-        console.log(this.dom.el.data('page'));
     }
 
     bindEvents() {

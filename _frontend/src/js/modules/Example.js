@@ -15,8 +15,6 @@ export default class extends Module {
     //--------------------------------------------------------------
     init() {
         this.bindEvents();
-
-        console.log(this.dom.el.data('module'));
     }
 
     bindEvents() {

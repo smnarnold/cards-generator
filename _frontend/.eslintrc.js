@@ -19,7 +19,7 @@ module.exports = {
     "rules": {
         // Possible Errors (30)
         "no-cond-assign": 2,
-        "no-console": 1,
+        "no-console": 0,
         "no-constant-condition": 2,
         "no-control-regex": 2,
         "no-debugger": 2,

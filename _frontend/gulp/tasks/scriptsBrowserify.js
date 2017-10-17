@@ -10,6 +10,7 @@ var path         = require('path');
 var sizereport   = require('gulp-sizereport');
 var source       = require('vinyl-source-stream');
 var sourcemaps   = require('gulp-sourcemaps');
+var stripDebug   = require('gulp-strip-debug');
 var uglify       = require('gulp-uglify');
 var watchify     = require('watchify');
 
@@ -36,7 +37,7 @@ var scriptsBrowserifyTask = function () {
 
     b.on('update', bundle); // on any dep update, runs the bundler
 
-    bundle();
+    return bundle();
 };
 
 function bundle() {
@@ -47,6 +48,7 @@ function bundle() {
         .pipe(buffer())
         // optional, remove if you dont want sourcemaps
         .pipe(gulpif(!global.production, sourcemaps.init({loadMaps: true}))) // loads map from browserify file
+        .pipe(gulpif(global.production, stripDebug())) // Remove js debugging statements
         .pipe(gulpif(global.production, uglify()))
         // Add transformation tasks to the pipeline here.
         .pipe(gulpif(!global.production, sourcemaps.write())) // writes .map file

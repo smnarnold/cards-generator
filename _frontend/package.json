@@ -42,6 +42,7 @@
     "gulp-sass-glob": "^1.0.8",
     "gulp-sizereport": "^1.2.0",
     "gulp-sourcemaps": "^2.6.0",
+    "gulp-strip-debug": "^1.1.0",
     "gulp-stylelint": "^3.9.0",
     "gulp-uglify": "^2.1.2",
     "gulp-watch": "^4.3.11",

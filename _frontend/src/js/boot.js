@@ -1,12 +1,11 @@
 var Modules = {
-    Example: require('./modules/Example').default
+    Example: require('./modules/Example').default,
 };
 
 var Pages = {
-    Home: require('./pages/Home').default
+    Default: require('./pages/Default').default,
+    Home: require('./pages/Home').default,
 };
-
-var DefaultPage = require('./base/Page').default;
 
 var console = window.console;
 
@@ -18,13 +17,13 @@ $(function () {
         window: $(window)
     };
 
-    console.group('Pages/Modules binding');
-    initClasses(window.dom.body, Pages, 'page', '#8BBEB2', DefaultPage);
-    initClasses(window.dom.body, Modules, 'module', '#18314F');
+    console.group('Page/Module initialization');
+    initClasses(window.dom.body, Pages, 'page', '#8bbeb2', Pages.Default);
+    initClasses(window.dom.body, Modules, 'module', '#18314f');
     console.groupEnd();
 });
 
-window.initClasses = function(context, classes, selector, logColor, fallback) {
+window.initClasses = function (context, classes, selector, logColor, fallback) {
     var attr = 'data-' + selector;
     var items = context[0].querySelectorAll('[' + attr + ']');
     var styles = 'background: ' + logColor + '; color: #fff; padding: 0 .5em;';
@@ -40,10 +39,10 @@ window.initClasses = function(context, classes, selector, logColor, fallback) {
                 console.info('%c' + selector + ': ' + name + '%c', styles, '', item);
                 new classes[name]($(item)).init();
             } else if (fallback !== undefined) {
-                console.info('%c' + selector + '%c %cdefault%c', styles, '', item);
+                console.warn('%c' + selector + ': ' + name + ' | Fallback on Default%c', styles, '', item);
                 new fallback($(item)).init();
             } else {
-                console.warn('%c Failed ' + selector + ': ' + name + '%c', styles, '', item);
+                console.error('%c' + selector + ': ' + name + ' | Failed to initialize%c', styles, '', item);
             }
         }
     }

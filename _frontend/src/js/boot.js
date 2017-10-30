@@ -17,7 +17,7 @@ $(function () {
         window: $(window)
     };
 
-    console.group('Page/Module initialization');
+    console.groupCollapsed('Page/Module initialization');
     initClasses(window.dom.body, Pages, 'page', '#8bbeb2', Pages.Default);
     initClasses(window.dom.body, Modules, 'module', '#18314f');
     console.groupEnd();
@@ -46,4 +46,6 @@ window.initClasses = function (context, classes, selector, logColor, fallback) {
             }
         }
     }
+
+    $(window).trigger('appReady');
 };

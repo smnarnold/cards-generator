@@ -6,18 +6,18 @@ class ResponsiveHelper {
     constructor() {
         this.breakpoint = null;
         this.eventName = 'breakpointChange';
-        
+
         this.__private = {
             window: window.jQuery(window),
             body: window.jQuery(window.document.body),
             dummyDiv: window.jQuery(window.document.createElement('div')),
         };
-        
+
         this.__detectBreakpoint(false);
         this.__private.window.on('resize', td.throttle(100, () => this.__detectBreakpoint(true)));
         this.__private.window.on('appReady', () => this.__private.window.trigger(this.eventName, this.breakpoint));
     }
-    
+
     __detectBreakpoint(triggerEvent) {
         this.__private.dummyDiv.appendTo(this.__private.body);
 
@@ -37,21 +37,21 @@ class ResponsiveHelper {
 
         if (this.breakpoint !== vpSize) {
             this.breakpoint = vpSize;
-            
+
             if (triggerEvent) {
-                this.__private.window.trigger(this.eventName, this.breakpoint);    
+                this.__private.window.trigger(this.eventName, this.breakpoint);
             }
         }
     }
-    
+
     isBreakpointGreaterThan(compareToBreakpoint) {
         let compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
         if (compareIndex === -1) return false;
-        
+
         let currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
         return currentIndex > compareIndex;
     }
-    
+
     isBreakpointSmallerThan(compareToBreakpoint) {
         let compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
         if (compareIndex === -1) return false;
@@ -59,13 +59,13 @@ class ResponsiveHelper {
         let currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
         return currentIndex < compareIndex;
     }
-    
+
     isBreakpointGreaterOrEqualTo(compareToBreakpoint) {
         let compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
         if (compareIndex === -1) return false;
 
         let currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
-        
+
         return currentIndex >= compareIndex;
     }
 

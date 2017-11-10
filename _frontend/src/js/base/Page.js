@@ -15,7 +15,6 @@ export default class Page {
 
     init() {
         this.setDeviceType();
-        this.bindEvents();
     }
 
     setDeviceType() {

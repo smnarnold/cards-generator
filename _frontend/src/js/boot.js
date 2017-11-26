@@ -17,7 +17,7 @@ $(function () {
         window: $(window)
     };
 
-    console.groupCollapsed('Page/Module initialization');
+    console.groupCollapsed('Page/Modules initialization');
     initClasses(window.dom.body, Pages, 'page', '#8bbeb2', Pages.Default);
     initClasses(window.dom.body, Modules, 'module', '#18314f');
     window.dom.window.trigger('appReady');
@@ -37,13 +37,13 @@ window.initClasses = function (context, classes, selector, logColor, fallback) {
             var name = list[j];
 
             if (classes[name] !== undefined) {
-                console.info('%c' + selector + ': ' + name + '%c', styles, '', item);
+                console.info('%c' + name + '%c', styles, '', item);
                 new classes[name]($(item)).init();
             } else if (fallback !== undefined) {
-                console.warn('%c' + selector + ': ' + name + ' | Fallback on Default%c', styles, '', item);
+                console.warn('%c' + name + ' | Fallback on Default%c', styles, '', item);
                 new fallback($(item)).init();
             } else {
-                console.error('%c' + selector + ': ' + name + ' | Failed to initialize%c', styles, '', item);
+                console.error('%c' + name + ' | Failed to initialize%c', styles, '', item);
             }
         }
     }

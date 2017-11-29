@@ -1,14 +1,14 @@
-/*=== Fonts =======================================*/
+// Fonts
 @function font($style: 'sans-serif') {
   @return map-get($fonts, $style);
 }
 
-/*=== Colors ======================================*/
+// Colors
 @function palette($palette, $tone: 'base') {
   @return map-get(map-get($palettes, $palette), $tone);
 }
 
-/*=== Gutter ======================================*/
+// Gutter
 @function gutter($gutter, $dir: 'base') {
   @return map-get(map-get($gutters, $gutter), $dir);
 }

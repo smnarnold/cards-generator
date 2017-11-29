@@ -2,16 +2,16 @@
 
 ## Requirements
 - [NodeJS 6.x LTS](https://nodejs.org/en/)
-- `npm install grunt-cli -g`
+- `npm install gulp-cli -g`
 
 ## Installing
 	npm install
 
 ## Start Development
-    grunt
+    gulp
     
 ## Create Deployment build
-    grunt deploy
+    gulp deploy
 	
 ## Sass Architecture
 - [Sass Guidelines Architecture](https://sass-guidelin.es/#architecture)

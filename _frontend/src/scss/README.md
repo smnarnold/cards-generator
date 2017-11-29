@@ -19,7 +19,7 @@ ref: _frontend/src/scss
 8. /**/*.scss
 ~~~~
 
-ref: _frontend/grunt/sass_import.js
+ref: _frontend/src/main.scss
 
 
 ## Architecture
@@ -36,16 +36,16 @@ ref: _frontend/grunt/sass_import.js
 > For smaller components, there is the components/ folder. While layout/ is macro (defining the global wireframe), components/ is more focused on widgets. It contains all kind of specific modules like a slider, a loader, a widget, and basically anything along those lines. There are usually a lot of files in components/ since the whole site/application should be mostly composed of tiny modules.
 
 ### Layout folder
-> The layout/ folder contains everything that takes part in laying out the site or application. This folder could have stylesheets for the main parts of the site (header, footer, navigation, sidebarâ€¦), the grid system or even CSS styles for all the forms.
+> The layout/ folder contains everything that takes part in laying out the site or application. This folder could have stylesheets for the main parts of the site (header, footer, navigation, sidebar…), the grid system or even CSS styles for all the forms.
 
 ### Pages folder
-> If you have page-specific styles, it is better to put them in a pages/ folder, in a file named after the page. For instance, itâ€™s not uncommon to have very specific styles for the home page hence the need for a _home.scss file in pages/.
+> If you have page-specific styles, it is better to put them in a pages/ folder, in a file named after the page. For instance, it’s not uncommon to have very specific styles for the home page hence the need for a _home.scss file in pages/.
 
 ### Themes folder
 > On large sites and applications, it is not unusual to have different themes. There are certainly different ways of dealing with themes but I personally like having them all in a themes/ folder.
 
 ### Vendors folder
-> And last but not least, most projects will have a vendors/ folder containing all the CSS files from external libraries and frameworks â€“ Normalize, Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, and so on. Putting those aside in the same folder is a good way to say â€œHey, this is not from me, not my code, not my responsibilityâ€.
+> And last but not least, most projects will have a vendors/ folder containing all the CSS files from external libraries and frameworks – Normalize, Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, and so on. Putting those aside in the same folder is a good way to say “Hey, this is not from me, not my code, not my responsibility”.
 
 
 ## Stylelint Config
@@ -61,47 +61,47 @@ ref: _frontend/.stylelintrc.js
 ~~~~
 sass/
 |
-|â€“ abstracts/
-|   |â€“ _variables.scss    # Sass Variables
-|   |â€“ _functions.scss    # Sass Functions
-|   |â€“ _mixins.scss       # Sass Mixins
-|   |â€“ _placeholders.scss # Sass Placeholders
+|– abstracts/
+|   |– _variables.scss    # Sass Variables
+|   |– _functions.scss    # Sass Functions
+|   |– _mixins.scss       # Sass Mixins
+|   |– _placeholders.scss # Sass Placeholders
 |
-|â€“ base/
-|   |â€“ _reset.scss        # Reset/normalize
-|   |â€“ _typography.scss   # Typography rules
+|– base/
+|   |– _reset.scss        # Reset/normalize
+|   |– _typography.scss   # Typography rules
 |   ...                   # Etc.
 |
-|â€“ components/
-|   |â€“ _buttons.scss      # Buttons
-|   |â€“ _carousel.scss     # Carousel
-|   |â€“ _cover.scss        # Cover
-|   |â€“ _dropdown.scss     # Dropdown
+|– components/
+|   |– _buttons.scss      # Buttons
+|   |– _carousel.scss     # Carousel
+|   |– _cover.scss        # Cover
+|   |– _dropdown.scss     # Dropdown
 |   ...                   # Etc.
 |
-|â€“ layout/
-|   |â€“ _navigation.scss   # Navigation
-|   |â€“ _grid.scss         # Grid system
-|   |â€“ _header.scss       # Header
-|   |â€“ _footer.scss       # Footer
-|   |â€“ _sidebar.scss      # Sidebar
-|   |â€“ _forms.scss        # Forms
+|– layout/
+|   |– _navigation.scss   # Navigation
+|   |– _grid.scss         # Grid system
+|   |– _header.scss       # Header
+|   |– _footer.scss       # Footer
+|   |– _sidebar.scss      # Sidebar
+|   |– _forms.scss        # Forms
 |   ...                   # Etc.
 |
-|â€“ pages/
-|   |â€“ _home.scss         # Home specific styles
-|   |â€“ _contact.scss      # Contact specific styles
+|– pages/
+|   |– _home.scss         # Home specific styles
+|   |– _contact.scss      # Contact specific styles
 |   ...                   # Etc.
 |
-|â€“ themes/
-|   |â€“ _theme.scss        # Default theme
-|   |â€“ _admin.scss        # Admin theme
+|– themes/
+|   |– _theme.scss        # Default theme
+|   |– _admin.scss        # Admin theme
 |   ...                   # Etc.
 |
-|â€“ vendors/
-|   |â€“ _bootstrap.scss    # Bootstrap
-|   |â€“ _jquery-ui.scss    # jQuery UI
+|– vendors/
+|   |– _bootstrap.scss    # Bootstrap
+|   |– _jquery-ui.scss    # jQuery UI
 |   ...                   # Etc.
 |
-`â€“ main.scss              # Main Sass file
+`– main.scss              # Main Sass file
 ~~~~

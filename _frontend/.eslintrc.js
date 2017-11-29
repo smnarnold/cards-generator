@@ -19,7 +19,7 @@ module.exports = {
     "rules": {
         // Possible Errors (30)
         "no-cond-assign": 2,
-        "no-console": 1,
+        "no-console": 0,
         "no-constant-condition": 2,
         "no-control-regex": 2,
         "no-debugger": 2,
@@ -37,7 +37,7 @@ module.exports = {
         "no-invalid-regexp": 2,
         "no-irregular-whitespace": 2,
         "no-obj-calls": 2,
-        "no-prototype-builtins": 2,
+        "no-prototype-builtins": 0,
         "no-regex-spaces": 2,
         "no-sparse-arrays": 2,
         "no-template-curly-in-string": 2,
@@ -71,7 +71,7 @@ module.exports = {
         "no-this-before-super": 2,
         "require-yield": 2,
         // Custom
-        "indent": ["error", 4],
+        "indent": ["error", 4, {"SwitchCase": 1}],
         "quotes": ["error", "single"],
         "no-whitespace-before-property": 2,
         "semi": ["error", "always"],

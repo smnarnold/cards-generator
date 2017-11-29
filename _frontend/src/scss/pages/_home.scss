@@ -1,0 +1,31 @@
+[data-page='Home'] {
+  background: #f00;
+}
+
+// Large devices (desktops, less than 1200px)
+@include media-breakpoint-down(lg) {
+  [data-page='Home'] {
+    background: #ffa500;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@include media-breakpoint-down(md) {
+  [data-page='Home'] {
+    background: #ff0;
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@include media-breakpoint-down(sm) {
+  [data-page='Home'] {
+    background: #008000;
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@include media-breakpoint-down(xs) {
+  [data-page='Home'] {
+    background: #00f;
+  }
+}

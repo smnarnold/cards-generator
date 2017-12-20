@@ -12,7 +12,8 @@
     "start": "gulp",
     "development": "gulp",
     "deploy": "gulp production",
-    "production": "gulp production"
+    "production": "gulp production",
+    "tinypng": "gulp tinypng"
   },
   "browser": {},
   "browserify": {
@@ -45,6 +46,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-strip-debug": "^1.1.0",
     "gulp-stylelint": "^5.0.0",
+    "gulp-tinypng-compress": "^1.2.1",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
     "lodash.assign": "^4.2.0",

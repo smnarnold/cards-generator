@@ -3,16 +3,20 @@
 ## Requirements
 - [NodeJS 6.x LTS](https://nodejs.org/en/)
 - `npm install gulp-cli -g`
+- `npm install yarn -g`
 
 ## Installing
-	npm install
+	`yarn install`
 
 ## Start Development
-    gulp
+    `gulp` (or `yarn run development` or `yarn run start`)
     
-## Create Deployment build
-    gulp deploy
-	
+## Create Production build
+    `gulp deploy` (or `yarn run production or `yarn run deploy`)
+    
+## PNG and JPEG compression
+    `gulp tinypng` (or `yarn run tinypng`)
+
 ## Sass Architecture
 - [Sass Guidelines Architecture](https://sass-guidelin.es/#architecture)
     

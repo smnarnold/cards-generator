@@ -23,4 +23,4 @@ global.paths = {
 global.bundler = 'Browserify'; // 'Browserify' or 'Webpack';
 
 // Require all tasks in gulpfile.js/tasks, including subfolders
-requireDir('./gulp/tasks', { recurse: true });
+requireDir('./gulp/tasks', {recurse: true});

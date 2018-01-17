@@ -6,7 +6,7 @@
 - `npm install yarn -g`
 
 ## Installing
-	`yarn install`
+    `yarn install`
 
 ## Start Development
     `gulp` (or `yarn run development` or `yarn run start`)

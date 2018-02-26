@@ -7,42 +7,42 @@ var webpack       = require('webpack');
 var webpackStream = require('webpack-stream');
 
 var paths = {
-    src: path.join(global.paths.assets.src, 'js/boot.js'),
-    dest: path.join(global.paths.assets.dest, 'js'),
+  src: path.join(global.paths.assets.src, 'js/boot.js'),
+  dest: path.join(global.paths.assets.dest, 'js'),
 };
 
 var scriptsWebpackTask = function () {
-    return gulp.src(paths.src)
-        .on('error', handleErrors)
-        .pipe(webpackStream({
-            devtool: global.production ? '' : 'inline-source-map',
-            module: {
-                rules: [
-                    {
-                        exclude: /(node_modules|bower_components)/,
-                        loader: 'babel-loader',
-                        query: {
-                            presets: 'es2015'
-                        },
-                        test: /\.js$/,
-                    }
-                ]
+  return gulp.src(paths.src)
+    .on('error', handleErrors)
+    .pipe(webpackStream({
+      devtool: global.production ? '' : 'inline-source-map',
+      module: {
+        rules: [
+          {
+            exclude: /(node_modules|bower_components)/,
+            loader: 'babel-loader',
+            query: {
+              presets: 'es2015'
             },
-            plugins: [
-                new webpack.LoaderOptionsPlugin({
-                    minimize: true,
-                    debug: false
-                }),
-                new webpack.optimize.UglifyJsPlugin({
-                    compress: true,
-                    sourceMap: !global.production
-                }),
-            ],
-            output: {filename: 'boot.js'}
-        }, webpack))
-        .pipe(sizereport({gzip: true, total: false}))
-        .pipe(gulp.dest(paths.dest))
-        .pipe(gulpif(!global.production, browserSync.stream()));
+            test: /\.js$/,
+          }
+        ]
+      },
+      plugins: [
+        new webpack.LoaderOptionsPlugin({
+          minimize: true,
+          debug: false
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: true,
+          sourceMap: !global.production
+        }),
+      ],
+      output: {filename: 'boot.js'}
+    }, webpack))
+    .pipe(sizereport({gzip: true, total: false}))
+    .pipe(gulp.dest(paths.dest))
+    .pipe(gulpif(!global.production, browserSync.stream()));
 };
 
 gulp.task('scriptsWebpack', scriptsWebpackTask);

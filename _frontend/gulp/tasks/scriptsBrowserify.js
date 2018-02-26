@@ -15,46 +15,46 @@ var uglify       = require('gulp-uglify');
 var watchify     = require('watchify');
 
 var paths = {
-    src: path.join(global.paths.assets.src, 'js/boot.js'),
-    dest: path.join(global.paths.assets.dest, 'js'),
+  src: path.join(global.paths.assets.src, 'js/boot.js'),
+  dest: path.join(global.paths.assets.dest, 'js'),
 };
 
 var b = null;
 
 var scriptsBrowserifyTask = function () {
 
-    // add custom browserify options here
-    var customOptions = {
-        entries: [paths.src],
-        debug: !global.production,
-    };
+  // add custom browserify options here
+  var customOptions = {
+    entries: [paths.src],
+    debug: !global.production,
+  };
 
-    var options = assign({}, watchify.args, customOptions);
-    b = global.production ? browserify(options) : watchify(browserify(options));
+  var options = assign({}, watchify.args, customOptions);
+  b = global.production ? browserify(options) : watchify(browserify(options));
 
-    // add transformations here
-    b.transform('babelify', {presets: ['es2015']});
+  // add transformations here
+  b.transform('babelify', {presets: ['es2015']});
 
-    b.on('update', bundle); // on any dep update, runs the bundler
+  b.on('update', bundle); // on any dep update, runs the bundler
 
-    return bundle();
+  return bundle();
 };
 
 function bundle() {
-    return b.bundle()
-        .on('error', handleErrors) // log errors if they happen
-        .pipe(source('boot.js'))
-        // optional, remove if you don't need to buffer file contents
-        .pipe(buffer())
-        // optional, remove if you dont want sourcemaps
-        .pipe(gulpif(!global.production, sourcemaps.init({loadMaps: true}))) // loads map from browserify file
-        .pipe(gulpif(global.production, stripDebug())) // Remove js debugging statements
-        .pipe(gulpif(global.production, uglify()))
-        // Add transformation tasks to the pipeline here.
-        .pipe(gulpif(!global.production, sourcemaps.write())) // writes .map file
-        .pipe(sizereport({gzip: true, total: false}))
-        .pipe(gulp.dest(paths.dest))
-        .pipe(gulpif(!global.production, browserSync.stream()));
+  return b.bundle()
+    .on('error', handleErrors) // log errors if they happen
+    .pipe(source('boot.js'))
+    // optional, remove if you don't need to buffer file contents
+    .pipe(buffer())
+    // optional, remove if you dont want sourcemaps
+    .pipe(gulpif(!global.production, sourcemaps.init({loadMaps: true}))) // loads map from browserify file
+    .pipe(gulpif(global.production, stripDebug())) // Remove js debugging statements
+    .pipe(gulpif(global.production, uglify()))
+    // Add transformation tasks to the pipeline here.
+    .pipe(gulpif(!global.production, sourcemaps.write())) // writes .map file
+    .pipe(sizereport({gzip: true, total: false}))
+    .pipe(gulp.dest(paths.dest))
+    .pipe(gulpif(!global.production, browserSync.stream()));
 }
 
 

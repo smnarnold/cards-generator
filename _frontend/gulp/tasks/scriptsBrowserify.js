@@ -33,7 +33,7 @@ var scriptsBrowserifyTask = function () {
   b = global.production ? browserify(options) : watchify(browserify(options));
 
   // add transformations here
-  b.transform('babelify', {presets: ['es2015']});
+  b.transform('babelify', {presets: ['env']});
 
   b.on('update', bundle); // on any dep update, runs the bundler
 
@@ -56,7 +56,6 @@ function bundle() {
     .pipe(gulp.dest(paths.dest))
     .pipe(gulpif(!global.production, browserSync.stream()));
 }
-
 
 gulp.task('scriptsBrowserify', scriptsBrowserifyTask);
 module.exports = scriptsBrowserifyTask;

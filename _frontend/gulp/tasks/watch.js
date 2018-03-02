@@ -24,9 +24,11 @@ var watchTask = function () {
   }
 
   fileTypes.forEach(function (fileType) {
+    var extensions = fileType.extensions.length > 1 ? `{${fileType.extensions.join(',')}}` : fileType.extensions.toString();
+
     var paths = {
       src: [
-        path.join(global.paths.assets.src, fileType.folder, '**/*.{' + fileType.extensions.join(',') + '}'),
+        path.join(global.paths.assets.src, fileType.folder, '**/*.' + extensions),
         '!**/*___jb_tmp___'
       ]
     };

@@ -33,7 +33,9 @@ var scriptsBrowserifyTask = function () {
   b = global.production ? browserify(options) : watchify(browserify(options));
 
   // add transformations here
-  b.transform('babelify', {presets: ['env']});
+  b.transform('babelify', {
+    presets: ['env'], // babel env preset
+  });
 
   b.on('update', bundle); // on any dep update, runs the bundler
 

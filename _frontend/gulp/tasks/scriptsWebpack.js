@@ -1,5 +1,6 @@
 var gulp          = require('gulp');
 var browserSync   = require('browser-sync');
+var gulpif        = require('gulp-if');
 var handleErrors  = require('../lib/handleErrors');
 var path          = require('path');
 var sizereport    = require('gulp-sizereport');
@@ -15,14 +16,15 @@ var scriptsWebpackTask = function () {
   return gulp.src(paths.src)
     .on('error', handleErrors)
     .pipe(webpackStream({
-      devtool: global.production ? '' : 'inline-source-map',
+      devtool: global.production ? false : 'inline-source-map',
+      mode: global.production ? 'production' : 'development',
       module: {
         rules: [
           {
             exclude: /(node_modules|bower_components)/,
             loader: 'babel-loader',
             query: {
-              presets: 'es2015'
+              presets: 'env' // babel env preset
             },
             test: /\.js$/,
           }
@@ -32,10 +34,6 @@ var scriptsWebpackTask = function () {
         new webpack.LoaderOptionsPlugin({
           minimize: true,
           debug: false
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: true,
-          sourceMap: !global.production
         }),
       ],
       output: {filename: 'boot.js'}

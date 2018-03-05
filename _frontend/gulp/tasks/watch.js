@@ -18,7 +18,7 @@ var watchTask = function () {
   if (global.bundler === 'Webpack') {
     fileTypes.push({
       folder: 'js',
-      tasks: ['scriptsLint', 'scripts', 'reload'],
+      tasks: ['scriptsLint', 'scriptsWebpack'],
       extensions: ['js'],
     });
   }

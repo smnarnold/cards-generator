@@ -17,23 +17,26 @@ var scriptsWebpackTask = function () {
     .on('error', handleErrors)
     .pipe(webpackStream({
       devtool: global.production ? false : 'inline-source-map',
+      externals: {
+        jquery: 'jQuery'
+      },
       mode: global.production ? 'production' : 'development',
       module: {
         rules: [
           {
             exclude: /(node_modules|bower_components)/,
             loader: 'babel-loader',
-            query: {
-              presets: 'env' // babel env preset
+            options: {
+              presets: 'env', // babel env preset
             },
             test: /\.js$/,
-          }
+          },
         ]
       },
       plugins: [
         new webpack.LoaderOptionsPlugin({
+          debug: false,
           minimize: true,
-          debug: false
         }),
       ],
       output: {filename: 'boot.js'}

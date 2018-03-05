@@ -49,6 +49,7 @@
     "gulp-tinypng-compress": "^1.2.1",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^5.0.0",
+    "imports-loader": "^0.8.0",
     "lodash.assign": "^4.2.0",
     "path": "^0.12.7",
     "require-dir": "^1.0.0",

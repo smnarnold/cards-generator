@@ -1,16 +1,16 @@
-var gulp         = require('gulp');
-var eslint       = require('gulp-eslint');
-var handleErrors = require('../lib/handleErrors');
-var path         = require('path');
+const gulp         = require('gulp');
+const eslint       = require('gulp-eslint');
+const handleErrors = require('../lib/handleErrors');
+const path         = require('path');
 
-var paths = {
+let paths = {
   src: [
     path.join(global.paths.assets.src, 'js/**/*.js'),
     '!node_modules/**'
   ],
 };
 
-var scriptsLintTask = function () {
+let scriptsLintTask = function () {
   // ESLint ignores files with "node_modules" paths.
   // So, it's best to have gulp ignore the directory as well.
   // Also, Be sure to return the stream from the task;

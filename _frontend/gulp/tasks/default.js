@@ -1,7 +1,7 @@
-var gulp        = require('gulp');
-var runSequence = require('run-sequence');
+const gulp        = require('gulp');
+const runSequence = require('run-sequence');
 
-var defaultTask = function (cb) {
+let defaultTask = function (cb) {
   global.production = false;
   runSequence.options.showErrorStackTrace = false;
   runSequence('stylesComb', 'stylesLint', 'styles', 'scriptsLint', 'scripts' + global.bundler, 'watch', cb);

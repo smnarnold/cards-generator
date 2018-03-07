@@ -1,9 +1,9 @@
-var gulp         = require('gulp');
-var handleErrors = require('../lib/handleErrors');
-var path         = require('path');
-var replace      = require('gulp-replace');
+const gulp         = require('gulp');
+const handleErrors = require('../lib/handleErrors');
+const path         = require('path');
+const replace      = require('gulp-replace');
 
-var paths = {
+let paths = {
   src: [
     path.join(global.paths.views, '/**/*.html'),
     '!../_frontend/node_modules/**'
@@ -11,8 +11,8 @@ var paths = {
   dest: path.join(global.paths.views),
 };
 
-var cacheBreakerTask = function () {
-  var date = (new Date()).toISOString().replace(/\.[0-9]+Z$/, 'Z').replace(/[^0-9TZ]/g, '');
+let cacheBreakerTask = function () {
+  let date = (new Date()).toISOString().replace(/\.[0-9]+Z$/, 'Z').replace(/[^0-9TZ]/g, '');
 
   return gulp.src(paths.src, {base: paths.dest})
     .on('error', handleErrors)

@@ -1,35 +1,35 @@
-var gulp         = require('gulp');
-var assign       = require('lodash.assign');
-var babelify     = require('babelify');
-var browserify   = require('browserify');
-var browserSync  = require('browser-sync');
-var buffer       = require('vinyl-buffer');
-var gulpif       = require('gulp-if');
-var handleErrors = require('../lib/handleErrors');
-var path         = require('path');
-var sizereport   = require('gulp-sizereport');
-var source       = require('vinyl-source-stream');
-var sourcemaps   = require('gulp-sourcemaps');
-var stripDebug   = require('gulp-strip-debug');
-var uglify       = require('gulp-uglify');
-var watchify     = require('watchify');
+const gulp         = require('gulp');
+const assign       = require('lodash.assign');
+const babelify     = require('babelify');
+const browserify   = require('browserify');
+const browserSync  = require('browser-sync');
+const buffer       = require('vinyl-buffer');
+const gulpif       = require('gulp-if');
+const handleErrors = require('../lib/handleErrors');
+const path         = require('path');
+const sizereport   = require('gulp-sizereport');
+const source       = require('vinyl-source-stream');
+const sourcemaps   = require('gulp-sourcemaps');
+const stripDebug   = require('gulp-strip-debug');
+const uglify       = require('gulp-uglify');
+const watchify     = require('watchify');
 
-var paths = {
+let paths = {
   src: path.join(global.paths.assets.src, 'js/boot.js'),
   dest: path.join(global.paths.assets.dest, 'js'),
 };
 
-var b = null;
+let b = null;
 
-var scriptsBrowserifyTask = function () {
+let scriptsBrowserifyTask = function () {
 
   // add custom browserify options here
-  var customOptions = {
+  let customOptions = {
     entries: [paths.src],
     debug: !global.production,
   };
 
-  var options = assign({}, watchify.args, customOptions);
+  let options = assign({}, watchify.args, customOptions);
   b = global.production ? browserify(options) : watchify(browserify(options));
 
   // add transformations here

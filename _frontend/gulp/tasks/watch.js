@@ -1,12 +1,12 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync').create();
-var path        = require('path');
-var reload      = browserSync.reload;
-var runSequence = require('run-sequence');
-var watch       = require('gulp-watch');
+const gulp        = require('gulp');
+const browserSync = require('browser-sync').create();
+const path        = require('path');
+const reload      = browserSync.reload;
+const runSequence = require('run-sequence');
+const watch       = require('gulp-watch');
 
-var watchTask = function () {
-  var fileTypes = [
+let watchTask = function () {
+  let fileTypes = [
     {
       folder: 'scss',
       tasks: ['stylesLint', 'styles'],
@@ -24,9 +24,9 @@ var watchTask = function () {
   }
 
   fileTypes.forEach(function (fileType) {
-    var extensions = fileType.extensions.length > 1 ? `{${fileType.extensions.join(',')}}` : fileType.extensions.toString();
+    let extensions = fileType.extensions.length > 1 ? `{${fileType.extensions.join(',')}}` : fileType.extensions.toString();
 
-    var paths = {
+    let paths = {
       src: [
         path.join(global.paths.assets.src, fileType.folder, '**/*.' + extensions),
         '!**/*___jb_tmp___'

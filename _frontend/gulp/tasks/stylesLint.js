@@ -1,12 +1,12 @@
-var gulp          = require('gulp');
-var gulpStylelint = require('gulp-stylelint');
-var path          = require('path');
+const gulp          = require('gulp');
+const gulpStylelint = require('gulp-stylelint');
+const path          = require('path');
 
-var paths = {
+let paths = {
   src: path.join(global.paths.assets.src, 'scss/!(bootstrap|vendors)/**/*.scss'),
 };
 
-var stylesLintTask = function () {
+let stylesLintTask = function () {
   return gulp.src(paths.src)
     .pipe(gulpStylelint({
       configFile: './.stylelintrc.js',

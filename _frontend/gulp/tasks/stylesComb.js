@@ -1,13 +1,13 @@
-var gulp    = require('gulp');
-var csscomb = require('gulp-csscomb');
-var path    = require('path');
+const gulp    = require('gulp');
+const csscomb = require('gulp-csscomb');
+const path    = require('path');
 
-var paths = {
+let paths = {
   src: path.join(global.paths.assets.src, 'scss/!(abstracts|bootstrap|vendors)/**/*.scss'),
   dest: path.join(global.paths.assets.src, 'scss'),
 };
 
-var stylesCombTask = function () {
+let stylesCombTask = function () {
   return gulp.src(paths.src, {base: paths.dest})
     .pipe(csscomb({
       config: './.csscomb.json',

@@ -1,7 +1,7 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync');
+const gulp        = require('gulp');
+const browserSync = require('browser-sync');
 
-var browserSyncTask = function () {
+let browserSyncTask = function () {
   browserSync.init({
     open: false,
     // proxy: "dev.local",

@@ -1,13 +1,13 @@
-var gulp    = require('gulp');
-var path    = require('path');
-var tinypng = require('gulp-tinypng-compress');
+const gulp    = require('gulp');
+const path    = require('path');
+const tinypng = require('gulp-tinypng-compress');
 
-var paths = {
+let paths = {
   src: path.join(global.paths.assets.src, 'img/**/*.{png,PNG,jpg,JPG,jpeg,JPEG}'),
   dest: path.join(global.paths.assets.dest, 'img'),
 };
 
-var tinypngTask = function () {
+let tinypngTask = function () {
   return gulp.src(paths.src)
     .pipe(tinypng({
       force: false,

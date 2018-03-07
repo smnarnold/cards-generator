@@ -1,7 +1,7 @@
-var gulp        = require('gulp');
-var runSequence = require('run-sequence');
+const gulp        = require('gulp');
+const runSequence = require('run-sequence');
 
-var productionTask = function (cb) {
+let productionTask = function (cb) {
   global.production = true;
   runSequence('stylesComb', 'stylesLint', 'styles', 'scriptsLint', 'scripts' + global.bundler, 'cacheBreaker', cb);
 };

@@ -1,17 +1,17 @@
-var gulp          = require('gulp');
-var handleErrors  = require('../lib/handleErrors');
-var log           = require('fancy-log');
-var path          = require('path');
-var sizereport    = require('gulp-sizereport');
-var webpack       = require('webpack');
-var webpackStream = require('webpack-stream');
+const gulp          = require('gulp');
+const handleErrors  = require('../lib/handleErrors');
+const log           = require('fancy-log');
+const path          = require('path');
+const sizereport    = require('gulp-sizereport');
+const webpack       = require('webpack');
+const webpackStream = require('webpack-stream');
 
-var paths = {
+let paths = {
   src: path.join(global.paths.assets.src, 'js/boot.js'),
   dest: path.join(global.paths.assets.dest, 'js'),
 };
 
-var scriptsWebpackTask = function () {
+let scriptsWebpackTask = function () {
   return gulp.src(paths.src)
     .on('error', handleErrors)
     .pipe(webpackStream({

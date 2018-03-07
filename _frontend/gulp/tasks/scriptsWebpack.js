@@ -1,7 +1,6 @@
 var gulp          = require('gulp');
-var browserSync   = require('browser-sync');
-var gulpif        = require('gulp-if');
 var handleErrors  = require('../lib/handleErrors');
+var log           = require('fancy-log');
 var path          = require('path');
 var sizereport    = require('gulp-sizereport');
 var webpack       = require('webpack');
@@ -16,6 +15,7 @@ var scriptsWebpackTask = function () {
   return gulp.src(paths.src)
     .on('error', handleErrors)
     .pipe(webpackStream({
+      cache: !global.production,
       devtool: global.production ? false : 'inline-source-map',
       externals: {
         jquery: 'jQuery'
@@ -39,11 +39,12 @@ var scriptsWebpackTask = function () {
           minimize: true,
         }),
       ],
-      output: {filename: 'boot.js'}
-    }, webpack))
+      output: {filename: 'boot.js'},
+    }, webpack, function (err, stats) {
+      if (err) { log.error(err); }
+    }))
     .pipe(sizereport({gzip: true, total: false}))
-    .pipe(gulp.dest(paths.dest))
-    .pipe(gulpif(!global.production, browserSync.stream()));
+    .pipe(gulp.dest(paths.dest));
 };
 
 gulp.task('scriptsWebpack', scriptsWebpackTask);

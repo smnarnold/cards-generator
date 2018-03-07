@@ -12,7 +12,7 @@ var paths = {
 };
 
 var cacheBreakerTask = function () {
-  var date = (new Date()).toISOString().replace(/\.[0-9]+Z$/, "Z").replace(/[^0-9TZ]/g, "");
+  var date = (new Date()).toISOString().replace(/\.[0-9]+Z$/, 'Z').replace(/[^0-9TZ]/g, '');
 
   return gulp.src(paths.src, {base: paths.dest})
     .on('error', handleErrors)

@@ -3,7 +3,7 @@ var path    = require('path');
 var tinypng = require('gulp-tinypng-compress');
 
 var paths = {
-  src: path.join(global.paths.assets.src, 'img/**/*.{png,jpg,jpeg}'),
+  src: path.join(global.paths.assets.src, 'img/**/*.{png,PNG,jpg,JPG,jpeg,JPEG}'),
   dest: path.join(global.paths.assets.dest, 'img'),
 };
 

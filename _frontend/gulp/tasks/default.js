@@ -3,6 +3,7 @@ var runSequence = require('run-sequence');
 
 var defaultTask = function (cb) {
   global.production = false;
+  runSequence.options.showErrorStackTrace = false;
   runSequence('stylesComb', 'stylesLint', 'styles', 'scriptsLint', 'scripts' + global.bundler, 'watch', cb);
 };
 

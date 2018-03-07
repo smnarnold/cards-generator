@@ -9,7 +9,10 @@ var paths = {
 
 var stylesCombTask = function () {
   return gulp.src(paths.src, {base: paths.dest})
-    .pipe(csscomb({config: './.csscomb.json' /*, verbose: true*/}))
+    .pipe(csscomb({
+      config: './.csscomb.json',
+      // verbose: true,
+    }))
     .pipe(gulp.dest(paths.dest));
 };
 

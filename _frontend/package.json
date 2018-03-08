@@ -8,10 +8,14 @@
     "url": "http://sidlee.com"
   },
   "private": true,
+  "fractal": {
+    "main": "fractalfile.js"
+  },
   "scripts": {
     "start": "gulp",
     "development": "gulp",
     "deploy": "gulp production",
+    "fractal": "gulp | fractal start --sync ./demo/components/",
     "production": "gulp production",
     "tinypng": "gulp tinypng"
   },
@@ -24,6 +28,7 @@
   "browserify-shim": {},
   "devDependencies": {},
   "dependencies": {
+    "@frctl/fractal": "^1.1.7",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",

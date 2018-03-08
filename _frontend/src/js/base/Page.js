@@ -7,7 +7,7 @@ export default class Page {
     //-- Properties
     //--------------------------------------------------------------
     this.dom = $.extend({}, window.dom, {
-      el: el
+      el: el,
     });
 
     this.ua = new ua().getResult();
@@ -18,7 +18,8 @@ export default class Page {
   }
 
   setDeviceType() {
-    this.dom.html.addClass(this.ua.os.name.toLowerCase())
+    this.dom.html
+      .addClass(this.ua.os.name.toLowerCase())
       .addClass(this.ua.browser.name.toLowerCase());
   }
 

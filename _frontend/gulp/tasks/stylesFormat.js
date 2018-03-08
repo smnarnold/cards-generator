@@ -7,7 +7,7 @@ let paths = {
   dest: path.join(global.paths.assets.src, 'scss'),
 };
 
-let stylesCombTask = function () {
+let stylesFormatTask = function () {
   return gulp.src(paths.src, {base: paths.dest})
     .pipe(csscomb({
       config: './.csscomb.json',
@@ -16,5 +16,5 @@ let stylesCombTask = function () {
     .pipe(gulp.dest(paths.dest));
 };
 
-gulp.task('stylesComb', stylesCombTask);
-module.exports = stylesCombTask;
+gulp.task('stylesFormat', stylesFormatTask);
+module.exports = stylesFormatTask;

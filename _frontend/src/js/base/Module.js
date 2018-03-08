@@ -4,7 +4,7 @@ export default class Module {
     //-- Properties
     //--------------------------------------------------------------
     this.dom = $.extend({}, window.dom, {
-      el: el
+      el: el,
     });
 
     this.eventNames = {

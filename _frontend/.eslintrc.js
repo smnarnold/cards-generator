@@ -71,10 +71,11 @@ module.exports = {
     "no-this-before-super": 2,
     "require-yield": 2,
     // Custom
+    "eqeqeq": ["error", "always"],
     "indent": ["error", 2, {"SwitchCase": 1}],
-    "quotes": ["error", "single"],
+    "no-alert": 1,
     "no-whitespace-before-property": 2,
+    "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "no-alert": 1
   }
 };

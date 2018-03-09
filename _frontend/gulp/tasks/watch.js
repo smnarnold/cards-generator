@@ -9,7 +9,7 @@ let watchTask = function () {
   let fileTypes = [
     {
       folder: 'scss',
-      tasks: ['stylesLint', 'styles'],
+      tasks: ['stylesLintWatch', 'styles'],
       extensions: ['scss']
     }
   ];
@@ -18,7 +18,7 @@ let watchTask = function () {
   if (global.bundler === 'Webpack') {
     fileTypes.push({
       folder: 'js',
-      tasks: ['scriptsLint', 'scriptsWebpack'],
+      tasks: ['scriptsLintWatch', 'scriptsWebpack'],
       extensions: ['js'],
     });
   }

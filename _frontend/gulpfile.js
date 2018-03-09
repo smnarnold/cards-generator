@@ -20,7 +20,7 @@ global.paths = {
   },
   views: '..',
 };
-global.bundler = 'Browserify'; // 'Browserify' or 'Webpack';
+global.bundler = 'Webpack'; // 'Browserify' or 'Webpack';
 
 // Require all tasks in gulpfile.js/tasks, including subfolders
 requireDir('./gulp/tasks', {recurse: true});

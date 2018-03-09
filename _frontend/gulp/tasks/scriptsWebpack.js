@@ -2,6 +2,7 @@ const gulp          = require('gulp');
 const handleErrors  = require('../lib/handleErrors');
 const log           = require('fancy-log');
 const path          = require('path');
+const plumber       = require('gulp-plumber');
 const sizereport    = require('gulp-sizereport');
 const webpack       = require('webpack');
 const webpackStream = require('webpack-stream');
@@ -14,6 +15,7 @@ let paths = {
 let scriptsWebpackTask = function () {
   return gulp.src(paths.src)
     .on('error', handleErrors)
+    .pipe(plumber())
     .pipe(webpackStream({
       cache: !global.production,
       devtool: global.production ? false : 'inline-source-map',

@@ -8,19 +8,19 @@ let paths = {
   dest: path.join(global.paths.assets.src, 'scss'),
 };
 
-let stylesLintTask = function (fix) {
+let stylesLintTask = function (mode = 'build') {
   return gulp.src(paths.src)
     .pipe(gulpStylelint({
       configFile: './.stylelintrc.js',
-      failAfterError: false,
-      fix: fix,
+      failAfterError: mode === 'build',
+      fix: mode === 'build',
       reporters: [
         {formatter: 'string', console: true},
       ]
     }))
-    .pipe(gulpif(fix, gulp.dest(paths.dest)));
+    .pipe(gulpif(mode === 'build', gulp.dest(paths.dest)));
 };
 
-gulp.task('stylesLint', () => stylesLintTask(true));
-gulp.task('stylesLintWatch', () => stylesLintTask(false));
+gulp.task('stylesLint', () => stylesLintTask('build'));
+gulp.task('stylesLintWatch', () => stylesLintTask('watch'));
 module.exports = stylesLintTask;

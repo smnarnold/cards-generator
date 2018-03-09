@@ -5,6 +5,7 @@ const cssnano      = require('gulp-cssnano');
 const gulpif       = require('gulp-if');
 const handleErrors = require('../lib/handleErrors');
 const path         = require('path');
+const plumber      = require('gulp-plumber');
 const sass         = require('gulp-sass');
 const sassGlob     = require('gulp-sass-glob');
 const sizereport   = require('gulp-sizereport');
@@ -18,6 +19,7 @@ let paths = {
 let stylesTask = function () {
   return gulp.src(paths.src)
     .on('error', handleErrors)
+    .pipe(plumber())
     .pipe(gulpif(!global.production, sourcemaps.init()))
     .pipe(sassGlob())
     .pipe(sass({'indentedSyntax': false}))

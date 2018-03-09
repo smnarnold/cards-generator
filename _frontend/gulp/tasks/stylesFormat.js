@@ -1,6 +1,7 @@
-const gulp    = require('gulp');
-const csscomb = require('gulp-csscomb');
-const path    = require('path');
+const gulp         = require('gulp');
+const csscomb      = require('gulp-csscomb');
+const handleErrors = require('../lib/handleErrors');
+const path         = require('path');
 
 let paths = {
   src: path.join(global.paths.assets.src, 'scss/!(abstracts|bootstrap|vendors)/**/*.scss'),
@@ -9,6 +10,7 @@ let paths = {
 
 let stylesFormatTask = function () {
   return gulp.src(paths.src, {base: paths.dest})
+    .on('error', handleErrors)
     .pipe(csscomb({
       config: './.csscomb.json',
       // verbose: true,

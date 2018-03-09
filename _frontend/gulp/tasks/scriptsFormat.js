@@ -1,6 +1,7 @@
-const gulp     = require('gulp');
-const path     = require('path');
-const prettify = require('gulp-jsbeautifier');
+const gulp         = require('gulp');
+const handleErrors = require('../lib/handleErrors');
+const path         = require('path');
+const prettify     = require('gulp-jsbeautifier');
 
 let paths = {
   src: path.join(global.paths.assets.src, 'js/**/*.js'),
@@ -9,6 +10,7 @@ let paths = {
 
 let scriptsFormatTask = function () {
   return gulp.src(paths.src)
+    .on('error', handleErrors)
     .pipe(prettify({
       "indent_size": 2,
       "indent_char": " ",

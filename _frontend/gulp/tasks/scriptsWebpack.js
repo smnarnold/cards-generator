@@ -1,4 +1,5 @@
 const gulp          = require('gulp');
+const gulpif        = require('gulp-if');
 const handleErrors  = require('../lib/handleErrors');
 const log           = require('fancy-log');
 const path          = require('path');

@@ -15,7 +15,7 @@ let paths = {
 let scriptsWebpackTask = function () {
   return gulp.src(paths.src)
     .on('error', handleErrors)
-    .pipe(plumber())
+    .pipe(gulpif(!global.production, plumber()))
     .pipe(webpackStream({
       cache: !global.production,
       devtool: global.production ? false : 'inline-source-map',

@@ -27,7 +27,7 @@ let scriptsFormatTask = function () {
       "brace_style": "collapse,preserve-inline",
       "unindent_chained_methods": false,
       "break_chained_methods": false,
-      "keep_array_indentation": false,
+      "keep_array_indentation": true,
       "unescape_strings": false,
       "wrap_line_length": 0,
       "e4x": false,

@@ -12,7 +12,7 @@
 - `gulp` (or `yarn run development` or `yarn run start`)
     
 ## Create Production build
-- `gulp production` (or `yarn run production or `yarn run deploy`)
+- `gulp production` (or `yarn run production` or `yarn run deploy`)
     
 ## PNG and JPEG compression
 - `gulp tinypng` (or `yarn run tinypng`)

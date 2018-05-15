@@ -15,8 +15,8 @@
     "start": "gulp",
     "development": "gulp",
     "deploy": "gulp production",
-    "fractal": "gulp | fractal start --sync ./demo/components/",
     "production": "gulp production",
+    "fractal": "gulp | fractal start --sync ./demo/components/",
     "tinypng": "gulp tinypng"
   },
   "browser": {},

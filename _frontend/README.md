@@ -1,27 +1,27 @@
 # Sid Lee - Frontend Structure
 
 ## Requirements
-- [NodeJS 6.x LTS](https://nodejs.org/en/)
+- [NodeJS 8.x LTS](https://nodejs.org/en/)
 - `npm install gulp-cli -g`
 - `npm install yarn -g`
 
 ## Installing
-    `yarn install`
+- `yarn install`
 
 ## Start Development
-    `gulp` (or `yarn run development` or `yarn run start`)
+- `gulp` (or `yarn run development` or `yarn run start`)
     
 ## Create Production build
-    `gulp deploy` (or `yarn run production or `yarn run deploy`)
+- `gulp production` (or `yarn run production or `yarn run deploy`)
     
 ## PNG and JPEG compression
-    `gulp tinypng` (or `yarn run tinypng`)
+- `gulp tinypng` (or `yarn run tinypng`)
 
 ## Sass Architecture
 - [Sass Guidelines Architecture](https://sass-guidelin.es/#architecture)
     
 ## Frontend Suggested Framework
-- [Boostrap 4.x](https://getbootstrap.com/)
+- [Bootstrap 4.x](https://getbootstrap.com/)
     - Core variables and mixins
     - Core CSS
     

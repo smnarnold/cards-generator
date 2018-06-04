@@ -5,6 +5,7 @@ const tinypng = require('gulp-tinypng-compress');
 let paths = {
   src: path.join(global.paths.assets.src, 'img/**/*.{png,PNG,jpg,JPG,jpeg,JPEG}'),
   dest: path.join(global.paths.assets.dest, 'img'),
+  sigFile: path.join(global.paths.assets.src, 'img/.tinypng-sigs'),
 };
 
 let tinypngTask = function () {
@@ -17,7 +18,7 @@ let tinypngTask = function () {
       parallel: true,
       parallelMax: 4,
       sameDest: false,
-      sigFile: 'images/.tinypng-sigs',
+      sigFile: paths.sigFile,
       summarize: true,
     }))
     .pipe(gulp.dest(paths.dest));

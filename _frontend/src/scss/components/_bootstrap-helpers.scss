@@ -2,30 +2,12 @@ body {
   &::after {
     @include sr-only;
 
-    content: 'xl';
+    content: 'xs';
   }
 }
 
-// Large devices (desktops, less than 1200px)
-@include media-breakpoint-down(lg) {
-  body {
-    &::after {
-      content: 'lg';
-    }
-  }
-}
-
-// Medium devices (tablets, less than 992px)
-@include media-breakpoint-down(md) {
-  body {
-    &::after {
-      content: 'md';
-    }
-  }
-}
-
-// Small devices (landscape phones, less than 768px)
-@include media-breakpoint-down(sm) {
+// Small devices (landscape phones, 576px and up)
+@include media-breakpoint-up(sm) {
   body {
     &::after {
       content: 'sm';
@@ -33,11 +15,29 @@ body {
   }
 }
 
-// Extra small devices (portrait phones, less than 576px)
-@include media-breakpoint-down(xs) {
+// Medium devices (tablets, 768px and up)
+@include media-breakpoint-up(md) {
   body {
     &::after {
-      content: 'xs';
+      content: 'md';
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@include media-breakpoint-up(lg) {
+  body {
+    &::after {
+      content: 'lg';
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@include media-breakpoint-up(xl) {
+  body {
+    &::after {
+      content: 'xl';
     }
   }
 }

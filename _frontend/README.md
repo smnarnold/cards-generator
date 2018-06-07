@@ -2,8 +2,9 @@
 
 ## Requirements
 - [NodeJS 8.x LTS](https://nodejs.org/en/)
-- `npm install gulp-cli -g`
-- `npm install yarn -g`
+- `npm install -g gulp-cli`
+- `npm install -g yarn`
+- `npm install -g @frctl/fractal`
 
 ## Installing
 - `yarn install`

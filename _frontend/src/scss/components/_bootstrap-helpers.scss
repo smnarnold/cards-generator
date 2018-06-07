@@ -1,6 +1,6 @@
 body {
   &::after {
-    @include sr-only;
+    @extend %sr-only;
 
     content: 'xs';
   }

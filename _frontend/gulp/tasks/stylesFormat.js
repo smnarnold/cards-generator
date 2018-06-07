@@ -4,7 +4,7 @@ const handleErrors = require('../lib/handleErrors');
 const path         = require('path');
 
 let paths = {
-  src: path.join(global.paths.assets.src, 'scss/!(abstracts|bootstrap|vendors)/**/*.scss'),
+  src: path.join(global.paths.assets.src, 'scss/!(abstracts|vendors)/**/*.scss'),
   dest: path.join(global.paths.assets.src, 'scss'),
 };
 

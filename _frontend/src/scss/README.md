@@ -9,14 +9,13 @@ ref: _frontend/src/scss
 ## Import Order
 
 ~~~~
-1. /vendors/bootstrap/_variables.scss
-2. /abstracts/_variables.scss
-3. /abstracts/**/*.scss
-4. /vendors/bootstrap/mixins/*.scss
-5. /vendors/bootstrap/_normalize.scss
-6. /vendors/bootstrap/_reboot.scss
-7. /vendors/**/*.scss
-8. /**/*.scss
+1. /abstracts
+2. /vendors
+3. /base
+4. /components
+5. /layout
+6. /pages
+7. /themes
 ~~~~
 
 ref: _frontend/src/main.scss

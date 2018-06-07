@@ -1,16 +1,15 @@
 @charset "UTF-8"; // stylelint-disable-line string-quotes
-// bootstrap
-@import 'bootstrap/bootstrap';
 // abstracts
 @import 'abstracts/**/*';
 // vendors
-@import 'vendors/**/*';
+@import 'vendors/normalize/normalize';
+@import 'vendors/bootstrap/bootstrap-grid';
 // base
 @import 'base/**/*';
-// layout
-@import 'layout/**/*';
 // components
 @import 'components/**/*';
+// layout
+@import 'layout/**/*';
 // pages
 @import 'pages/**/*';
 // themes

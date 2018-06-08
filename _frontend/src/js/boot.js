@@ -25,7 +25,7 @@ $(function () {
 window.initClasses = function (context = window.dom.body, classes = Modules, selector = 'module', logColor = '#18314f', fallback) {
   let attr = 'data-' + selector;
   let items = context[0].querySelectorAll('[' + attr + ']');
-  let styles = 'background: ' + logColor + '; color: #fff; padding: 0 .5em;';
+  let styles = 'background: ' + logColor + '; color: #fff; padding: 0 .25em;';
 
   for (let i = 0; i < items.length; i++) { // ex: all [data-page]
     let item = items[i]; // ex: [data-page="Home"]
@@ -35,13 +35,13 @@ window.initClasses = function (context = window.dom.body, classes = Modules, sel
       let name = list[j];
 
       if (classes[name] !== undefined) {
-        console.log(`%c✔️${name}: %O`, styles, { el: item });
+        console.log(`%c✔️${name}%O`, styles, { el: item });
         new classes[name]($(item)).init();
       } else if (fallback !== undefined) {
-        console.warn(`%c⚠️${name}: %O`, styles, { el: item });
+        console.warn(`%c⚠️${name}%O`, styles, { el: item });
         new fallback($(item)).init();
       } else {
-        console.error(`%c❌${name}: %O`, styles, { el: item });
+        console.error(`%c❌${name}%O`, styles, { el: item });
       }
     }
   }

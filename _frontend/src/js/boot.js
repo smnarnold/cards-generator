@@ -17,14 +17,12 @@ $(function () {
     window: $(window),
   };
 
-  console.groupCollapsed('Page/Modules initialization');
-  initClasses(window.dom.body, Pages, 'page', '#8bbeb2', Pages.Default);
-  initClasses(window.dom.body, Modules, 'module', '#18314f');
+  initClasses(window.dom.body, Pages, 'page', '#8bbeb2', Pages.Default); // Pages
+  initClasses(); // Modules (use default values)
   window.dom.window.trigger('appReady');
-  console.groupEnd();
 });
 
-window.initClasses = function (context, classes, selector, logColor, fallback) {
+window.initClasses = function (context = window.dom.body, classes = Modules, selector = 'module', logColor = '#18314f', fallback) {
   let attr = 'data-' + selector;
   let items = context[0].querySelectorAll('[' + attr + ']');
   let styles = 'background: ' + logColor + '; color: #fff; padding: 0 .5em;';
@@ -37,13 +35,13 @@ window.initClasses = function (context, classes, selector, logColor, fallback) {
       let name = list[j];
 
       if (classes[name] !== undefined) {
-        console.info('%c' + name + '%c', styles, '', item);
+        console.log(`%c✔️${name}: %O`, styles, { el: item });
         new classes[name]($(item)).init();
       } else if (fallback !== undefined) {
-        console.warn('%c' + name + ' | Fallback on Default%c', styles, '', item);
+        console.warn(`%c⚠️${name}: %O`, styles, { el: item });
         new fallback($(item)).init();
       } else {
-        console.error('%c' + name + ' | Failed to initialize%c', styles, '', item);
+        console.error(`%c❌${name}: %O`, styles, { el: item });
       }
     }
   }

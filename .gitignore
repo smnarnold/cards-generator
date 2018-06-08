@@ -27,8 +27,6 @@ atlassian-ide-plugin.xml
 ################################
 _frontend/node_modules/
 _frontend/bower_components/
-assets/css/main.scss
-assets/css/main.css.map
+_frontend/fractal/build/
 assets/css/main.css
-assets/js/boot.map
 assets/js/boot.js

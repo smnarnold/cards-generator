@@ -11,7 +11,7 @@
   when you run `gulp`.
 */
 
-var requireDir = require('require-dir');
+const requireDir = require('require-dir');
 
 global.paths = {
   assets: {

@@ -1,4 +1,4 @@
-import td from 'throttle-debounce';
+import { throttle } from 'throttle-debounce';
 
 let possibleBreakpointsList = ['xs', 'sm', 'md', 'lg', 'xl'];
 
@@ -14,7 +14,7 @@ class ResponsiveHelper {
     };
 
     this.__detectBreakpoint(false);
-    this.__private.window.on('resize', td.throttle(100, () => this.__detectBreakpoint(true)));
+    this.__private.window.on('resize', throttle(100, () => this.__detectBreakpoint(true)));
     this.__private.window.on('appReady', () => this.__private.window.trigger(this.eventName, this.breakpoint));
   }
 

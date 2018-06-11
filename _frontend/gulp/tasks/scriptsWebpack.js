@@ -42,7 +42,7 @@ let scriptsWebpackTask = function () {
           minimize: true,
         }),
       ],
-      output: {filename: 'boot.js'},
+      output: {filename: path.basename(paths.src)},
     }, webpack, function (err, stats) {
       if (err) { log.error(err); }
     }))

@@ -13,7 +13,7 @@ let paths = {
   dest: path.join(global.paths.assets.dest, 'js'),
 };
 
-let scriptsWebpackTask = function () {
+let scriptsTask = function () {
   return gulp.src(paths.src)
     .on('error', handleErrors)
     .pipe(gulpif(!global.production, plumber()))
@@ -50,5 +50,5 @@ let scriptsWebpackTask = function () {
     .pipe(gulp.dest(paths.dest));
 };
 
-gulp.task('scriptsWebpack', scriptsWebpackTask);
-module.exports = scriptsWebpackTask;
+gulp.task('scripts', scriptsTask);
+module.exports = scriptsTask;

@@ -6,7 +6,7 @@ const runSequence = require('run-sequence');
 let productionTask = function (cb) {
   global.production = true;
   log(`Building in '${colors.cyan(`production`)}' mode`);
-  runSequence('stylesFormat', 'stylesLint', 'styles', 'scriptsFormat', 'scriptsLint', 'scripts' + global.bundler, 'cacheBreaker', cb);
+  runSequence('stylesFormat', 'stylesLint', 'styles', 'scriptsFormat', 'scriptsLint', 'scripts', 'cacheBreaker', cb);
 };
 
 gulp.task('production', productionTask);

@@ -19,7 +19,7 @@ let watchTask = function () {
     fileTypes.push({
       extensions: ['js'],
       folder: 'js',
-      tasks: ['scriptsLintWatch', 'scriptsWebpack'],
+      tasks: ['scriptsLintWatch', 'scripts'],
     });
   }
 

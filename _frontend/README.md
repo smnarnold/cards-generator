@@ -3,25 +3,30 @@
 ## Requirements
 - [NodeJS 8.x LTS](https://nodejs.org/en/)
 - `npm install -g gulp-cli`
-- `npm install -g yarn`
 - `npm install -g @frctl/fractal`
 
-## Installing
-- `yarn install`
+## Installing packages
+- `npm install`
 
-## Start Development
-- `gulp` (or `yarn run development` or `yarn run start`)
+## Start development
+- `gulp` (or `npm run development`)
     
-## Create Production build
-- `gulp production` (or `yarn run production` or `yarn run deploy`)
-    
-## PNG and JPEG compression
-- `gulp tinypng` (or `yarn run tinypng`)
+## Create production build
+- `gulp production` (or `npm run production`)
 
-## Sass Architecture
+## Start Fractal in development mode
+- `npm run fractal`
+
+## Create Fractal build
+- `npm run fractal-build`
+    
+## PNG and JPEG image compression
+- `gulp tinypng` (or `npm run tinypng`)
+
+## Sass architecture
 - [Sass Guidelines Architecture](https://sass-guidelin.es/#architecture)
     
-## Frontend Suggested Framework
+## Frontend suggested framework
 - [Bootstrap 4.x](https://getbootstrap.com/)
     - Core variables and mixins
     - Core CSS

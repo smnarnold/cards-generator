@@ -14,7 +14,6 @@
   "scripts": {
     "start": "gulp",
     "development": "gulp",
-    "deploy": "gulp production",
     "production": "gulp production",
     "fractal": "fractal start --sync",
     "fractal-start": "fractal start --sync",

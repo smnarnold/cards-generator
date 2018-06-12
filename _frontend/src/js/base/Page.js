@@ -1,5 +1,5 @@
 import ua from 'ua-parser-js';
-import responsiveHelper from './../helpers/responsiveHelper';
+import responsiveHelper from './../helpers/responsive';
 
 export default class Page {
   constructor(el) {

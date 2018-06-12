@@ -2,7 +2,7 @@ import { throttle } from 'throttle-debounce';
 
 let possibleBreakpointsList = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-class ResponsiveHelper {
+class Responsive {
   constructor() {
     this.breakpoint = null;
     this.eventName = 'breakpointChange';
@@ -78,4 +78,4 @@ class ResponsiveHelper {
   }
 }
 
-export default new ResponsiveHelper();
+export default new Responsive();

@@ -12,18 +12,14 @@ let watchTask = function () {
       folder: 'scss',
       tasks: ['stylesLintWatch', 'styles'],
     },
-  ];
-
-  // add js files only for webpack (browserify is setup with watchify)
-  if (global.bundler === 'Webpack') {
-    fileTypes.push({
+    {
       extensions: ['js'],
       folder: 'js',
       tasks: ['scriptsLintWatch', 'scripts'],
-    });
-  }
+    },
+  ];
 
-  fileTypes.forEach(function (fileType) {
+  for (fileType of fileTypes) {
     let extensions = fileType.extensions.length > 1 ? `{${fileType.extensions.join(',')}}` : fileType.extensions.toString();
 
     let paths = {
@@ -36,7 +32,7 @@ let watchTask = function () {
     watch(paths.src, function () {
       runSequence.apply(null, fileType.tasks);
     }).on('change', reload);
-  })
+  }
 };
 
 gulp.task('watch', watchTask);

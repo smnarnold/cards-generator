@@ -8,18 +8,18 @@ const watch       = require('gulp-watch');
 let watchTask = function () {
   let fileTypes = [
     {
+      extensions: ['scss'],
       folder: 'scss',
       tasks: ['stylesLintWatch', 'styles'],
-      extensions: ['scss']
-    }
+    },
   ];
 
   // add js files only for webpack (browserify is setup with watchify)
   if (global.bundler === 'Webpack') {
     fileTypes.push({
+      extensions: ['js'],
       folder: 'js',
       tasks: ['scriptsLintWatch', 'scriptsWebpack'],
-      extensions: ['js'],
     });
   }
 
@@ -29,7 +29,7 @@ let watchTask = function () {
     let paths = {
       src: [
         path.join(global.paths.assets.src, fileType.folder, '**/*.' + extensions),
-        '!**/*___jb_tmp___'
+        '!**/*___jb_tmp___',
       ]
     };
 

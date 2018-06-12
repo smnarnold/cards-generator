@@ -19,7 +19,7 @@ let watchTask = function () {
     },
   ];
 
-  for (fileType of fileTypes) {
+  for (let fileType of fileTypes) {
     let extensions = fileType.extensions.length > 1 ? `{${fileType.extensions.join(',')}}` : fileType.extensions.toString();
 
     let paths = {

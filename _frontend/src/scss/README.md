@@ -1,12 +1,11 @@
-# Sass Guidelines
+# Sass guidelines
 
 based on the [7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern) 
 from [Sass Guidelines](https://sass-guidelin.es/)
+and [CSS Guidelines](https://cssguidelin.es/)
 
-ref: _frontend/src/scss
 
-
-## Import Order
+## Import order
 
 ~~~~
 1. /abstracts
@@ -28,6 +27,9 @@ ref: _frontend/src/main.scss
 > The rule of thumb for this folder is that it should not output a single line of CSS when compiled on its own. These are nothing but Sass helpers.
 > When working on a very large project with a lot of abstract utilities, it might be interesting to group them by topic rather than type, for instance typography (_typography.scss), theming (_theming.scss), etc. Each file contains all the related helpers: variables, functions, mixins and placeholders. Doing so can make the code easier to browse and maintain, especially when files are getting very long.
 
+### Vendors folder
+> And last but not least, most projects will have a vendors/ folder containing all the CSS files from external libraries and frameworks – Normalize, Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, and so on. Putting those aside in the same folder is a good way to say “Hey, this is not from me, not my code, not my responsibility”.
+
 ### Base folder
 >  The base/ folder holds what we might call the boilerplate code for the project. In there, you might find the reset file, some typographic rules, and probably a stylesheet defining some standard styles for commonly used HTML elements (that I like to call _base.scss).
 
@@ -43,19 +45,8 @@ ref: _frontend/src/main.scss
 ### Themes folder
 > On large sites and applications, it is not unusual to have different themes. There are certainly different ways of dealing with themes but I personally like having them all in a themes/ folder.
 
-### Vendors folder
-> And last but not least, most projects will have a vendors/ folder containing all the CSS files from external libraries and frameworks – Normalize, Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, and so on. Putting those aside in the same folder is a good way to say “Hey, this is not from me, not my code, not my responsibility”.
 
-
-## Stylelint Config
-
-extend the [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) 
-and the [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines)
-
-ref: _frontend/.stylelintrc.js
-
-
-## Sass Guidelines Scaffolding Example
+## Sass guidelines scaffolding example
 
 ~~~~
 sass/
@@ -104,3 +95,28 @@ sass/
 |
 `– main.scss              # Main Sass file
 ~~~~
+
+
+## Stylelint config
+
+extend the [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard),
+the [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines)
+
+ref: _frontend/.stylelintrc.js
+
+
+## BEM-like naming & selector conventions
+
+hyphen (-) delimited strings, with BEM-like naming for more complex pieces of code.
+
+- Block: The sole root of the component.
+- Element: A component part of the Block.
+- Modifier: A variant or extension of the Block.
+
+~~~~
+.block {}
+.block__element {}
+.block--modifier {}
+~~~~
+
+ref: [CSS Guidelines #bem-like-naming](https://cssguidelin.es/#bem-like-naming)

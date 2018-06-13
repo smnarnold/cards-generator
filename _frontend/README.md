@@ -23,13 +23,11 @@
 ## PNG and JPEG image compression
 - `gulp tinypng` (or `npm run tinypng`)
 
-## Sass architecture
-- [Sass Guidelines Architecture](https://sass-guidelin.es/#architecture)
+## Frontend guidelines
+- [Sass guidelines](src/scss/README.md)
     
-## Frontend suggested framework
+## Frontend suggested vendors
 - [Bootstrap 4.x](https://getbootstrap.com/)
-    - Core variables and mixins
-    - Core CSS
-    
-## jQuery
+    - Bootstrap Grid only
 - [jQuery 3.x](https://code.jquery.com/)
+- [Normalize 8.x](https://necolas.github.io/normalize.css/)

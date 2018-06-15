@@ -1,10 +1,19 @@
-// this document was renamed from fractal.js
-// ref: https://github.com/frctl/fractal/issues/118#issuecomment-255254117
+/**
+ * fractalfile.js
+ * ==============
+ * Fractal is a tool to help you build and document web component libraries
+ * and then integrate them into your projects
+ * Read the Fractal documentation at http://fractal.build/guide.
+ *
+ * This document was renamed from fractal.js.
+ * ref: https://github.com/frctl/fractal/issues/118#issuecomment-255254117
+ */
+
 'use strict';
 
-const path = require('path');
 const fractal = module.exports = require('@frctl/fractal').create(); // Create a new Fractal instance and export it for use elsewhere if required
 const mandelbrot = require('@frctl/mandelbrot'); // require the Mandelbrot theme module
+const path = require('path');
 
 // create a new instance with custom config options
 const sidleeTheme = mandelbrot({

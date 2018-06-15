@@ -1,5 +1,9 @@
-// placeholders
-// parameterless mixins that are not rendered if never used (doesn't add unnecessary css line in our file if never used)
+/**
+ * placeholders
+ * ============
+ * They're meant to be used with the @extend directive.
+ * On their own, without any use of @extend, rulesets that use placeholder selectors will not be rendered to CSS.
+ */
 
 // positions
 

@@ -1,3 +1,8 @@
+/**
+ * .stylelintrc.js
+ * ===============
+ */
+
 let word = `[a-z0-9]+(?:-[a-z0-9]+)*`;
 let block = word;
 let element = `(?:__${word})*`;

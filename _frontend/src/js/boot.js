@@ -1,15 +1,13 @@
-let Modules = {
+const Modules = {
   Example: require('./modules/Example').default,
 };
 
-let Pages = {
+const Pages = {
   Default: require('./pages/Default').default,
   Home: require('./pages/Home').default,
 };
 
-let console = window.console;
-
-$(function () {
+$(() => {
   window.dom = {
     body: $('body'),
     document: $(document),
@@ -17,17 +15,16 @@ $(function () {
     window: $(window),
   };
 
-  initClasses(window.dom.body, Pages, 'page', '#8bbeb2', Pages.Default); // Pages
-  initClasses(window.dom.body, Modules, 'module', '#18314f'); // Modules
+  initClasses(window.dom.body, 'page'); // Pages
+  initClasses(window.dom.body, 'module'); // Modules
   window.dom.window.trigger('appReady');
 });
 
-window.initClasses = function (context, classes, selector, logColor, Fallback) {
-  if (!(context && classes && selector)) return;
-
+window.initClasses = function (context = window.dom.body, selector = 'module') {
   let attr = `data-${selector}`;
+  let classes = selector === 'page' ? Pages : Modules;
   let items = context[0].querySelectorAll(`[${attr}]`);
-  let styles = `background: ${logColor || '#fff'}; color: #fff; padding: 0 .25em;`;
+  let styles = `background: ${selector === 'page' ? '#8bbeb2' : '#18314f'}; color: #fff; padding: 0 0.25em;`;
 
   for (let i = 0; i < items.length; i++) { // ex: all [data-page]
     let item = items[i]; // ex: [data-page="Home"]
@@ -39,11 +36,11 @@ window.initClasses = function (context, classes, selector, logColor, Fallback) {
       if (classes[name] !== undefined) {
         console.log(`%c✔️${name}%O`, styles, { el: item });
         new classes[name]($(item)).init();
-      } else if (Fallback !== undefined) {
+      } else if (classes.Default !== undefined) {
         console.warn(`%c⚠️${name}%O`, styles, { el: item });
-        new Fallback($(item)).init();
+        new classes.Default($(item)).init();
       } else {
-        console.error(`%c❌${name}%O`, styles, { el: item });
+        console.error(`%c❌️${name}%O`, styles, { el: item });
       }
     }
   }

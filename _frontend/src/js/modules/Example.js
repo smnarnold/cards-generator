@@ -4,13 +4,11 @@ export default class extends Module {
   constructor(el) {
     super(el);
 
-    //-- Properties
-    //--------------------------------------------------------------
     this.dom = $.extend({}, this.dom, {});
   }
 
-  //-- Methods
-  //--------------------------------------------------------------
+  // -- Methods
+  // --------------------------------------------------------------
   init() {
     this.bindEvents();
   }

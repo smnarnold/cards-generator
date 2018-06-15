@@ -99,7 +99,7 @@ sass/
 
 ## Stylelint config
 
-extend the [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard),
+extend the [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) and
 the [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines)
 
 ref: _frontend/.stylelintrc.js

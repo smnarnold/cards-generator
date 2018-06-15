@@ -1,16 +1,13 @@
-import ua from 'ua-parser-js';
+import UAParser from 'ua-parser-js';
 import responsiveHelper from './../helpers/responsive';
 
 export default class Page {
   constructor(el) {
-
-    //-- Properties
-    //--------------------------------------------------------------
     this.dom = $.extend({}, window.dom, {
       el: el,
     });
 
-    this.ua = new ua().getResult();
+    this.parser = new UAParser().getResult();
   }
 
   init() {
@@ -19,8 +16,8 @@ export default class Page {
 
   setDeviceType() {
     this.dom.html
-      .addClass(this.ua.os.name.toLowerCase())
-      .addClass(this.ua.browser.name.toLowerCase());
+      .addClass(this.parser.os.name.toLowerCase())
+      .addClass(this.parser.browser.name.toLowerCase());
   }
 
   bindEvents() {

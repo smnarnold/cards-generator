@@ -18,14 +18,16 @@ $(function () {
   };
 
   initClasses(window.dom.body, Pages, 'page', '#8bbeb2', Pages.Default); // Pages
-  initClasses(); // Modules (use default values)
+  initClasses(window.dom.body, Modules, 'module', '#18314f'); // Modules
   window.dom.window.trigger('appReady');
 });
 
-window.initClasses = function (context = window.dom.body, classes = Modules, selector = 'module', logColor = '#18314f', fallback) {
-  let attr = 'data-' + selector;
-  let items = context[0].querySelectorAll('[' + attr + ']');
-  let styles = 'background: ' + logColor + '; color: #fff; padding: 0 .25em;';
+window.initClasses = function (context, classes, selector, logColor, Fallback) {
+  if (!(context && classes && selector)) return;
+
+  let attr = `data-${selector}`;
+  let items = context[0].querySelectorAll(`[${attr}]`);
+  let styles = `background: ${logColor || '#fff'}; color: #fff; padding: 0 .25em;`;
 
   for (let i = 0; i < items.length; i++) { // ex: all [data-page]
     let item = items[i]; // ex: [data-page="Home"]
@@ -37,9 +39,9 @@ window.initClasses = function (context = window.dom.body, classes = Modules, sel
       if (classes[name] !== undefined) {
         console.log(`%c✔️${name}%O`, styles, { el: item });
         new classes[name]($(item)).init();
-      } else if (fallback !== undefined) {
+      } else if (Fallback !== undefined) {
         console.warn(`%c⚠️${name}%O`, styles, { el: item });
-        new fallback($(item)).init();
+        new Fallback($(item)).init();
       } else {
         console.error(`%c❌${name}%O`, styles, { el: item });
       }

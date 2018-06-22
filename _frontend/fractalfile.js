@@ -17,8 +17,9 @@ const path = require('path');
 
 // create a new instance with custom config options
 const sidleeTheme = mandelbrot({
-  nav: ["docs", "components"],
-  skin: "black",
+  nav: ['docs', 'components'],
+  skin: 'black',
+  styles: ['default'],
 });
 
 fractal.web.theme(sidleeTheme); // tell Fractal to use the configured theme by default

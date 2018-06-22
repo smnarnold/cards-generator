@@ -9,24 +9,24 @@
  */
 
 module.exports = {
-  "extends": [
-    "eslint:recommended",
-    "eslint-config-google",
+  'extends': [
+    'eslint:recommended',
+    'eslint-config-google',
   ],
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true,
+  'env': {
+    'browser': true,
+    'es6': true,
+    'node': true,
   },
-  "globals": {
-    "$": true,
-    "initClasses": true,
+  'globals': {
+    '$': true,
+    'initClasses': true,
   },
-  "parserOptions": {
-    "ecmaVersion": 2015,
-    "sourceType": "module"
+  'parserOptions': {
+    'ecmaVersion': 2015,
+    'sourceType': 'module',
   },
-  "rules": {
+  'rules': {
     'max-len': ['error', {
       code: 120,
       ignoreUrls: true,

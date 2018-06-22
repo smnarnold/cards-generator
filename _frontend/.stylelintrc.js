@@ -9,16 +9,17 @@ let element = `(?:__${word})*`;
 let modifier = `(?:--${word})?`;
 
 module.exports = {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-sass-guidelines",
+  'extends': [
+    'stylelint-config-standard',
+    'stylelint-config-sass-guidelines',
   ],
-  "rules": {
-    "at-rule-no-unknown": null,
-    "color-named": ["never", {
-      "ignore": ["inside-function"]
+  'rules': {
+    'at-rule-no-unknown': null,
+    'color-named': ['never', {
+      'ignore': ['inside-function']
     }],
-    "max-nesting-depth": 4,
-    "selector-class-pattern": `^${block}${element}${modifier}$`,
+    'max-nesting-depth': 4,
+    'no-descending-specificity': null,
+    'selector-class-pattern': `^${block}${element}${modifier}$`,
   },
 };

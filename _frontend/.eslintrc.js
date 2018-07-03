@@ -34,8 +34,8 @@ module.exports = {
     }],
     'no-cond-assign': 'error',
     'no-console': 'off',
-    'require-jsdoc': 'off',
     'object-curly-spacing': ['error', 'always'],
+    'require-jsdoc': 'off',
     'space-before-function-paren': 'off', // bug with js-beautifier
   },
 };

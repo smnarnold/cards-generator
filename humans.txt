@@ -8,4 +8,4 @@ This website was built by Sid Lee and it's large team of designers, developers a
 /* SITE DETAILS */
   Standards: HTML5, CSS3, ES6
   Components: jQuery
-  Softwares: Gulp, Babel, Browserify
+  Softwares: Gulp, Babel, Webpack

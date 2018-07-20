@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@frctl/fractal": "^1.1.7",
+    "@frctl/handlebars": "^1.1.4",
     "@frctl/mandelbrot": "^1.2.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -47,6 +48,8 @@
     "gulp-stylelint": "^7.0.0",
     "gulp-tinypng-compress": "^1.2.1",
     "gulp-watch": "^5.0.0",
+    "handlebars-helpers": "^0.10.0",
+    "handlebars-layouts": "^3.1.4",
     "imports-loader": "^0.8.0",
     "path": "^0.12.7",
     "require-dir": "^1.0.0",

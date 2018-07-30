@@ -1,12 +1,13 @@
-const gulp          = require('gulp');
-const gulpif        = require('gulp-if');
-const handleErrors  = require('../lib/handleErrors');
-const log           = require('fancy-log');
-const path          = require('path');
-const plumber       = require('gulp-plumber');
-const sizereport    = require('gulp-sizereport');
-const webpack       = require('webpack');
-const webpackStream = require('webpack-stream');
+const gulp           = require('gulp');
+const gulpif         = require('gulp-if');
+const handleErrors   = require('../lib/handleErrors');
+const log            = require('fancy-log');
+const path           = require('path');
+const plumber        = require('gulp-plumber');
+const sizereport     = require('gulp-sizereport');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack        = require('webpack');
+const webpackStream  = require('webpack-stream');
 
 let paths = {
   src: path.join(global.paths.assets.src, 'js/boot.js'),

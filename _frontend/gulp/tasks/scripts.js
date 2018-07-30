@@ -21,7 +21,7 @@ let scriptsTask = function () {
       cache: !global.production,
       devtool: global.production ? false : 'inline-source-map',
       externals: {
-        jquery: 'jQuery'
+        jquery: 'jQuery',
       },
       mode: global.production ? 'production' : 'development',
       module: {
@@ -37,7 +37,18 @@ let scriptsTask = function () {
             },
             test: /\.js$/,
           },
-        ]
+        ],
+      },
+      optimization: {
+        minimizer: [
+          new UglifyJsPlugin({
+            uglifyOptions: {
+              compress: {
+                drop_console: true,
+              },
+            },
+          }),
+        ],
       },
       plugins: [
         new webpack.LoaderOptionsPlugin({
@@ -47,7 +58,9 @@ let scriptsTask = function () {
       ],
       output: {filename: path.basename(paths.src)},
     }, webpack, function (err, stats) {
-      if (err) { log.error(err); }
+      if (err) {
+        log.error(err);
+      }
     }))
     .pipe(sizereport({gzip: true, total: false}))
     .pipe(gulp.dest(paths.dest));

@@ -17,7 +17,7 @@ $(() => {
 
   initClasses(window.dom.body, 'page'); // Pages
   initClasses(window.dom.body, 'module'); // Modules
-  window.dom.window.trigger('appReady');
+  window.dom.window.trigger('app:ready');
 });
 
 window.initClasses = function (context = window.dom.body, selector = 'module') {

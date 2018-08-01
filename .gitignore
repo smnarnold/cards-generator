@@ -29,4 +29,4 @@ _frontend/node_modules/
 _frontend/bower_components/
 _frontend/fractal/build/
 assets/css/main.css
-assets/js/boot.js
+assets/js/app.js

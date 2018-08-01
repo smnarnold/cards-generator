@@ -10,7 +10,7 @@ const webpack        = require('webpack');
 const webpackStream  = require('webpack-stream');
 
 let paths = {
-  src: path.join(global.paths.assets.src, 'js/boot.js'),
+  src: path.join(global.paths.assets.src, 'js/app.js'),
   dest: path.join(global.paths.assets.dest, 'js'),
 };
 

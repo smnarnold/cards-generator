@@ -15,7 +15,7 @@ class Responsive {
 
     this.__detectBreakpoint(false);
     this.__private.window.on('resize', throttle(100, () => this.__detectBreakpoint(true)));
-    this.__private.window.on('appReady', () => this.__private.window.trigger(this.eventName, this.breakpoint));
+    this.__private.window.on('app:ready', () => this.__private.window.trigger(this.eventName, this.breakpoint));
   }
 
   __detectBreakpoint(triggerEvent) {

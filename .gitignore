@@ -1,29 +1,47 @@
 ################################
-## Windows
+###  macOS                   ###
 ################################
 
-# Windows image file caches
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+################################
+###  Windows                 ###
+################################
+
+# Windows thumbnail cache files
 Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
 
 # Folder config file
-Desktop.ini
-
-# Mac crap
-.DS_Store
+[Dd]esktop.ini
 
 ################################
-## PhpStorm
+###  JetBrains IDEs          ###
 ################################
 .idea
-atlassian-ide-plugin.xml
 
 ################################
-## Sublime Text
+###  Sublime Text            ###
 ################################
 *.sublime-workspace
 
 ################################
-## Frontend structure
+###  Visual Studio Code      ###
+################################
+.vscode
+
+################################
+###  Frontend                ###
 ################################
 _frontend/node_modules/
 _frontend/bower_components/

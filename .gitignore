@@ -44,7 +44,6 @@ ehthumbs_vista.db
 ###  Frontend                ###
 ################################
 _frontend/node_modules/
-_frontend/bower_components/
 _frontend/fractal/build/
 assets/css/main.css
 assets/js/app.js

@@ -31,9 +31,9 @@ let scriptsTask = function () {
             exclude: /(node_modules|bower_components)/,
             loader: 'babel-loader',
             options: {
-              presets: [['env', { // babel-preset-env
+              presets: [['@babel/env', { // '@babel/preset-env'
                 // debug: true,
-                target: 'last 2 versions',
+                targets: 'last 2 versions',
               }]],
             },
             test: /\.js$/,

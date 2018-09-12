@@ -27,6 +27,27 @@ module.exports = {
     'sourceType': 'module',
   },
   'rules': {
+    'indent': [
+      'error', 2, {
+        'CallExpression': {
+          'arguments': 2,
+        },
+        'FunctionDeclaration': {
+          'body': 1,
+          'parameters': 2,
+        },
+        'FunctionExpression': {
+          'body': 1,
+          'parameters': 2,
+        },
+        'MemberExpression': 1,
+        'ObjectExpression': 1,
+        'SwitchCase': 1,
+        'ignoredNodes': [
+          'ConditionalExpression',
+        ],
+      },
+    ],
     'max-len': ['error', {
       code: 120,
       ignoreUrls: true,

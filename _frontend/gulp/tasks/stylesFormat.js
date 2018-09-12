@@ -1,7 +1,7 @@
 const gulp         = require('gulp');
-const csscomb      = require('gulp-csscomb');
 const handleErrors = require('../lib/handleErrors');
 const path         = require('path');
+const prettier     = require('gulp-prettier');
 
 let paths = {
   src: path.join(global.paths.assets.src, 'scss/!(abstracts|vendors)/**/*.scss'),
@@ -11,9 +11,8 @@ let paths = {
 let stylesFormatTask = function () {
   return gulp.src(paths.src, {base: paths.dest})
     .on('error', handleErrors)
-    .pipe(csscomb({
-      config: './.csscomb.json',
-      // verbose: true,
+    .pipe(prettier({
+      // config file can be found at _frontend/.prettierrc.js
     }))
     .pipe(gulp.dest(paths.dest));
 };

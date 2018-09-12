@@ -20,13 +20,13 @@ $(() => {
   window.dom.window.trigger('app:ready');
 });
 
-window.initClasses = function (context = window.dom.body, selector = 'module') {
+window.initClasses = function(context = window.dom.body, selector = 'module') {
   let attr = `data-${selector}`;
   let classes = selector === 'page' ? Pages : Modules;
   let items = context[0].querySelectorAll(`[${attr}]`);
   let styles = `background: ${selector === 'page' ? '#8bbeb2' : '#18314f'}; color: #fff; padding: 0 0.25em;`;
 
-  for (let i = 0; i < items.length; i++) { // ex: all [data-page]
+  for (let i = 0; i < items.length; i++) {
     let item = items[i]; // ex: [data-page="Home"]
     let list = item.getAttribute(attr).split(/\s+/); // ex: Home
 

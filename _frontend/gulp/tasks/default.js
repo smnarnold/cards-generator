@@ -1,9 +1,13 @@
-var gulp        = require('gulp');
-var runSequence = require('run-sequence');
+const gulp        = require('gulp');
+const colors      = require('colors/safe');
+const log         = require('fancy-log');
+const runSequence = require('run-sequence');
 
-var defaultTask = function (cb) {
-    global.production = false;
-    runSequence('stylesComb', 'stylesLint', 'styles', 'scriptsLint', 'scripts' + global.bundler, 'watch', cb);
+let defaultTask = function (cb) {
+  global.production = false;
+  log(`Building in '${colors.cyan(`development`)}' mode`);
+  runSequence.options.showErrorStackTrace = false;
+  runSequence('stylesFormat', 'stylesLint', 'styles', 'scriptsFormat', 'scriptsLint', 'scripts', 'browserSync', 'watch', cb);
 };
 
 gulp.task('default', defaultTask);

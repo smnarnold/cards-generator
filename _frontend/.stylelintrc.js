@@ -1,10 +1,23 @@
+/**
+ * .stylelintrc.js
+ * ===============
+ */
+
+let word = `[a-z0-9]+(?:-[a-z0-9]+)*`;
+let block = word;
+let element = `(?:__${word})*`;
+let modifier = `(?:--${word})?`;
+
 module.exports = {
-    "extends": [
-        "stylelint-config-standard",
-        "stylelint-config-sass-guidelines",
-    ],
-    "rules": {
-        "at-rule-no-unknown": null,
-        "max-nesting-depth": 3,
-    },
+  'extends': [
+    'stylelint-config-standard',
+    'stylelint-config-sass-guidelines',
+  ],
+  'rules': {
+    'color-named': ['never', {
+      'ignore': ['inside-function']
+    }],
+    'max-nesting-depth': 4,
+    'selector-class-pattern': `^${block}${element}${modifier}$`,
+  },
 };

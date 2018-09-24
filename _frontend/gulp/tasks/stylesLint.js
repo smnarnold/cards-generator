@@ -1,23 +1,26 @@
-var gulp          = require('gulp');
-var gulpStylelint = require('gulp-stylelint');
-var path          = require('path');
+const gulp          = require('gulp');
+const gulpif        = require('gulp-if');
+const gulpStylelint = require('gulp-stylelint');
+const path          = require('path');
 
-var paths = {
-    src: [
-        path.join(global.paths.assets.src, 'scss/!(bootstrap|vendors)/**/*.scss'),
-    ]
+let paths = {
+  src: path.join(global.paths.assets.src, 'scss/!(vendors)/**/*.scss'),
+  dest: path.join(global.paths.assets.src, 'scss'),
 };
 
-var stylesLintTask = function () {
-    return gulp.src(paths.src)
-        .pipe(gulpStylelint({
-            configFile: './.stylelintrc.js',
-            failAfterError: true,
-            reporters: [
-                {formatter: 'string', console: true},
-            ]
-        }));
+let stylesLintTask = function (mode = 'build') {
+  return gulp.src(paths.src)
+    .pipe(gulpStylelint({
+      configFile: './.stylelintrc.js',
+      failAfterError: mode === 'build',
+      fix: mode === 'build',
+      reporters: [
+        {formatter: 'string', console: true},
+      ]
+    }))
+    .pipe(gulpif(mode === 'build', gulp.dest(paths.dest)));
 };
 
-gulp.task('stylesLint', stylesLintTask);
+gulp.task('stylesLint', () => stylesLintTask('build'));
+gulp.task('stylesLintWatch', () => stylesLintTask('watch'));
 module.exports = stylesLintTask;

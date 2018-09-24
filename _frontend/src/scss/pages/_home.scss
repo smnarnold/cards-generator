@@ -1,31 +1,31 @@
 [data-page='Home'] {
-  background: #f00;
+  background: #00f;
 }
 
-// Large devices (desktops, less than 1200px)
-@include media-breakpoint-down(lg) {
-  [data-page='Home'] {
-    background: #ffa500;
-  }
-}
-
-// Medium devices (tablets, less than 992px)
-@include media-breakpoint-down(md) {
-  [data-page='Home'] {
-    background: #ff0;
-  }
-}
-
-// Small devices (landscape phones, less than 768px)
-@include media-breakpoint-down(sm) {
+// Small devices (landscape phones, 576px and up)
+@include media-breakpoint-up(sm) {
   [data-page='Home'] {
     background: #008000;
   }
 }
 
-// Extra small devices (portrait phones, less than 576px)
-@include media-breakpoint-down(xs) {
+// Medium devices (tablets, 768px and up)
+@include media-breakpoint-up(md) {
   [data-page='Home'] {
-    background: #00f;
+    background: #ff0;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@include media-breakpoint-up(lg) {
+  [data-page='Home'] {
+    background: #ffa500;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@include media-breakpoint-up(xl) {
+  [data-page='Home'] {
+    background: #f00;
   }
 }

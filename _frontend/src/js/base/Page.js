@@ -1,33 +1,31 @@
-import ua from 'ua-parser-js';
-import responsiveHelper from './../helpers/responsiveHelper';
+import UAParser from 'ua-parser-js';
+import responsiveHelper from './../helpers/responsive';
 
 export default class Page {
-    constructor(el) {
+  constructor(el) {
+    this.dom = $.extend({}, window.dom, {
+      el: el,
+    });
 
-        //-- Properties
-        //--------------------------------------------------------------
-        this.dom = $.extend({}, window.dom, {
-            el: el
-        });
+    this.parser = new UAParser().getResult();
+  }
 
-        this.ua = new ua().getResult();
-    }
+  init() {
+    this.setDeviceType();
+  }
 
-    init() {
-        this.setDeviceType();
-    }
+  setDeviceType() {
+    let browser = this.parser.browser.name.toLowerCase();
+    let os = this.parser.os.name.toLowerCase();
 
-    setDeviceType() {
-        this.dom.html.addClass(this.ua.os.name.toLowerCase())
-            .addClass(this.ua.browser.name.toLowerCase());
-    }
+    this.dom.html.addClass(browser).addClass(os);
+  }
 
-    bindEvents() {
-        this.dom.window.on('breakpointChange', (e, breakpoint) => this.onBreakpointChange(breakpoint));
-    }
+  bindEvents() {
+    this.dom.window.on('breakpointChange', () => this.logBreakpoint());
+  }
 
-    // eslint-disable-next-line no-unused-vars
-    onBreakpointChange(breakpoint) {
-        console.log(`%cBootstrap: ${responsiveHelper.breakpoint}`, 'background: #573e7d; color: #fff; padding: 0 .5em;');
-    }
+  logBreakpoint() {
+    console.log(`%cBootstrap: ${responsiveHelper.breakpoint}`, 'background: #573e7d; color: #fff; padding: 0 .5em;');
+  }
 }

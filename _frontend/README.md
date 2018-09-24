@@ -1,25 +1,33 @@
 # Sid Lee - Frontend Structure
 
 ## Requirements
-- [NodeJS 6.x LTS](https://nodejs.org/en/)
-- `npm install gulp-cli -g`
+- [NodeJS 8.x LTS](https://nodejs.org/en/)
+- `npm install -g gulp-cli`
+- `npm install -g @frctl/fractal`
 
-## Installing
-	npm install
+## Installing packages
+- `npm install`
 
-## Start Development
-    gulp
+## Start development
+- `gulp` (or `npm run development`)
     
-## Create Deployment build
-    gulp deploy
-	
-## Sass Architecture
-- [Sass Guidelines Architecture](https://sass-guidelin.es/#architecture)
+## Create production build
+- `gulp production` (or `npm run production`)
+
+## Start Fractal in development mode
+- `npm run fractal`
+
+## Create Fractal build
+- `npm run fractal-build`
     
-## Frontend Suggested Framework
-- [Boostrap 4](https://v4-alpha.getbootstrap.com/)
-    - Core variables and mixins
-    - Core CSS
+## PNG and JPEG image compression
+- `gulp tinypng` (or `npm run tinypng`)
+
+## Frontend guidelines
+- [Sass guidelines](src/scss/README.md)
     
-## jQuery
+## Frontend suggested vendors
+- [Bootstrap 4.x](https://getbootstrap.com/)
+    - Bootstrap Grid only
 - [jQuery 3.x](https://code.jquery.com/)
+- [Normalize 8.x](https://necolas.github.io/normalize.css/)

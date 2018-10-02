@@ -6,11 +6,17 @@
 $s: 0.3s;
 
 $palettes: (
+  black: (
+    base: #000,
+  ),
   grey: (
-    light: #bfbfbf,
-    base: #7f7f7f,
     dark: #404040,
-  )
+    base: #7f7f7f,
+    light: #bfbfbf,
+  ),
+  white: (
+    base: #fff,
+  ),
 );
 
 $fonts: (

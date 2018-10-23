@@ -1,6 +1,6 @@
 import { throttle } from 'throttle-debounce';
 
-let possibleBreakpointsList = ['xs', 'sm', 'md', 'lg', 'xl'];
+const possibleBreakpointsList = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 class Responsive {
   constructor() {
@@ -45,35 +45,35 @@ class Responsive {
   }
 
   isBreakpointGreaterThan(compareToBreakpoint) {
-    let compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
+    const compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
     if (compareIndex === -1) return false;
 
-    let currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
+    const currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
     return currentIndex > compareIndex;
   }
 
   isBreakpointSmallerThan(compareToBreakpoint) {
-    let compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
+    const compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
     if (compareIndex === -1) return false;
 
-    let currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
+    const currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
     return currentIndex < compareIndex;
   }
 
   isBreakpointGreaterOrEqualTo(compareToBreakpoint) {
-    let compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
+    const compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
     if (compareIndex === -1) return false;
 
-    let currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
+    const currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
 
     return currentIndex >= compareIndex;
   }
 
   isBreakpointSmallerOrEqualTo(compareToBreakpoint) {
-    let compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
+    const compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
     if (compareIndex === -1) return false;
 
-    let currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
+    const currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
     return currentIndex <= compareIndex;
   }
 }

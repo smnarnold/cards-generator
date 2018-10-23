@@ -21,17 +21,17 @@ $(() => {
 });
 
 window.initClasses = function(context = window.dom.body, selector = 'module') {
-  let attr = `data-${selector}`;
-  let classes = selector === 'page' ? Pages : Modules;
-  let items = context[0].querySelectorAll(`[${attr}]`);
-  let styles = `background: ${selector === 'page' ? '#8bbeb2' : '#18314f'}; color: #fff; padding: 0 0.25em;`;
+  const attr = `data-${selector}`;
+  const classes = selector === 'page' ? Pages : Modules;
+  const items = context[0].querySelectorAll(`[${attr}]`);
+  const styles = `background: ${selector === 'page' ? '#8bbeb2' : '#18314f'}; color: #fff; padding: 0 0.25em;`;
 
   for (let i = 0; i < items.length; i++) {
-    let item = items[i]; // ex: [data-page="Home"]
-    let list = item.getAttribute(attr).split(/\s+/); // ex: Home
+    const item = items[i]; // ex: [data-page="Home"]
+    const list = item.getAttribute(attr).split(/\s+/); // ex: Home
 
     for (let j = 0; j < list.length; j++) {
-      let name = list[j];
+      const name = list[j];
 
       if (classes[name] !== undefined) {
         console.log(`%c✔️${name}%O`, styles, { el: item });

@@ -15,8 +15,8 @@ export default class Page {
   }
 
   setDeviceType() {
-    let browser = this.parser.browser.name.toLowerCase();
-    let os = this.parser.os.name.toLowerCase();
+    const browser = this.parser.browser.name.toLowerCase();
+    const os = this.parser.os.name.toLowerCase();
 
     this.dom.html.addClass(browser).addClass(os);
   }

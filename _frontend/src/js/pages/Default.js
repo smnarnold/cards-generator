@@ -1,10 +1,12 @@
-import Page from '../base/Page';
+import Page from './Page';
 
 export default class extends Page {
   constructor(el) {
     super(el);
 
-    this.dom = $.extend({}, this.dom, {});
+    this.dom = {
+      ...this.dom,
+    };
   }
 
   init() {

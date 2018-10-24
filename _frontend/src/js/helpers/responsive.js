@@ -1,81 +1,86 @@
-import { throttle } from 'throttle-debounce';
+import { debounce } from 'throttle-debounce';
 
-const possibleBreakpointsList = ['xs', 'sm', 'md', 'lg', 'xl'];
+const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-class Responsive {
+export class Responsive {
   constructor() {
-    this.breakpoint = null;
-    this.eventName = 'breakpointChange';
-
-    this.__private = {
-      window: window.jQuery(window),
-      body: window.jQuery(window.document.body),
-      dummyDiv: window.jQuery(window.document.createElement('div')),
+    this._dom = {
+      ...window.dom,
+      dummyDiv: window.document.createElement('div'),
     };
 
-    this.__detectBreakpoint(false);
-    this.__private.window.on('resize', throttle(100, () => this.__detectBreakpoint(true)));
-    this.__private.window.on('app:ready', () => this.__private.window.trigger(this.eventName, this.breakpoint));
+    this._currentBreakpoint = null;
+
+    this._bindEvents();
   }
 
-  __detectBreakpoint(triggerEvent) {
-    this.__private.dummyDiv.appendTo(this.__private.body);
+  // getter / setter
 
-    let vpSize = null;
+  get breakpoint() {
+    return this._currentBreakpoint;
+  }
 
-    for (let i = possibleBreakpointsList.length - 1; i >= 0; i--) {
-      vpSize = possibleBreakpointsList[i];
+  // private methods
 
-      this.__private.dummyDiv.attr('class', `d-${vpSize}-none`);
+  _bindEvents() {
+    window.addEventListener('app:ready', () => this._detectBreakpoint());
+    window.addEventListener('resize', debounce(300, () => this._detectBreakpoint()));
+  }
 
-      if (this.__private.dummyDiv.is(':hidden')) {
-        break;
-      }
+  _detectBreakpoint() {
+    let breakpoint = null;
+
+    this._dom.body.appendChild(this._dom.dummyDiv);
+
+    for (let i = breakpoints.length - 1; i >= 0; i--) {
+      breakpoint = breakpoints[i];
+      this._dom.dummyDiv.className = `d-${breakpoint}-none`;
+      if (window.getComputedStyle(this._dom.dummyDiv).display === 'none') break;
     }
 
-    this.__private.dummyDiv.detach();
+    this._dom.body.removeChild(this._dom.dummyDiv);
 
-    if (this.breakpoint !== vpSize) {
-      this.breakpoint = vpSize;
-
-      if (triggerEvent) {
-        this.__private.window.trigger(this.eventName, this.breakpoint);
-      }
+    if (this._currentBreakpoint !== breakpoint) {
+      this._currentBreakpoint = breakpoint;
+      this._dispatchBreakpoint();
     }
   }
 
-  isBreakpointGreaterThan(compareToBreakpoint) {
-    const compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
-    if (compareIndex === -1) return false;
-
-    const currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
-    return currentIndex > compareIndex;
+  _dispatchBreakpoint() {
+    window.dispatchEvent(new CustomEvent('breakpoint:change', { detail: this._currentBreakpoint }));
   }
 
-  isBreakpointSmallerThan(compareToBreakpoint) {
-    const compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
+  // public methods
+
+  isGreaterOrEqualTo(compareToBreakpoint) {
+    const compareIndex = breakpoints.indexOf(compareToBreakpoint);
     if (compareIndex === -1) return false;
 
-    const currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
-    return currentIndex < compareIndex;
-  }
-
-  isBreakpointGreaterOrEqualTo(compareToBreakpoint) {
-    const compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
-    if (compareIndex === -1) return false;
-
-    const currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
-
+    const currentIndex = breakpoints.indexOf(this._currentBreakpoint);
     return currentIndex >= compareIndex;
   }
 
-  isBreakpointSmallerOrEqualTo(compareToBreakpoint) {
-    const compareIndex = possibleBreakpointsList.indexOf(compareToBreakpoint);
+  isGreaterThan(compareToBreakpoint) {
+    const compareIndex = breakpoints.indexOf(compareToBreakpoint);
     if (compareIndex === -1) return false;
 
-    const currentIndex = possibleBreakpointsList.indexOf(this.breakpoint);
+    const currentIndex = breakpoints.indexOf(this._currentBreakpoint);
+    return currentIndex > compareIndex;
+  }
+
+  isSmallerOrEqualTo(compareToBreakpoint) {
+    const compareIndex = breakpoints.indexOf(compareToBreakpoint);
+    if (compareIndex === -1) return false;
+
+    const currentIndex = breakpoints.indexOf(this._currentBreakpoint);
     return currentIndex <= compareIndex;
   }
-}
 
-export default new Responsive();
+  isSmallerThan(compareToBreakpoint) {
+    const compareIndex = breakpoints.indexOf(compareToBreakpoint);
+    if (compareIndex === -1) return false;
+
+    const currentIndex = breakpoints.indexOf(this._currentBreakpoint);
+    return currentIndex < compareIndex;
+  }
+}

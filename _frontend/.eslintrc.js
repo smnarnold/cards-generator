@@ -23,7 +23,7 @@ module.exports = {
     'initClasses': true,
   },
   'parserOptions': {
-    'ecmaVersion': 2015,
+    'ecmaVersion': 2018,
     'sourceType': 'module',
   },
   'rules': {

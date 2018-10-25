@@ -1,9 +1,14 @@
 /**
- * variables
+ * Variables
  * =========
  */
 
 $s: 0.3s;
+
+$fonts: (
+  sans-serif: #{'Helvetica Neue', 'Helvetica', 'Arial', sans-serif },
+  serif: #{ 'Georgia', 'Times', 'Times New Roman', serif }
+);
 
 $palettes: (
   black: (
@@ -19,7 +24,13 @@ $palettes: (
   ),
 );
 
-$fonts: (
-  sans-serif: #{ helvetica, arial, sans-serif },
-  serif: #{ Georgia, Times, serif }
+$themes: (
+  dark: (
+    background-color: #000,
+    color: #fff,
+  ),
+  light: (
+    background-color: #fff,
+    color: #000,
+  ),
 );

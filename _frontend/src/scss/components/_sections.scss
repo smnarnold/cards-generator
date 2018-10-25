@@ -1,0 +1,12 @@
+.section {
+  padding: 100px 5px;
+
+  // combining paddings when two section have the same theme
+  @each $theme, $map in $themes {
+    &.theme--#{$theme} {
+      & + & {
+        padding-top: 0;
+      }
+    }
+  }
+}

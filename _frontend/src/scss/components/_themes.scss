@@ -1,0 +1,9 @@
+.theme {
+  @each $theme, $map in $themes {
+    &--#{$theme} {
+      @each $property, $value in $map {
+        #{$property}: #{$value};
+      }
+    }
+  }
+}

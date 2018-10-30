@@ -7,9 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="Sid Lee">
   <!--<meta name="description" content="Short description of the document (limit to 150 characters)">-->
-  <meta name="googlebot" content="index,follow">
   <!--<meta name="keywords" content="your document's keywords">-->
-  <meta name="robots" content="index,follow">
   <!--<meta name="subject" content="your document's subject">-->
 
   <!-- Title -->
@@ -52,17 +50,45 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/main.css?v=20181024T193850Z"/>
 </head>
-<body>
-  <div data-page="Default">
-    <header class="site-header"></header>
-    <section class="section theme theme--light">
+<body class="debug">
+  <div data-page="Default" class="page">
+    <header data-module="SiteHeader" class="site-header theme theme--dark">
       <div class="container">
         <h1>Frontend Structure</h1>
       </div>
-    </section>
+    </header>
     <section class="section theme theme--light">
       <div class="container">
-        <div data-module="Example">Module Example</div>
+        <h2>Components</h2>
+        <p>Bootstrap Grid, Lodash & Normalize</p>
+        <h2>Softwares</h2>
+        <p>Babel, Eslint, Fractal, Gulp, Sass, Stylelint & Webpack</p>
+        <h2>Standards</h2>
+        <p>CSS3, ES6 & HTML5</p>
+        <h2>Style guides</h2>
+        <h3>SCSS</h3>
+        <ul>
+          <li>
+            based on the <a href="https://sass-guidelin.es/#the-7-1-pattern" target="_blank">7-1 Pattern</a>
+            from <a href="https://sass-guidelin.es/" target="_blank">Sass Guidelines</a>
+            and <a href="https://cssguidelin.es/" target="_blank">CSS Guidelines</a>
+          </li>
+        </ul>
+        <h3>JS</h3>
+        <ul>
+          <li>
+            based on
+            <a href="https://google.github.io/styleguide/jsguide.html" target="_blank">
+              Google JavaScript Style Guide
+            </a>
+          </li>
+          <li>
+            html module declaration: data-module="ModuleName"
+          </li>
+          <li>
+            html page declaration: data-page="PageName"
+          </li>
+        </ul>
       </div>
     </section>
     <footer class="site-footer"></footer>

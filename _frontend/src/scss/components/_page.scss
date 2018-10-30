@@ -1,31 +1,31 @@
-[data-page='Home'] {
+.page {
   //
 }
 
 // Small devices (landscape phones, 576px and up)
 @include media-breakpoint-up(sm) {
-  [data-page='Home'] {
+  .page {
     //
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @include media-breakpoint-up(md) {
-  [data-page='Home'] {
+  .page {
     //
   }
 }
 
 // Large devices (desktops, 992px and up)
 @include media-breakpoint-up(lg) {
-  [data-page='Home'] {
+  .page {
     //
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @include media-breakpoint-up(xl) {
-  [data-page='Home'] {
+  .page {
     //
   }
 }

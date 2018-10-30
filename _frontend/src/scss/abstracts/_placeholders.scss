@@ -4,29 +4,31 @@
  * They're meant to be used with the @extend directive.
  * On their own, without any use of @extend, rulesets that use placeholder selectors will not be rendered to CSS.
  *
- * Table of contents
- * -----------------
- *  1) Accessibility
- *     |– sr-only
- *     |– sr-only-focusable
- *  2) Components
- *     |– button-close
-  *    |– button-play
- *     |– overlay
- *  3) Elements
- *     |– blockquote
- *  4) Margins & Paddings
- *     |– children-margin
- *  5) Ratios
- *     |– ratio-16-9
- *     |– ratio-4-3
- *     |– ratio-3-2
- *     |– ratio-8-5
- *  6) Resets
- *     |– reset-button
- *     |– reset-list
- *  7) Typography
- *     |– ellipsis
+ * 1) Accessibility
+ *    |– sr-only
+ *    |– sr-only-focusable
+ * 2) Components
+ *    |– button-close
+ *    |– button-play
+ *    |– overlay
+ *    |– ratio-16-9
+ *    |– ratio-3-2
+ *    |– ratio-4-3
+ *    |– ratio-8-5
+ * 3) Elements
+ *    |– blockquote
+ *    |– headings
+ *    |– list (ol, ul)
+ *    |– paragraph
+ * 4) Resets
+ *    |– reset-button
+ *    |– reset-list
+ * 5) Spacings
+ *    |– children-margin
+ *    |– margin-ends
+ * 6) Typography
+ *    |– ellipsis
+ *    |– uppercase
  */
 
 // 1) Accessibility
@@ -64,7 +66,7 @@
   display: block;
   height: 40px;
   transform: scale(1);
-  transition: transform $s ease;
+  transition: transform $duration ease;
   width: 40px;
 
   &::before,
@@ -106,7 +108,7 @@
 
     content: '';
     pointer-events: none;
-    transition: opacity $s, transform $s;
+    transition: opacity $duration, transform $duration;
   }
 
   &::before {
@@ -132,50 +134,10 @@
   left: 0;
   position: absolute;
   top: 0;
-  transition: opacity $s cubic-bezier(0, 0, 0.3, 1);
+  transition: opacity $duration cubic-bezier(0, 0, 0.3, 1);
   width: 100%;
   will-change: opacity;
 }
-
-// 3) Elements
-
-%blockquote {
-  text-indent: -0.35em; // hanging-punctuation
-
-  &::before {
-    content: '“';
-  }
-
-  &::after {
-    content: '”';
-  }
-
-  [lang='fr'] & {
-    &::before {
-      content: '«';
-    }
-
-    &::after {
-      content: '»';
-    }
-  }
-}
-
-// 4) Margins & Paddings
-
-%children-margin {
-  > * {
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-// 5) Ratios
 
 %ratio-16-9,
 %ratio-4-3,
@@ -215,7 +177,58 @@
   padding-bottom: 62.5%;
 }
 
-// 6) Resets
+// 3) Elements
+
+%blockquote {
+  text-indent: -0.35em; // hanging-punctuation
+
+  &::before {
+    content: '“';
+  }
+
+  &::after {
+    content: '”';
+  }
+
+  [lang='fr'] & {
+    &::before {
+      content: '«';
+    }
+
+    &::after {
+      content: '»';
+    }
+  }
+}
+
+%headings {
+  @extend %margin-ends;
+
+  letter-spacing: -0.03em; // horizontal rhythm (-3 to -5% recommanded)
+}
+
+%list {
+  line-height: line(1);
+  list-style-position: outside; // hanging-punctuation
+  margin-bottom: line(1);
+  margin-top: line(0);
+  padding-left: 0;
+}
+
+%paragraph {
+  @extend %margin-ends;
+
+  line-height: line(1);
+  margin-bottom: line(1);
+  margin-top: line(0);
+
+  &:empty {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+// 4) Resets
 
 %reset-button {
   appearance: none;
@@ -239,7 +252,31 @@
   position: relative;
 }
 
-// 7) Typography
+// 5) Spacings
+
+%children-margin {
+  > * {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+%margin-ends {
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// 6) Typography
 
 %ellipsis {
   display: inline-block;
@@ -248,4 +285,9 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
+}
+
+%uppercase {
+  letter-spacing: 0.05em; // horizontal rhythm (5 to 10% recommanded)
+  text-transform: uppercase;
 }

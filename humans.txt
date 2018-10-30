@@ -9,5 +9,5 @@ Location: Montreal, Canada.
 
 /* SITE */
 Standards: CSS3, ES6, HTML5
-Components: Bootstrap, jQuery, Normalize
-Softwares: Babel, Eslint, Fractal, Gulp, Stylelint, Webpack
+Components: Bootstrap Grid, Lodash, Normalize
+Softwares: Babel, Eslint, Fractal, Gulp, Sass, Stylelint, Webpack

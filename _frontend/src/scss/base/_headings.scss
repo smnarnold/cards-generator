@@ -1,0 +1,9 @@
+@each $heading, $properties in $headings {
+  #{$heading} {
+    @extend %headings;
+
+    @include heading($properties);
+
+    font-family: font(serif);
+  }
+}

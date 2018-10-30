@@ -1,15 +1,14 @@
 /**
  * Mixins
  * ======
- *
- * Table of contents
- * -----------------
- *  1) Animations
- *     |– fade
- *  2) Positions
- *     |– center
- *  3) Shapes
- *     |– triangle
+ * 1) Animations
+ *    |– fade
+ * 2) Elements
+ *    |– heading
+ * 3) Positions
+ *    |– center
+ * 4) Shapes
+ *    |– triangle
  */
 
 // 1) Animations
@@ -40,7 +39,16 @@
   }
 }
 
-// 2) Positions
+// 2) Elements
+
+@mixin heading($properties) {
+  font-size: ms(nth($properties, 1)); // modular scale
+  line-height: line(nth($properties, 2));
+  margin-bottom: line(nth($properties, 4));
+  margin-top: line(nth($properties, 3));
+}
+
+// 3) Positions
 
 @mixin center($position: 'both') {
   position: absolute;
@@ -66,7 +74,7 @@
   }
 }
 
-// 3) Shapes
+// 4) Shapes
 
 @mixin triangle($direction, $width, $height, $color) {
   @if not index('up' 'up-right' 'right' 'down-right' 'down' 'down-left' 'left' 'up-left', $direction) {

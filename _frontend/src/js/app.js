@@ -2,12 +2,11 @@ import './helpers/polyfills';
 import isArray from 'lodash/isArray';
 
 const Modules = {
-  Example: require('./modules/Example').default,
+  SiteHeader: require('./modules/SiteHeader').default,
 };
 
 const Pages = {
   Default: require('./pages/Default').default,
-  Home: require('./pages/Home').default,
 };
 
 window.dom = {

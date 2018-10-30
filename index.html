@@ -4,45 +4,97 @@
   <!-- Metas -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Home</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="Sid Lee">
+  <!--<meta name="description" content="Short description of the document (limit to 150 characters)">-->
+  <!--<meta name="keywords" content="your document's keywords">-->
+  <!--<meta name="subject" content="your document's subject">-->
 
-  <!-- Opengraph / Twitter card -->
-  <meta name="twitter:card" content="summary">
-  <!--<meta name="twitter:site" content="@user" />-->
-  <!--<meta property="og:title" name="twitter:title" content="Title" />-->
-  <!--<meta property="og:description" name="twitter:description" content="Description" />-->
-  <meta property="og:type" content="website">
-  <!--<meta property="og:image" name="twitter:image" content="./" />-->
-  <!--<meta property="og:url" content="./" />-->
+  <!-- Title -->
+  <title>Home</title>
 
-  <!-- Favicons (Generated with RealFaviconGenerator) -->
+  <!-- Icons (Generated with RealFaviconGenerator) -->
   <!--<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">-->
   <!--<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">-->
   <!--<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">-->
   <!--<link rel="manifest" href="/assets/img/favicon/site.webmanifest">-->
-  <!--<link rel="mask-icon" href="/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">-->
+  <!--<link rel="mask-icon" href="/assets/img/favicon/safari-pinned-tab.svg" color="#000000">-->
   <!--<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico">-->
-  <!--<meta name="msapplication-TileColor" content="#da532c">-->
+  <!--<meta name="msapplication-TileColor" content="#000000">-->
   <!--<meta name="msapplication-config" content="/assets/img/favicon/browserconfig.xml">-->
   <!--<meta name="theme-color" content="#ffffff">-->
 
-  <link type="text/plain" rel="author" href="/humans.txt"/>
+  <!-- Facebook Open Graph -->
+  <!--<meta property="fb:app_id" content="123456789">-->
+  <!--<meta property="og:url" content="https://example.com/page.html">-->
+  <!--<meta property="og:type" content="website">-->
+  <!--<meta property="og:title" content="Content Title">-->
+  <!--<meta property="og:image" content="https://example.com/image.jpg">-->
+  <!--<meta property="og:description" content="Description Here">-->
+  <!--<meta property="og:site_name" content="Site Name">-->
+  <!--<meta property="og:locale" content="en_US">-->
+  <!--<meta property="article:author" content="">-->
+
+  <!-- Twitter Card -->
+  <!--<meta name="twitter:card" content="summary">-->
+  <!--<meta name="twitter:site" content="@site_account">-->
+  <!--<meta name="twitter:creator" content="@individual_account">-->
+  <!--<meta name="twitter:url" content="https://example.com/page.html">-->
+  <!--<meta name="twitter:title" content="Content Title">-->
+  <!--<meta name="twitter:description" content="Content description less than 200 characters">-->
+  <!--<meta name="twitter:image" content="https://example.com/image.jpg">-->
+
+  <!-- Links -->
+  <link rel="author" href="/humans.txt">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/main.css?v=20180612T174855Z"/>
+  <link rel="stylesheet" href="/assets/css/main.css?v=20181024T193850Z"/>
 </head>
-<body>
-  <div data-page="Home">
-    Home
-    <div data-module="Example">
-      Example
-    </div>
+<body class="debug">
+  <div data-page="Default" class="page">
+    <header data-module="SiteHeader" class="site-header theme theme--dark">
+      <div class="container">
+        <h1>Frontend Structure</h1>
+      </div>
+    </header>
+    <section class="section theme theme--light">
+      <div class="container">
+        <h2>Components</h2>
+        <p>Bootstrap Grid, Lodash & Normalize</p>
+        <h2>Softwares</h2>
+        <p>Babel, Eslint, Fractal, Gulp, Sass, Stylelint & Webpack</p>
+        <h2>Standards</h2>
+        <p>CSS3, ES6 & HTML5</p>
+        <h2>Style guides</h2>
+        <h3>SCSS</h3>
+        <ul>
+          <li>
+            based on the <a href="https://sass-guidelin.es/#the-7-1-pattern" target="_blank">7-1 Pattern</a>
+            from <a href="https://sass-guidelin.es/" target="_blank">Sass Guidelines</a>
+            and <a href="https://cssguidelin.es/" target="_blank">CSS Guidelines</a>
+          </li>
+        </ul>
+        <h3>JS</h3>
+        <ul>
+          <li>
+            based on
+            <a href="https://google.github.io/styleguide/jsguide.html" target="_blank">
+              Google JavaScript Style Guide
+            </a>
+          </li>
+          <li>
+            html module declaration: data-module="ModuleName"
+          </li>
+          <li>
+            html page declaration: data-page="PageName"
+          </li>
+        </ul>
+      </div>
+    </section>
+    <footer class="site-footer"></footer>
   </div>
 
   <!-- JS -->
-  <script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="/assets/js/app.js?v=20180612T174855Z"></script>
+  <script src="/assets/js/app.js?v=20181024T193850Z"></script>
 </body>
 </html>

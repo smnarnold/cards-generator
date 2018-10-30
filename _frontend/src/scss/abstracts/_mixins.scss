@@ -1,4 +1,135 @@
 /**
- * mixins
+ * Mixins
  * ======
+ * 1) Animations
+ *    |– fade
+ * 2) Elements
+ *    |– heading
+ * 3) Positions
+ *    |– center
+ * 4) Shapes
+ *    |– triangle
  */
+
+// 1) Animations
+
+@mixin fade($type, $duration: 1s, $delay: 0s) {
+  @if not index('in' 'out', $type) {
+    @error 'Type must be `in` or `out`.';
+  }
+
+  @else if type-of($duration) != 'number' {
+    @error 'Duraction must be a number.';
+  }
+
+  @else if type-of($delay) != 'number' {
+    @error 'Delay must be a number.';
+  }
+
+  @if $type == 'in' {
+    opacity: 1;
+    transition: opacity $duration $delay, visibility 0s;
+    visibility: visible;
+  }
+
+  @else if $type == 'out' {
+    opacity: 0;
+    transition: opacity $duration, visibility 0s $duration;
+    visibility: hidden;
+  }
+}
+
+// 2) Elements
+
+@mixin heading($properties) {
+  font-size: ms(nth($properties, 1)); // modular scale
+  line-height: line(nth($properties, 2));
+  margin-bottom: line(nth($properties, 4));
+  margin-top: line(nth($properties, 3));
+}
+
+// 3) Positions
+
+@mixin center($position: 'both') {
+  position: absolute;
+
+  @if not index('both' 'horizontal' 'vertical', $position) {
+    @error 'Position must be `both`, `horizontal` or `vertical`.';
+  }
+
+  @if $position == 'both' {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @else if $position == 'horizontal' {
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  @else if $position == 'vertical' {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+// 4) Shapes
+
+@mixin triangle($direction, $width, $height, $color) {
+  @if not index('up' 'up-right' 'right' 'down-right' 'down' 'down-left' 'left' 'up-left', $direction) {
+    @error 'Direction must be `up`, `up-right`, `right`, `down-right`, ' +
+      '`down`, `down-left`, `left` or `up-left`.';
+  }
+
+  @else if type-of($color) != 'color' {
+    @error '`#{$color}` is not a valid color for the `$color` argument in ' +
+      'the `triangle` mixin.';
+  }
+
+  @else {
+    border-style: solid;
+    height: 0;
+    width: 0;
+
+    @if $direction == 'up' {
+      border-color: transparent transparent $color;
+      border-width: 0 ($width / 2) $height;
+    }
+
+    @else if $direction == 'up-right' {
+      border-color: transparent $color transparent transparent;
+      border-width: 0 $width $width 0;
+    }
+
+    @else if $direction == 'right' {
+      border-color: transparent transparent transparent $color;
+      border-width: ($height / 2) 0 ($height / 2) $width;
+    }
+
+    @else if $direction == 'down-right' {
+      border-color: transparent transparent $color;
+      border-width: 0 0 $width $width;
+    }
+
+    @else if $direction == 'down' {
+      border-color: $color transparent transparent;
+      border-width: $height ($width / 2) 0;
+    }
+
+    @else if $direction == 'down-left' {
+      border-color: transparent transparent transparent $color;
+      border-width: $width 0 0 $width;
+    }
+
+    @else if $direction == 'left' {
+      border-color: transparent $color transparent transparent;
+      border-width: ($height / 2) $width ($height / 2) 0;
+    }
+
+    @else if $direction == 'up-left' {
+      border-color: $color transparent transparent;
+      border-width: $width $width 0 0;
+    }
+  }
+}

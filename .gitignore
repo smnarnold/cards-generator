@@ -1,6 +1,18 @@
 ################################
-###  macOS                   ###
+###  Frontend                ###
 ################################
+.env
+_frontend/fractal/build/
+_frontend/node_modules/
+assets/css/main.css
+assets/js/app.js
+
+
+################################
+###  Operating Systems       ###
+################################
+
+### macOS ###
 
 # General
 .DS_Store
@@ -10,9 +22,8 @@
 # Thumbnails
 ._*
 
-################################
-###  Windows                 ###
-################################
+
+### Windows ###
 
 # Windows thumbnail cache files
 Thumbs.db
@@ -25,25 +36,16 @@ ehthumbs_vista.db
 # Folder config file
 [Dd]esktop.ini
 
+
 ################################
-###  JetBrains IDEs          ###
+###  IDEs & code editors     ###
 ################################
+
+### JetBrains IDEs ###
 .idea
 
-################################
-###  Sublime Text            ###
-################################
+### Sublime Text ###
 *.sublime-workspace
 
-################################
-###  Visual Studio Code      ###
-################################
+### Visual Studio Code ###
 .vscode
-
-################################
-###  Frontend                ###
-################################
-_frontend/node_modules/
-_frontend/fractal/build/
-assets/css/main.css
-assets/js/app.js

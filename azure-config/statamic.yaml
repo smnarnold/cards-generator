@@ -1,0 +1,53 @@
+resources:
+- repo: self
+
+queue:
+  name: Hosted VS2017
+  demands:
+  - npm
+  - node.js
+  - azureps
+
+steps:
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    workingDir: '_frontend'
+    verbose: false
+
+- task: Gulp@0
+  displayName: 'gulp production'
+  inputs:
+    gulpFile: '_frontend/gulpfile.js'
+    targets: production
+
+- task: AzureFileCopy@1
+  displayName: 'AzureBlob File Copy'
+  inputs:
+    SourcePath: assets
+    azureSubscription: 'azureSubscription'
+    Destination: AzureBlob
+    storage: storage
+    ContainerName: assets
+
+- task: DeleteFiles@1
+  displayName: 'Delete unnecessary files'
+  inputs:
+    SourceFolder: .
+    Contents: |
+      .env
+      .git/**
+      _frontend/**
+      assets/**
+      azure-config/**
+
+- task: ArchiveFiles@2
+  displayName: 'Archive everything'
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: false
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'

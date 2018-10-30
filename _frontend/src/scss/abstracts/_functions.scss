@@ -1,19 +1,55 @@
 /**
- * functions
+ * Functions
  * =========
+ * 1) Colors
+ *    |– palette
+ * 2) Maths
+ *    |– pow (power)
+ * 3) Spacing
+ *    |– line
+ * 4) Typography
+ *    |– font
+ *    |– ms (modular scale)
  */
 
-// colors
-@function palette($color, $tone: 'base') {
-  @return map-get(map-get($palettes, $color), $tone);
+// 1) Colors
+
+@function palette($color, $tone: base) {
+  @return map-get(map-get($colors, $color), $tone);
 }
 
-// fonts
-@function font($style: 'sans-serif') {
+// 2) Maths
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number; //Multiply by $number if exponent less than zero
+    }
+  }
+
+  @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number; //Divide by $number if exponent less than zero
+    }
+  }
+
+  @return $value;
+}
+
+// 3) Spacing
+
+@function line($number, $line-font-size: $font-size, $line-line-height: $line-height) {
+  @return $number * $line-font-size * $line-line-height;
+}
+
+// 4) Typography
+
+@function font($style: sans-serif) {
   @return map-get($fonts, $style);
 }
 
-// gutters
-@function gutter($gutter, $dir: 'base') {
-  @return map-get(map-get($gutters, $gutter), $dir);
+@function ms($value, $ms-ratio: $ratio, $ms-base: $font-size) {
+  @return pow($ms-ratio, $value) * $ms-base;
 }

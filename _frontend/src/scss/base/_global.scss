@@ -1,6 +1,6 @@
 html,
 body {
-  background: #fff;
+  background-color: palette(white);
   height: 100%;
   margin: 0;
   padding: 0;
@@ -8,9 +8,9 @@ body {
 }
 
 html {
-  font: 400 10px/1.4 font(sans-serif);
+  font: 400 #{10px}/#{$line-height} font(sans-serif);
 }
 
 body {
-  font-size: 1.6rem; // 16px
+  font-size: $font-size;
 }

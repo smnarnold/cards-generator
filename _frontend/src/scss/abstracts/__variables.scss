@@ -1,25 +1,61 @@
 /**
- * variables
+ * Variables
  * =========
+ * 1) Animations
+ * 2) Colors
+ * 3) Typography
  */
 
-$s: 0.3s;
+// 1) Animations
 
-$palettes: (
+$duration: 0.3s;
+
+// 2) Colors
+
+$colors: (
   black: (
     base: #000,
   ),
   grey: (
-    dark: #404040,
-    base: #7f7f7f,
-    light: #bfbfbf,
+    dark: #333,
+    base: #808080,
+    light: #ccc,
   ),
   white: (
     base: #fff,
   ),
+  pink: (
+    base: #ebceca,
+  ),
 );
 
+$themes: (
+  dark: (
+    background-color: #000,
+    color: #fff,
+  ),
+  light: (
+    background-color: transparent,
+    color: #000,
+  ),
+);
+
+// 3) Typography
+
+$font-size: 1.6rem; // 16px
+$line-height: 1.5;
+$ratio: 1.414; // Augmented fourth (used in modular scale)
+
 $fonts: (
-  sans-serif: #{ helvetica, arial, sans-serif },
-  serif: #{ Georgia, Times, serif }
+  sans-serif: #{'Helvetica Neue', 'Helvetica', 'Arial', sans-serif },
+  serif: #{ 'Georgia', 'Times', 'Times New Roman', serif }
+);
+
+$headings: (
+  h1: (3, 3, 1, 1), // modular scale, line-height, margin-top, margin-bottom
+  h2: (2, 2, 2, 1),
+  h3: (1, 1.75, 1, 0.25),
+  h4: (1, 1, 1, 0),
+  h5: (0, 1, 1, 0),
+  h6: (-1, 1, 1, 0),
 );

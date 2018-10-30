@@ -1,11 +1,13 @@
-This website was built by Sid Lee and it's large team of designers, developers and others mainly in Montreal. If you'd like to help us out, see sidlee.com/en/careers.
+This website was built by Sid Lee and it's large team of designers, developers and others mainly in Montreal.
+If you'd like to help us out, see sidlee.com/en/careers.
 
 /* THE TEAM */
-  Company: Sid Lee
-  Website: sidlee.com
-  Contact: sidlee.com/en/contact
+Company: Sid Lee
+Site: sidlee.com
+Twitter: sidlee
+Location: Montreal, Canada.
 
-/* SITE DETAILS */
-  Standards: HTML5, CSS3, ES6
-  Components: jQuery
-  Softwares: Gulp, Babel, Webpack
+/* SITE */
+Standards: CSS3, ES6, HTML5
+Components: Bootstrap Grid, Lodash, Normalize
+Softwares: Babel, Eslint, Fractal, Gulp, Sass, Stylelint, Webpack

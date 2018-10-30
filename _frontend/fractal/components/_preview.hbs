@@ -3,22 +3,19 @@
 <head>
   <!-- Metas -->
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Title -->
   <title>{{ _target.context.title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Sid Lee">
-  <link type="text/plain" rel="author" href="/humans.txt"/>
 
   <!-- CSS -->
-  <link media="all" rel="stylesheet" href="{{ path '/assets/css/main.css' }}">
+  <link rel="stylesheet" href="{{ path '/assets/css/main.css' }}">
 </head>
 <body>
   {{{ yield }}}
 
-  <!-- CDN -->
-  <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-  <!-- Boot -->
+  <!-- JS -->
   <script src="{{ path '/assets/js/app.js' }}"></script>
 </body>
 </html>

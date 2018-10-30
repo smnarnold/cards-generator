@@ -1,10 +1,9 @@
-import Module from '../base/Module';
-
-export default class extends Module {
+export default class {
   constructor(el) {
-    super(el);
-
-    this.dom = $.extend({}, this.dom, {});
+    this.dom = {
+      ...window.dom,
+      el: el,
+    };
   }
 
   // -- Methods

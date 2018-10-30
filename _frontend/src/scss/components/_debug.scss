@@ -1,0 +1,5 @@
+// TODO FE: remove debug class in production
+.debug {
+  background: linear-gradient(to bottom, palette(pink) 1px, transparent 1px) repeat left top;
+  background-size: 100% $font-size * $line-height;
+}

@@ -8,7 +8,6 @@
   @return map-get(map-get($palettes, $palette), $tone);
 }
 
-// Gutter
-@function gutter($gutter, $dir: 'base') {
-  @return map-get(map-get($gutters, $gutter), $dir);
+@function size($value) {
+  @return calc( #{$value} * var(--scale) * (var(--dpi)/72) );
 }

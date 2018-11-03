@@ -1,1 +1,0 @@
-You can add notes here that are displayed at the bottom of the Fractal page.

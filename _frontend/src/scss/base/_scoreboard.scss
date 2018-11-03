@@ -1,0 +1,66 @@
+.scoreboard {
+  font-size: $fontHeading;
+  height: size(154px) + size($safezone) + size($margin);
+  padding-top: size($safezone + $margin);
+  padding-right: size($safezone);
+  padding-bottom: size($margin * 2);
+  padding-left: size($safezone);
+  position: relative;
+  width: 100%;
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    height: size(154px);
+    position: relative;
+    width: 100%;
+  }
+
+  &__cell {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 25%;
+  }
+
+  &__point {
+    $dimension: 151px;
+
+    align-items: center;
+    border-radius: 50%;
+    background: palette(yellow);
+    color: #000;
+    display: flex;
+    font-size: size(62.5px);
+    font-weight: bold;
+    height: size($dimension);
+    justify-content: center;
+    line-height: 0.8;
+    text-align: center;
+    width: size($dimension);
+
+    &.positive {
+      background: palette(green);
+      color: #fff;
+    }
+
+    &.negative {
+      background: palette(red);
+      color: #fff;
+    }
+
+    &.neutral {
+      background: #fff;
+      color: #000;
+    }
+
+    &.hole {
+      $dimension: 141px;
+
+      background: rgba(255,255,255,0.5);
+      width: size($dimension);
+      height: size($dimension);
+    }
+  }
+}

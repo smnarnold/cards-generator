@@ -1,0 +1,29 @@
+$margin: 35px;
+$safezone: 70px;
+
+.action {
+  background: palette(blue);
+  padding: size($margin * 2) size($safezone) size($safezone + $margin) size($safezone) ;
+
+  strong {
+    display: block;
+
+    margin-bottom: 0.5em;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  p {
+    margin: 0;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &.permanent {
+    background: palette(yellow);
+  }
+}

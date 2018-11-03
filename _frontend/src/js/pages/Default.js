@@ -1,24 +1,20 @@
-import Page from '../base/Page';
+import Page from './Page';
 
 export default class extends Page {
-    constructor(el) {
-        super(el);
+  constructor(el) {
+    super(el);
 
-        //-- Properties
-        //--------------------------------------------------------------
-        this.dom = $.extend({}, this.dom, {
+    this.dom = {
+      ...this.dom,
+    };
+  }
 
-        });
-    }
+  init() {
+    super.init();
+    this.bindEvents();
+  }
 
-    //-- Methods
-    //--------------------------------------------------------------
-    init() {
-        super.init();
-        this.bindEvents();
-    }
-
-    bindEvents() {
-        super.bindEvents();
-    }
+  bindEvents() {
+    super.bindEvents();
+  }
 }

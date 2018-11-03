@@ -1,0 +1,49 @@
+$cardW: 817px;
+$cardH: 1108px;
+$safezone: 70px;
+$margin: 35px;
+$fontBody: 48px;
+$fontHeading: 60px;
+
+#placeholder {
+  --dpi: 300;
+  --scale: 1;
+
+  padding: 5px;
+
+  &.preview {
+    --dpi: 72;
+    --scale: 0.3;
+  }
+}
+
+.card {
+  background: #000;
+  display: flex;
+  flex-flow: column;
+  font: size($fontBody) 'helvetica', 'arial', sans-serifs;
+  height: size(1108px);
+  justify-content: space-between;
+  overflow: hidden;
+  width: size(817px);
+  vertical-align: top;
+
+  .preview & {
+    display: inline-flex;
+    margin: 5px;
+  }
+}
+
+.name {
+  color: #fff;
+  flex: 1;
+  font-size: size($fontHeading);
+  font-weight: bold;
+  padding: 0 size($safezone) size($margin * 2) size($safezone);
+}
+
+canvas {
+  @extend %centered;
+
+  transform: scale(0.25);
+}

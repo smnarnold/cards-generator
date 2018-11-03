@@ -1,25 +1,18 @@
-# Sid Lee - Frontend Structure
+# Cards Generator
 
 ## Requirements
 - [NodeJS 6.x LTS](https://nodejs.org/en/)
 - `npm install gulp-cli -g`
+- `npm install yarn -g`
 
 ## Installing
-	npm install
+    `npm i`
 
 ## Start Development
-    gulp
+    `npm run start`
     
-## Create Deployment build
-    gulp deploy
-	
-## Sass Architecture
-- [Sass Guidelines Architecture](https://sass-guidelin.es/#architecture)
-    
-## Frontend Suggested Framework
-- [Boostrap 4](https://v4-alpha.getbootstrap.com/)
-    - Core variables and mixins
-    - Core CSS
+## Create Production build
+    `npm run build`
     
 ## jQuery
 - [jQuery 3.x](https://code.jquery.com/)

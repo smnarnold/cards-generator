@@ -7,21 +7,24 @@ class Card {
     this.defaultSettings = {
       placeholder: document.body,
       render: 'export',
+      type: 'modifier'
     };
 
     this.settings = Object.assign(this.defaultSettings, settings);
   }
 
   create() {
+
+    console.log(this.settings);
     let card = document.createElement('div');
-    card.className = 'card';
+    card.className = `card card--${this.settings.type}`;
     card.id = `card-${this.card.index}`;
 
-    let cell1 = this.getScore(this.card.hole1);
-    let cell2 = this.getScore(this.card.hole2);
-    let cell3 = this.getScore(this.card.hole3);
-    let cell4 = this.getScore(this.card.hole4);
-    let description = this.avoidOrphan(this.card.name);
+    let cell1 = this.getScore(this.card.pts1);
+    let cell2 = this.getScore(this.card.pts2);
+    let cell3 = this.getScore(this.card.pts3);
+    let cell4 = this.getScore(this.card.pts4);
+    let description = this.formatStr(this.card.name);
     let action = this.getAction(this.card);
 
     card.innerHTML = `
@@ -30,10 +33,9 @@ class Card {
             <div class="scoreboard__cell">${cell1}</div>
             <div class="scoreboard__cell">${cell2}</div>
             <div class="scoreboard__cell">${cell3}</div>
-            <div class="scoreboard__cell">${cell4}</div>
           </div>
         </section>
-        <section class="section name">${description}</section>
+        <section class="section description">${description}</section>
         ${action}
     `;
 
@@ -77,8 +79,8 @@ class Card {
 
   getAction(card) {
     let html = '';
-    let title = typeof card.actionTitle === 'undefined' ? '' : `<strong>${this.avoidOrphan(card.actionTitle)}</strong>`;
-    let description = typeof card.actionDesc === 'undefined' ? '' : `<p>${this.avoidOrphan(card.actionDesc)}</p>`;
+    let title = typeof card.actionTitle === 'undefined' ? '' : `<strong>${this.formatStr(card.actionTitle)}</strong>`;
+    let description = typeof card.actionDesc === 'undefined' ? '' : `<p>${this.formatStr(card.actionDesc)}</p>`;
     let classname = typeof card.actionType === 'undefined' ? '' : card.actionType;
 
     if (card.actionDesc) {
@@ -88,11 +90,58 @@ class Card {
     return html;
   }
 
+  formatStr(str) {
+    if (typeof str !== 'undefined' && str.length) {
+      str = this.fixExclamationMark(str);
+      str = this.avoidOrphan(str);
+      str = this.replaceQuotationMarks(str);
+    }
+    return str;
+  }
+
+  fixExclamationMark(str) {
+    return this.replaceAll(str, ' !', '&thinsp;!');
+  }
+
   avoidOrphan(str) {
     let n = str.split(' ');
-    let size = n[n.length - 1].length + n[n.length - 2].length;
-    if (size < 16) str = str.replace(/ ([^ ]*)$/, '&nbsp;$1');
+    if (n.length > 2) {
+      let size = this.strLengthWithoutEntities(n[n.length - 1]) + this.strLengthWithoutEntities(n[n.length - 2]);
+      if (size < 16) {
+        // if words combinasion isn't too long
+        str = str.replace(/ ([^ ]*)$/, '&nbsp;$1');
+      }
+    }
+
     return str;
+  }
+
+  replaceQuotationMarks(str) {
+    let n = str.split('"');
+    if (n.length > 1) {
+      for (let x = 1; x < n.length; x++) {
+        if (this.isOdd(x)) {
+          n[x] = `<em>«&nbsp;${n[x]}&nbsp;»</em>`;
+        }
+      }
+      str = n.join('');
+    }
+
+    return str;
+  }
+
+  isOdd(nbr) {
+    return nbr % 2;
+  }
+
+  replaceAll(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+  }
+
+  strLengthWithoutEntities(str) {
+    let el = document.createElement('div');
+    el.innerHTML = str;
+    return el.innerHTML.length;
   }
 
   print(card) {

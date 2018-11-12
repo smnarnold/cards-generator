@@ -1,0 +1,8 @@
+.description {
+  flex: 1;
+  font-size: size($fontBig);
+  padding-top: size($gutter);
+  padding-right: size($border);
+  padding-bottom: size($gutter * 2);
+  padding-left: size($border);
+}

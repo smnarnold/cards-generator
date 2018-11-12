@@ -11,24 +11,39 @@
   <link rel="stylesheet" href="./assets/css/main.css"/>
 </head>
 <body>
-  <form name="settings" style="margin: 1rem;">
+  <form name="settings">
     <header>
       <p>S'assurer que la spreadsheet soit publier <em>(Fichier > Publier sur le web)</em></p>
-      <label>
-        <input type="radio" name="cards" value="all"> Toutes
-      </label>
-      <label>
-        <input type="radio" name="cards" value="specific" checked> Spécifique
-      </label>
-      <input type="text" name="selection" value="1-2"><br>
-      <label>
-        <input type="radio" name="render" value="export"> Exporter
-      </label>
-      <label>
-        <input type="radio" name="render" value="preview" checked> Aperçu
-      </label><br>
-
-      <button name="submit">Soumettre</button>
+      <fieldset name="basic">
+        <p>
+          <label>
+            Type de cartes:
+            <select name="type">
+              <option value="1rymt3BUY_pyWMEZQvfReuVyccQUmL50cNIbtNl5Rhu8" selected>Modificateurs</option>
+              <option value="1LMgenqTcsw_MNoRzTSplJSzp6W0qOehe9dKU6VASA6c">Événements</option>
+              <option value="1GEyHCMe75zuAnShntW0SpToj2_yIJczPPY1CeAw3zRo">Pêtage de coches</option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="radio" name="cards" value="all"> Toutes
+          </label>
+          <label>
+            <input type="radio" name="cards" value="specific" checked> Spécifique
+          </label>
+          <input type="text" name="selection" value="1-2">
+        </p>
+        <p>
+          <label>
+            <input type="radio" name="render" value="export"> Exporter
+          </label>
+          <label>
+            <input type="radio" name="render" value="preview" checked> Aperçu
+          </label>
+        </p>
+        <button name="submit">Soumettre</button>
+      </fieldset>
     </header>
   </form>
 

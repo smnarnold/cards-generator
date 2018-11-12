@@ -2,10 +2,6 @@ import Card from './card';
 
 class CardsGen {
   constructor() {
-    this.spreadsheetKey = '1ETXmSmOb3yecP_CQVU5eaAfoAbGGjWUMkMOcU5A9NuI'; // Between 'https://docs.google.com/spreadsheets/d/' and '/edit'
-    this.jsonUrl = `https://spreadsheets.google.com/feeds/cells/${
-      this.spreadsheetKey
-    }/1/public/values?alt=json-in-script&callback=?`; //Make sure the spreadsheet is public File > Publish on web
     this.cols = 0;
     this.cards = [];
     this.placeholder = document.querySelector('#placeholder');
@@ -16,21 +12,26 @@ class CardsGen {
     this.bindEvents();
   }
 
-  getData() {
-    $.getJSON(this.jsonUrl, {}, (data) => {
-      this.json = data.feed;
-      console.log(data.feed);
-      this.cols = parseInt(this.json.gs$colCount.$t);
-      this.rows = parseInt(this.json.gs$rowCount.$t);
-      this.formatData(this.json.entry);
-    });
-  }
-
   bindEvents() {
+    document.forms.settings.type.addEventListener('change', () => this.getData());
     document.forms.settings.submit.addEventListener('click', (e) => this.generate(e));
     Array.prototype.forEach.call(document.forms.settings.render, (radio) =>
       radio.addEventListener('change', (e) => (this.placeholder.className = document.forms.settings.render.value))
     );
+  }
+
+  getData() {
+    document.forms.settings.basic.disabled = true;
+    this.cards = [];
+    let url = `https://spreadsheets.google.com/feeds/cells/${document.forms.settings.type.value}/1/public/values?alt=json-in-script&callback=?`;
+
+    $.getJSON(url, {}, (data) => {
+      this.json = data.feed;
+      this.type = this.json.title.$t;
+      this.cols = parseInt(this.json.gs$colCount.$t);
+      this.rows = parseInt(this.json.gs$rowCount.$t);
+      this.formatData(this.json.entry);
+    });
   }
 
   generate(e) {
@@ -44,6 +45,7 @@ class CardsGen {
       let card = new Card(cardsArrToCreate[x], {
         placeholder: this.placeholder,
         render: document.forms.settings.render.value,
+        type: this.type
       });
 
       card.create();
@@ -86,6 +88,7 @@ class CardsGen {
     }
 
     if (!this.isObjEmpty(card)) this.cards.push(card);
+    document.forms.settings.basic.disabled = false;
   }
 
   isObjEmpty(obj) {

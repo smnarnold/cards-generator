@@ -1,15 +1,18 @@
 .scoreboard {
-  font-size: $fontHeading;
-  height: size(154px) + size($safezone) + size($margin);
-  padding-top: size($safezone + $margin);
-  padding-right: size($safezone);
-  padding-bottom: size($margin * 2);
-  padding-left: size($safezone);
+  font-size: size($fontScore);
+  font-weight: bold;
+  line-height: 0.8;
+  height: size(154px) + size($safezone) + size($gutter);
+  padding-top: size($safezone + $gutter);
+  padding-right: size($border);
+  padding-bottom: size($gutter);
+  padding-left: size($border);
   position: relative;
   width: 100%;
 
   &__wrapper {
     align-items: center;
+    justify-content: space-between;
     display: flex;
     height: size(154px);
     position: relative;
@@ -26,17 +29,13 @@
 
   &__point {
     $dimension: 151px;
-
     align-items: center;
     border-radius: 50%;
     background: palette(yellow);
     color: #000;
     display: flex;
-    font-size: size(62.5px);
-    font-weight: bold;
     height: size($dimension);
     justify-content: center;
-    line-height: 0.8;
     text-align: center;
     width: size($dimension);
 
@@ -51,16 +50,22 @@
     }
 
     &.neutral {
-      background: #fff;
-      color: #000;
+      background: transparent;
+      color: transparent;
     }
 
     &.hole {
       $dimension: 141px;
 
-      background: rgba(255,255,255,0.5);
+      background: #fff;
       width: size($dimension);
       height: size($dimension);
+      opacity: 0.25;
+
+      .card--events &,
+      .card--ends & {
+        background: #000;
+      }
     }
   }
 }

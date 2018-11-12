@@ -1,13 +1,13 @@
-$margin: 35px;
-$safezone: 70px;
-
 .action {
+  color: #000;
   background: palette(blue);
-  padding: size($margin * 2) size($safezone) size($safezone + $margin) size($safezone) ;
+  padding-top: size($gutter * 2);
+  padding-right: size($border);
+  padding-bottom: size($safezone + $gutter);
+  padding-left: size($border);
 
   strong {
     display: block;
-
     margin-bottom: 0.5em;
 
     &:empty {
@@ -24,6 +24,7 @@ $safezone: 70px;
   }
 
   &.permanent {
+    color: #000;
     background: palette(yellow);
   }
 }

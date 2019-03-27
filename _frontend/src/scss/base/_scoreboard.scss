@@ -1,7 +1,7 @@
 .scoreboard {
+  font-family: font(bambino);
   font-size: size($fontScore);
-  font-weight: bold;
-  line-height: 0.8;
+  font-weight: 700;
   height: size(154px) + size($safezone) + size($gutter);
   padding-top: size($safezone + $gutter);
   padding-right: size($border);
@@ -9,6 +9,7 @@
   padding-left: size($border);
   position: relative;
   width: 100%;
+  z-index: 1;
 
   &__wrapper {
     align-items: center;
@@ -32,7 +33,7 @@
     align-items: center;
     border-radius: 50%;
     background: palette(yellow);
-    color: #000;
+    color: palette(black);
     display: flex;
     height: size($dimension);
     justify-content: center;
@@ -41,12 +42,12 @@
 
     &.positive {
       background: palette(green);
-      color: #fff;
+      color: palette(white);
     }
 
     &.negative {
       background: palette(red);
-      color: #fff;
+      color: palette(white);
     }
 
     &.neutral {
@@ -62,8 +63,7 @@
       height: size($dimension);
       opacity: 0.25;
 
-      .card--events &,
-      .card--ends & {
+      .card--events & {
         background: #000;
       }
     }

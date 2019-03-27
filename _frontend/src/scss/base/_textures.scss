@@ -1,0 +1,41 @@
+.card {
+  &:nth-child(4n+1) {
+    .card__top {
+      &::before {
+        background-image: url('./../img/texture-1.png');
+        background-size: 100% auto;
+        background-position: 0 100%;
+      }
+    }
+  }
+
+  &:nth-child(4n+2) {
+    .card__top {
+      &::before {
+        background-image: url('./../img/texture-2.png');
+        background-size: 100% auto;
+        background-position: 50% 0;
+      }
+    }
+  }
+
+  &:nth-child(4n+3) {
+    .card__top {
+      &::before {
+        background-image: url('./../img/texture-3.png');
+        background-size: 100% auto;
+        background-position: 0 100%;
+      }
+    }
+  }
+
+  &:nth-child(4n+4) {
+    .card__top {
+      &::before {
+        background-image: url('./../img/texture-4.png');
+        background-size: 100% auto;
+        background-position: 100% 0;
+      }
+    }
+  }
+}

@@ -10,26 +10,42 @@ $fontBig: 54px;
 $fontScore: 63px;
 
 $palettes: (
+  black: (
+    base: #181e1c
+  ),
+  white: (
+    base: #fdffef
+  ),
   grey: (
     light: #bfbfbf,
     base: #7f7f7f,
     dark: #404040,
   ),
   green: (
-    base: #64b891
+    base: #99ddc8
   ),
   red: (
-    base: #f15f74
+    base: #e57772
   ),
   yellow: (
-    base: #e5e05b
+    base: #fffcce
   ),
   blue: (
-    base: #52b0c6
+    base: #92afbf
+  ),
+  purple: (
+    base: #aba9bf
   )
 );
 
 $fonts: (
-  sans-serif: #{ helvetica, arial, sans-serif },
-  serif: #{ Georgia, Times, serif }
+  americusSans: #{ 'Americus Sans', Georgia, Times, serif },
+  americusScript: #{ 'Americus Script', Georgia, Times, serif },
+  apercu: #{ 'Apercu', Georgia, Times, serif },
+  bambino: #{ 'Bambino', helvetica, arial, sans-serif },
+  bourbon: #{ 'Bourbon', Georgia, Times, serif },
+  lovato: #{ 'Lovato', helvetica, arial, sans-serif },
+  lumier: #{ 'Lumier', helvetica, arial, sans-serif },
+  newcastle: #{ 'Newcastle', helvetica, arial, sans-serif },
+  trueNorth: #{ 'True North', helvetica, arial, sans-serif },
 );

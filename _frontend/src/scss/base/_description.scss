@@ -5,4 +5,26 @@
   padding-right: size($border);
   padding-bottom: size($gutter * 2);
   padding-left: size($border);
+  z-index: 1;
+
+  .card--events &,
+  .card--ends & {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.2;
+    transform: skew(0, -6deg);
+  }
+
+  .card--ends & {
+    font-size: size(88px);
+    font-family: font(americusSans);
+    text-shadow: 0.035em 0.035em palette(red);
+  }
+
+  .card--events & {
+    font-size: size(95px);
+    font-family: font(americusScript);
+  }
 }

@@ -23,7 +23,9 @@ class CardsGen {
   getData() {
     document.forms.settings.basic.disabled = true;
     this.cards = [];
-    let url = `https://spreadsheets.google.com/feeds/cells/${document.forms.settings.type.value}/1/public/values?alt=json-in-script&callback=?`;
+    let url = `https://spreadsheets.google.com/feeds/cells/${
+      document.forms.settings.type.value
+    }/1/public/values?alt=json-in-script&callback=?`;
 
     $.getJSON(url, {}, (data) => {
       this.json = data.feed;
@@ -45,7 +47,7 @@ class CardsGen {
       let card = new Card(cardsArrToCreate[x], {
         placeholder: this.placeholder,
         render: document.forms.settings.render.value,
-        type: this.type
+        type: this.type,
       });
 
       card.create();

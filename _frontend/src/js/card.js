@@ -14,26 +14,28 @@ class Card {
   }
 
   create() {
-    console.log(this.settings);
     let card = document.createElement('div');
     card.className = `card card--${this.settings.type}`;
     card.id = `card-${this.card.index}`;
 
-    let cell1 = this.getScore(this.card.pts1);
-    let cell2 = this.getScore(this.card.pts2);
-    let cell3 = this.getScore(this.card.pts3);
-    let description = this.formatStr(this.card.name);
-    let action = this.getAction(this.card);
+    const cell1 = this.getScore(this.card.pts1);
+    const cell2 = this.getScore(this.card.pts2);
+    const cell3 = this.getScore(this.card.pts3);
+    const description = this.formatStr(this.card.name);
+    const action = this.getAction(this.card);
+    let wrapper = '';
+
+    if(cell1.classname !== 'neutral' || cell2.classname !== 'neutral' || cell3.classname !== 'neutral') {
+      wrapper = `<div class="scoreboard__wrapper">
+        <div class="scoreboard__cell">${cell1.html}</div>
+        <div class="scoreboard__cell">${cell2.html}</div>
+        <div class="scoreboard__cell">${cell3.html}</div>
+      </div>`;
+    }
 
     card.innerHTML = `
         <div class="card__top">
-          <section class="section scoreboard">
-            <div class="scoreboard__wrapper">
-              <div class="scoreboard__cell">${cell1}</div>
-              <div class="scoreboard__cell">${cell2}</div>
-              <div class="scoreboard__cell">${cell3}</div>
-            </div>
-          </section>
+          <section class="section scoreboard">${wrapper}</section>
           <section class="section description">${description}</section>
         </div>
         ${action}
@@ -43,38 +45,28 @@ class Card {
   }
 
   getScore(value) {
-    let html = '';
-    let classname = 'hole';
-    let type = !isNaN(value) ? 'number' : 'string';
-    if (type === 'string' && typeof value === 'undefined') type = 'default';
+    let obj = {
+      classname: 'hole',
+      type: isNaN(value) ? 'string' : 'number',
+      value: typeof value === 'undefined' ? '' : value
+    };
 
-    switch (type) {
-      case 'number': // is a numeric value
-        value = parseInt(value);
-        switch (Math.sign(value)) {
-          case -1:
-            value = Math.abs(value); // Remove the '-' score will bve red instead
-            classname = 'negative';
-            break;
-          case 1:
-            classname = 'positive';
-            break;
-          default:
-            classname = 'neutral';
-        }
-        break;
-      case 'string': // Display icone instead of a value
-        classname = value;
-        value = '';
-        break;
-      default:
-        // empty display a hole
-        value = '';
+    if (obj.type === 'number') {
+      switch (Math.sign(obj.value)) {
+        case -1:
+          obj.value = Math.abs(obj.value); // Remove the '-' score will be red instead
+          obj.classname = 'negative';
+          break;
+        case 1:
+          obj.classname = 'positive';
+          break;
+        default:
+          obj.classname = 'neutral';
+      }
     }
 
-    html = `<div class="scoreboard__point ${classname}">${value}</div>`;
-
-    return html;
+    obj.html = `<div class="scoreboard__point ${obj.classname}">${obj.value}</div>`;
+    return obj;
   }
 
   getAction(card) {

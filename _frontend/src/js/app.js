@@ -17,9 +17,9 @@ class CardsGen {
     document.forms.settings.type.addEventListener('change', () => this.getData());
 
     Array.prototype.forEach.call(document.forms.settings.cards, (radio) =>
-      radio.addEventListener('change', e => localStorage.setItem('cards', e.target.value))
+      radio.addEventListener('change', (e) => localStorage.setItem('cards', e.target.value))
     );
-    
+
     Array.prototype.forEach.call(document.forms.settings.render, (radio) =>
       radio.addEventListener('change', () => {
         this.placeholder.className = document.forms.settings.render.value;
@@ -27,9 +27,11 @@ class CardsGen {
       })
     );
 
-    document.forms.settings.selection.addEventListener('change', e => localStorage.setItem('selection', e.target.value));
+    document.forms.settings.selection.addEventListener('change', (e) =>
+      localStorage.setItem('selection', e.target.value)
+    );
 
-    document.forms.settings.submit.addEventListener('click', e => this.generate(e));
+    document.forms.settings.submit.addEventListener('click', (e) => this.generate(e));
   }
 
   setForm() {
@@ -37,16 +39,22 @@ class CardsGen {
     const cards = localStorage.getItem('cards');
     const render = localStorage.getItem('render');
 
-    if(type) { document.forms.settings.type.value = type; }
-    if(cards) { 
-      document.forms.settings.cards.value = cards; 
+    if (type) {
+      document.forms.settings.type.value = type;
+    }
+    if (cards) {
+      document.forms.settings.cards.value = cards;
 
-      if(cards === 'specific') { 
+      if (cards === 'specific') {
         const selection = localStorage.getItem('selection');
-        if(selection) { document.forms.settings.selection.value = selection; }
+        if (selection) {
+          document.forms.settings.selection.value = selection;
+        }
       }
     }
-    if(render) { document.forms.settings.render.value = render; }
+    if (render) {
+      document.forms.settings.render.value = render;
+    }
   }
 
   getData() {

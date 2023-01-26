@@ -43,7 +43,7 @@
     "run-sequence": "^2.2.1",
     "stylelint": "^9.6.0",
     "throttle-debounce": "^2.0.1",
-    "ua-parser-js": "^0.7.18",
+    "ua-parser-js": "^0.7.33",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.22.0",
     "webpack-stream": "^5.1.1"
